@@ -1,0 +1,211 @@
+=== Stage 9 - Static Verification (Part 4.5 + 4.6 + Law 0.3 + Law 0.2) ===
+
+[PASS] Bedroom1_BedKing_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_BedKing_01.prefab
+[PASS] Bedroom1_BedKing_01: corrected size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bedroom1_BedKing_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom1_Wardrobe_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Wardrobe_01.prefab
+[PASS] Bedroom1_Wardrobe_01: corrected size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bedroom1_Wardrobe_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom1_Pillow_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Pillow_01.prefab
+[PASS] Bedroom1_Pillow_01: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Bedroom1_Pillow_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom1_Pillow_02: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Pillow_02.prefab
+[PASS] Bedroom1_Pillow_02: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Bedroom1_Pillow_02: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom1_Blanket_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Blanket_01.prefab
+[PASS] Bedroom1_Blanket_01: corrected size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bedroom1_Blanket_01: correct Part 4.1 classification component(s) -> class=GrabbableDrag pourable=False
+[PASS] Bedroom1_BedsideTable_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_BedsideTable_01.prefab
+[PASS] Bedroom1_BedsideTable_01: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Bedroom1_BedsideTable_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom1_LampSide_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_LampSide_01.prefab
+[PASS] Bedroom1_LampSide_01: corrected size matches Part 4 (0.35m within 10 %) -> measured=0.350m expected=0.35m
+[PASS] Bedroom1_LampSide_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom1_Dresser_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Dresser_01.prefab
+[PASS] Bedroom1_Dresser_01: corrected size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Bedroom1_Dresser_01: correct Part 4.1 classification component(s) -> class=InteractiveContainer pourable=False
+[PASS] Bedroom1_MirrorDresser_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_MirrorDresser_01.prefab
+[PASS] Bedroom1_MirrorDresser_01: corrected size matches Part 4 (0.7m within 10 %) -> measured=0.700m expected=0.7m
+[PASS] Bedroom1_MirrorDresser_01: correct Part 4.1 classification component(s) -> class=Fallable pourable=False
+[PASS] Bedroom1_Perfume_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Perfume_01.prefab
+[PASS] Bedroom1_Perfume_01: corrected size matches Part 4 (0.12m within 10 %) -> measured=0.120m expected=0.12m
+[PASS] Bedroom1_Perfume_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom1_Perfume_02: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Perfume_02.prefab
+[PASS] Bedroom1_Perfume_02: corrected size matches Part 4 (0.12m within 10 %) -> measured=0.120m expected=0.12m
+[PASS] Bedroom1_Perfume_02: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom1_JewelryBox_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_JewelryBox_01.prefab
+[PASS] Bedroom1_JewelryBox_01: corrected size matches Part 4 (0.2m within 10 %) -> measured=0.200m expected=0.2m
+[PASS] Bedroom1_JewelryBox_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom1_ReadingChair_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_ReadingChair_01.prefab
+[PASS] Bedroom1_ReadingChair_01: corrected size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Bedroom1_ReadingChair_01: correct Part 4.1 classification component(s) -> class=Pushable pourable=False
+[PASS] Bedroom1_Rug_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Rug_01.prefab
+[PASS] Bedroom1_Rug_01: corrected size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bedroom1_Rug_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom1_Curtains_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bedroom1_Curtains_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Curtains_01.prefab
+[PASS] Bedroom1_Curtains_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bedroom1_Curtains_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bedroom1_Curtains_01: placeholder size matches Part 4 (2.2m within 10 %) -> measured=2.200m expected=2.2m
+[PASS] Bedroom1_Curtains_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom1_Window_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bedroom1_Window_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Window_01.prefab
+[PASS] Bedroom1_Window_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bedroom1_Window_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bedroom1_Window_01: placeholder size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Bedroom1_Window_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom1_Door_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Door_01.prefab
+[PASS] Bedroom1_Door_01: corrected size matches Part 4 (2.1m within 10 %) -> measured=2.100m expected=2.1m
+[PASS] Bedroom1_Door_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom1_Painting_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_Painting_01.prefab
+[PASS] Bedroom1_Painting_01: corrected size matches Part 4 (0.8m within 10 %) -> measured=0.800m expected=0.8m
+[PASS] Bedroom1_Painting_01: correct Part 4.1 classification component(s) -> class=Fallable pourable=False
+[PASS] Bedroom1_ShoeRack_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_ShoeRack_01.prefab
+[PASS] Bedroom1_ShoeRack_01: corrected size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Bedroom1_ShoeRack_01: correct Part 4.1 classification component(s) -> class=Pushable pourable=False
+[PASS] Bedroom1_LaundryBasket_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom1_LaundryBasket_01.prefab
+[PASS] Bedroom1_LaundryBasket_01: corrected size matches Part 4 (0.4m within 10 %) -> measured=0.400m expected=0.4m
+[PASS] Bedroom1_LaundryBasket_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bathroom1_Bathtub_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_Bathtub_01.prefab
+[PASS] Bathroom1_Bathtub_01: corrected size matches Part 4 (1.7m within 10 %) -> measured=1.700m expected=1.7m
+[PASS] Bathroom1_Bathtub_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom1_Toilet_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_Toilet_01.prefab
+[PASS] Bathroom1_Toilet_01: corrected size matches Part 4 (0.75m within 10 %) -> measured=0.750m expected=0.75m
+[PASS] Bathroom1_Toilet_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom1_Sink_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_Sink_01.prefab
+[PASS] Bathroom1_Sink_01: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Bathroom1_Sink_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom1_SoapBottle_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_SoapBottle_01.prefab
+[PASS] Bathroom1_SoapBottle_01: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Bathroom1_SoapBottle_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=True
+[PASS] Bathroom1_Shampoo_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_Shampoo_01.prefab
+[PASS] Bathroom1_Shampoo_01: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Bathroom1_Shampoo_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bathroom1_BathMat_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_BathMat_01.prefab
+[PASS] Bathroom1_BathMat_01: corrected size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Bathroom1_BathMat_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bathroom1_Plunger_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_Plunger_01.prefab
+[PASS] Bathroom1_Plunger_01: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Bathroom1_Plunger_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bathroom1_ToothbrushCup_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_ToothbrushCup_01.prefab
+[PASS] Bathroom1_ToothbrushCup_01: corrected size matches Part 4 (0.1m within 10 %) -> measured=0.100m expected=0.1m
+[PASS] Bathroom1_ToothbrushCup_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bathroom1_Mirror_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_Mirror_01.prefab
+[PASS] Bathroom1_Mirror_01: corrected size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Bathroom1_Mirror_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom1_ShowerCurtain_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_ShowerCurtain_01.prefab
+[PASS] Bathroom1_ShowerCurtain_01: corrected size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bathroom1_ShowerCurtain_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom1_Door_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_Door_01.prefab
+[PASS] Bathroom1_Door_01: corrected size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bathroom1_Door_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom1_Window_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bathroom1_Window_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom1_Window_01.prefab
+[PASS] Bathroom1_Window_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bathroom1_Window_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bathroom1_Window_01: placeholder size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Bathroom1_Window_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_BedQueen_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_BedQueen_01.prefab
+[PASS] Bedroom2_BedQueen_01: corrected size matches Part 4 (1.8m within 10 %) -> measured=1.800m expected=1.8m
+[PASS] Bedroom2_BedQueen_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_Wardrobe_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Wardrobe_01.prefab
+[PASS] Bedroom2_Wardrobe_01: corrected size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bedroom2_Wardrobe_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_Pillow_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Pillow_01.prefab
+[PASS] Bedroom2_Pillow_01: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Bedroom2_Pillow_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom2_CeilingFan_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_CeilingFan_01.prefab
+[PASS] Bedroom2_CeilingFan_01: corrected size matches Part 4 (1.2m within 10 %) -> measured=1.200m expected=1.2m
+[PASS] Bedroom2_CeilingFan_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_CeilingFan_01: has the real CeilingFan component (Part 2.2/7.5) -> found=True
+[PASS] Bedroom2_Clock_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Clock_01.prefab
+[PASS] Bedroom2_Clock_01: corrected size matches Part 4 (0.15m within 10 %) -> measured=0.150m expected=0.15m
+[PASS] Bedroom2_Clock_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom2_Desk_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Desk_01.prefab
+[PASS] Bedroom2_Desk_01: corrected size matches Part 4 (0.75m within 10 %) -> measured=0.750m expected=0.75m
+[PASS] Bedroom2_Desk_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_Chair_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Chair_01.prefab
+[PASS] Bedroom2_Chair_01: corrected size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Bedroom2_Chair_01: correct Part 4.1 classification component(s) -> class=Pushable pourable=False
+[PASS] Bedroom2_Bookshelf_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Bookshelf_01.prefab
+[PASS] Bedroom2_Bookshelf_01: corrected size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Bedroom2_Bookshelf_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_Poster_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bedroom2_Poster_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Poster_01.prefab
+[PASS] Bedroom2_Poster_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bedroom2_Poster_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bedroom2_Poster_01: placeholder size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Bedroom2_Poster_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_Beanbag_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Beanbag_01.prefab
+[PASS] Bedroom2_Beanbag_01: corrected size matches Part 4 (0.7m within 10 %) -> measured=0.700m expected=0.7m
+[PASS] Bedroom2_Beanbag_01: correct Part 4.1 classification component(s) -> class=Pushable pourable=False
+[PASS] Bedroom2_Guitar_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Guitar_01.prefab
+[PASS] Bedroom2_Guitar_01: corrected size matches Part 4 (1m within 10 %) -> measured=1.000m expected=1m
+[PASS] Bedroom2_Guitar_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bedroom2_Rug_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Rug_01.prefab
+[PASS] Bedroom2_Rug_01: corrected size matches Part 4 (1.8m within 10 %) -> measured=1.800m expected=1.8m
+[PASS] Bedroom2_Rug_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_Curtains_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bedroom2_Curtains_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Curtains_01.prefab
+[PASS] Bedroom2_Curtains_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bedroom2_Curtains_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bedroom2_Curtains_01: placeholder size matches Part 4 (2.2m within 10 %) -> measured=2.200m expected=2.2m
+[PASS] Bedroom2_Curtains_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_Window_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bedroom2_Window_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Window_01.prefab
+[PASS] Bedroom2_Window_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bedroom2_Window_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bedroom2_Window_01: placeholder size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Bedroom2_Window_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom2_Door_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bedroom2_Door_01.prefab
+[PASS] Bedroom2_Door_01: corrected size matches Part 4 (2.1m within 10 %) -> measured=2.100m expected=2.1m
+[PASS] Bedroom2_Door_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom2_ShowerDoor_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bathroom2_ShowerDoor_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_ShowerDoor_01.prefab
+[PASS] Bathroom2_ShowerDoor_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bathroom2_ShowerDoor_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bathroom2_ShowerDoor_01: placeholder size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bathroom2_ShowerDoor_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom2_Toilet_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_Toilet_01.prefab
+[PASS] Bathroom2_Toilet_01: corrected size matches Part 4 (0.75m within 10 %) -> measured=0.750m expected=0.75m
+[PASS] Bathroom2_Toilet_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom2_Sink_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_Sink_01.prefab
+[PASS] Bathroom2_Sink_01: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Bathroom2_Sink_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom2_TowelRack_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_TowelRack_01.prefab
+[PASS] Bathroom2_TowelRack_01: corrected size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Bathroom2_TowelRack_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom2_Towel_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bathroom2_Towel_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_Towel_01.prefab
+[PASS] Bathroom2_Towel_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bathroom2_Towel_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bathroom2_Towel_01: placeholder size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Bathroom2_Towel_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bathroom2_SoapDispenser_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_SoapDispenser_01.prefab
+[PASS] Bathroom2_SoapDispenser_01: corrected size matches Part 4 (0.15m within 10 %) -> measured=0.150m expected=0.15m
+[PASS] Bathroom2_SoapDispenser_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bathroom2_Door_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bathroom2_Door_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_Door_01.prefab
+[PASS] Bathroom2_Door_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bathroom2_Door_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bathroom2_Door_01: placeholder size matches Part 4 (2m within 10 %) -> measured=2.000m expected=2m
+[PASS] Bathroom2_Door_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom2_BathMat_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_BathMat_01.prefab
+[PASS] Bathroom2_BathMat_01: corrected size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Bathroom2_BathMat_01: correct Part 4.1 classification component(s) -> class=CarryLight pourable=False
+[PASS] Bathroom2_TrashBin_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Bathroom2_TrashBin_01: placeholder prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_TrashBin_01.prefab
+[PASS] Bathroom2_TrashBin_01: placeholder uses the unified PLACEHOLDER_Magenta material (Part 4 fix-up) -> material=PLACEHOLDER_Magenta
+[PASS] Bathroom2_TrashBin_01: placeholder tagged "Placeholder" (Part 4 fix-up) -> tag=Placeholder
+[PASS] Bathroom2_TrashBin_01: placeholder size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Bathroom2_TrashBin_01: correct Part 4.1 classification component(s) -> class=Pushable pourable=False
+[PASS] Bathroom2_ShowerHead_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_ShowerHead_01.prefab
+[PASS] Bathroom2_ShowerHead_01: corrected size matches Part 4 (0.15m within 10 %) -> measured=0.150m expected=0.15m
+[PASS] Bathroom2_ShowerHead_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bathroom2_Mirror_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Bathroom2_Mirror_01.prefab
+[PASS] Bathroom2_Mirror_01: corrected size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Bathroom2_Mirror_01: correct Part 4.1 classification component(s) -> class=PureStatic pourable=False
+[PASS] Bedroom props are placed in the actual mansion scene -> childCount=58 expected=58
+
+TOTAL: 206/206 passed
+RESULT: PASS

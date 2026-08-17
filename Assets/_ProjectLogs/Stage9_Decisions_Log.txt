@@ -1,0 +1,174 @@
+=== Stage 9 - Bedroom Prop Import - Logged Technical Decisions (Law 21.2) ===
+
+1. Bathroom1_SoapBottle_01 now uses its REAL model (bedroom1_soapbottle_01.glb),
+   tagged CarryableObject.isPourable=true - this is the actual Part 7.4 pour
+   mechanic's prop; Stage 4 used a simple colored-cube placeholder for its
+   own self-contained test, which still stands (unaffected), but the real
+   asset is now available for the actual gameplay scene.
+
+2. Bedroom2_CeilingFan_01 now uses its REAL model (bedroom2_ceilingfan_01.glb)
+   with the exact CeilingFan.cs component built in Stage 5 attached directly
+   - same slow-ambient (Law 2.2) / fast-comedic-on-mount (Part 7.5) spin
+   behavior, no new code needed, just the real mesh replacing Stage 5's
+   placeholder blade box.
+
+3. DOCUMENT GAP, originally flagged not implemented: Bedroom1_Blanket_01's row says
+   "خاص: قابل للسحب" (special: pullable) with zero further detail anywhere
+   in the document - no cited part, no mechanic description, no numbers at
+   all (unlike Stage 8's chair note, this one doesn't even reference a part
+   number). Originally imported as a plain Light-carryable only. RESOLVED
+   in the owner-requested fix-up - see point 8 below.
+
+4. DOCUMENT GAP, originally flagged not implemented: Bedroom1_Dresser_01's "أدراج
+   تُفتح" (drawers open) note has the same treatment as Stage 8's
+   FilingCabinet - no numeric spec anywhere for a drawer-opening
+   interaction. Originally imported as PureStatic only. RESOLVED in the
+   owner-requested fix-up - see point 9 below.
+
+5. Bathroom1_Door_01 was matched to Bedroom1_Bathroom1/Static/wooden_door.glb,
+   an unlabeled bonus file with no room prefix - used since it's the only
+   spare door-shaped asset in that folder and Bathroom1_Door_01 was
+   otherwise the one remaining unfilled door slot there (Bedroom1_Door_01
+   already has its own clearly-named file). Flagged as a lower-confidence
+   inferred match, same caveat as Stage 8's synonym matches.
+
+6. Placement splits each wing into its Part 3.4 main (70%) / bath (30%) sub-
+   areas (MansionSpec's own BathSplitX constants) by simple name-prefix
+   routing (Bedroom1_/Bathroom1_/Bedroom2_/Bathroom2_), grid-scattered
+   within each sub-area the same way Stages 6-8 scatter within a whole room.
+
+7. BUGFIX (owner-requested fix-up, Part 1): the 24 Scale_Warnings_Log entries
+   below were mis-diagnosed as "just a warning" originally. A temporary per-
+   renderer bounds diagnostic (Stage9_ScaleDiagnostic_Report.txt, deleted after
+   use) proved this is a real source-file bug, not a stray outlier part: every
+   renderer under each flagged model is proportionally oversized/offset
+   TOGETHER, and the pivot is often nowhere near the mesh itself - e.g. both
+   Toilet models' raw pivot sits at the very TOP of the mesh (raw bounds
+   span y:[-60.46,0.24]), so Law 0.3's uniform scale alone would have the
+   corrected toilet render sunk below its floor slot instead of standing on
+   it. CorrectAndSavePrefab now wraps every mesh under a new root recentered
+   to the PRE-scale bounds' X/Z center and Y minimum (its true floor-contact
+   point) before applying the uniform factor, so the object's local origin -
+   the point PlaceIntoBedrooms actually positions - is its own footprint base.
+   Exception: Bedroom2_CeilingFan_01 only gets X/Z recentered; its raw Y bounds
+   were already symmetric about the hub (center.y=0), and it's a Part 7.5
+   rotation pivot, not a floor-resting prop - recentering Y there would drag
+   the spin pivot down to a blade tip instead of the hub.
+   Re-verified after the fix: Stage9_StaticVerification_Report.txt 156/156
+   PASS, Stage9_DynamicPropsTest_Report.txt 14/14 PASS, all 48 props placed.
+   Priority items (raw/pre-fix bounds were nonsensical, not just oversized):
+     - Bedroom1_Pillow_01: pre-fix size=(5673.413,4107.375,1622.673) raw units,
+       center=(3.061,-1.247,586.031) raw, i.e. the pillow's own geometry sat
+       586 raw units away from its declared origin. Post-fix, in-scene:
+       size=(0.500,0.362,0.143)m, center=(0,0.181,0)m - expected max dim 0.5m,
+       X/Z centered, Y sitting exactly on the floor slot (bottom at y=0).
+     - Bedroom1_Dresser_01: pre-fix size=(227.369,59.157,147.855) raw, one of
+       its 5 sub-meshes (the FBX's own "Cube" node) had a literal baked-in
+       localScale=100 from the source DCC file. Post-fix, in-scene:
+       size=(0.900,0.234,0.585)m, center=(0,0.117,0)m - expected max dim 0.9m,
+       X/Z centered, Y sitting exactly on the floor slot.
+   Remaining 22 (name: pre-fix raw size X/Y/Z -> post-fix in-scene size X/Y/Z
+   in meters, expected max dim; decision = same recenter+rescale fix as above):
+     - Bedroom1_LampSide_01: raw(70.030,70.031,124.300) -> (0.197,0.197,0.350)m, exp 0.35m
+     - Bedroom1_MirrorDresser_01: raw(82.884,2.282,178.677) -> (0.325,0.009,0.700)m, exp 0.7m
+     - Bedroom1_Perfume_01: raw(0.387,0.387,0.732) -> (0.064,0.064,0.120)m, exp 0.12m
+     - Bedroom1_Perfume_02: raw(3.636,2.737,7.056) -> (0.062,0.047,0.120)m, exp 0.12m
+     - Bedroom1_JewelryBox_01: raw(192.877,169.712,144.964) -> (0.200,0.176,0.150)m, exp 0.2m
+     - Bedroom1_ReadingChair_01: raw(41.676,37.745,36.916) -> (0.900,0.815,0.797)m, exp 0.9m
+     - Bedroom1_Door_01: raw(8.219,1.655,17.671) -> (0.977,0.197,2.100)m, exp 2.1m
+     - Bedroom1_LaundryBasket_01: raw(24.400,24.400,23.900) -> (0.400,0.400,0.392)m, exp 0.4m
+     - Bathroom1_Toilet_01: raw(47.835,60.696,74.384) -> (0.482,0.612,0.750)m, exp 0.75m
+     - Bathroom1_SoapBottle_01: raw(2.049,1.811,4.641) -> (0.110,0.098,0.250)m, exp 0.25m
+     - Bathroom1_BathMat_01: raw(3.250,3.250,0.017) -> (0.600,0.600,0.003)m, exp 0.6m
+     - Bathroom1_ToothbrushCup_01: raw(539.513,661.225,757.000) -> (0.071,0.087,0.100)m, exp 0.1m
+     - Bathroom1_Mirror_01: raw(82.884,2.282,178.677) -> (0.418,0.012,0.900)m, exp 0.9m
+     - Bathroom1_Door_01: raw(8.219,1.655,17.671) -> (0.930,0.187,2.000)m, exp 2m
+     - Bedroom2_CeilingFan_01: raw(958.350,332.770,958.351) -> (1.200,0.417,1.200)m,
+       exp 1.2m (Y NOT recentered - see exception above; center stays (0,0,0))
+     - Bedroom2_Clock_01: raw(3.310,0.774,1.521) -> (0.150,0.035,0.069)m, exp 0.15m
+     - Bedroom2_Door_01: raw(8.219,1.655,17.671) -> (0.977,0.197,2.100)m, exp 2.1m
+     - Bathroom2_Toilet_01: raw(47.835,60.696,74.384) -> (0.482,0.612,0.750)m, exp 0.75m
+     - Bathroom2_TowelRack_01: raw(219.814,1500.000,1197.040) -> (0.088,0.600,0.479)m, exp 0.6m
+     - Bathroom2_SoapDispenser_01: raw(7.095,8.947,17.330) -> (0.061,0.077,0.150)m, exp 0.15m
+     - Bathroom2_ShowerHead_01: raw(1.558,2.106,2.318) -> (0.101,0.136,0.150)m, exp 0.15m
+     - Bathroom2_Mirror_01: raw(82.884,2.282,178.677) -> (0.418,0.012,0.900)m, exp 0.9m
+   All 24 still legitimately re-trigger the Scale_Warnings_Log factor<0.2/>5.0
+   check on every re-import (Law 0.3 step 8) - that check flags the SOURCE
+   FILE's own unit mismatch, which the pivot fix does not and should not hide;
+   only the resulting mis-placement bug is what got fixed.
+
+8. Bedroom1_Blanket_01 (owner-requested fix-up, Part 2): reclassified from
+   CarryLight to a new GrabbableDrag class (Entities/GrabbableDragProp.cs),
+   resolving DOCUMENT GAP point 3 above with the owner's own numeric spec:
+   Rigidbody mass=1.5/linearDamping=2.0/angularDamping=3.0, 4 corner grab
+   points (0.08m trigger spheres), grab-from-any-corner drag, and a one-shot
+   trigger past 0.4m displacement from its start position that (a) fires the
+   public OnBlanketPulled C# event - no Embarrassment Points system exists
+   yet (that's Part 9/Stage 14), so this is the hook that stage will
+   subscribe to - and (b) releases (isKinematic=false) any other Rigidbody
+   found near the blanket's own start position (DECISION: "objects on the
+   bed" has no formal list anywhere in the document; detected by proximity
+   to the blanket's own resting spot instead of a hard reference to
+   Bedroom1_BedKing_01, since nothing is actually placed on the bed in Part
+   4's tables). BUGFIX during testing: a raw AddForce at the owner-specified
+   "ordinary player force" could not reliably beat the floor collider's
+   default friction on a flat 1.5kg body (measured near-zero displacement
+   over 5 simulated seconds) - the active drag now follows the grabber via
+   Rigidbody.MovePosition at a fixed pace (GrabbableDragProp.DragSpeed,
+   1.5 m/s) instead, while the specified mass/damping values still govern
+   how it settles or tumbles once released or hit by something else.
+   PlayerDragInteraction.cs (Player/) wires the real interact button to
+   this - kept as a brand new, separate component (not a PlayerCarry change)
+   since the task's rules forbid altering any existing class.
+
+9. Bedroom1_Dresser_01 (owner-requested fix-up, Part 3): reclassified from
+   PureStatic to a new InteractiveContainer class (Entities/
+   InteractiveContainerProp.cs + DrawerProp.cs), resolving DOCUMENT GAP
+   point 4 above with the owner's own numeric spec: 3 independent drawer
+   GameObjects, each a ConfigurableJoint (X/Y Locked, Z Limited 0.35m,
+   Spring=0/Damper=5) against the dresser's own Rigidbody, drawer mass=3.0.
+   Past 0.30m open a drawer ejects anything found in its cavity (DECISION:
+   same as point 8 - no prop is ever authored inside a drawer, so this is
+   proximity-detected and independently testable). With 2+ drawers open
+   past 0.25m each, the dresser's centerOfMass shifts forward (DECISION:
+   0.15m per open drawer, no number given in the spec) and it flips from
+   kinematic to a live Rigidbody - same "static until it takes a hit"
+   pattern as FallableProp - so gravity actually topples it forward.
+   BUGFIX during testing: the same raw-AddForce approach produced an
+   unreliable, occasionally limit-violating drawer (observed overshooting
+   the 0.35m joint limit by more than 3x under sustained force) - switched
+   to the same clamped MovePosition-follow as point 8 (DrawerProp.DragSpeed)
+   for deterministic, joint-respecting motion; the ConfigurableJoint itself
+   is still configured with the exact specified values and independently
+   enforces the same bound. SECOND BUGFIX: Editor scripting's AddComponent
+   does not reliably fire Awake() synchronously in headless batch mode, so
+   both new components expose a public EnsureInitialized()/Setup() called
+   explicitly by the importer right after AddComponent (building the grab
+   points/drawers before the prefab is saved), in addition to their own
+   Awake() (idempotent - re-links the already-built children by name
+   instead of duplicating them) for correctness on every later real
+   instantiation (PlaceIntoBedrooms, Play Mode's domain reload).
+
+10. Ten previously-missing props (owner-requested fix-up, Part 4): each now
+    gets a Law 0.2-step-3 placeholder (Editor/Stage9BedroomsImporter.cs's
+    BuildPlaceholderPrefab) instead of being skipped - a primitive (flat
+    panel for curtains/windows/posters/doors/the shower door, a thin
+    rectangle for the towel, a squat cylinder for the trash bin) sized to
+    Part 4's own expectedMaxDim, sharing one PLACEHOLDER_Magenta material
+    (Assets/_Project/Materials/, created once and reused) and a new
+    "Placeholder" tag (registered into ProjectSettings/TagManager.asset if
+    missing), carrying the same Part 4.1 classification components a real
+    import would. DECISION: Law 0.2 step 3's own text only mandates a
+    placeholder when an item is "essential to a whole system" (its own
+    example: no character model at all) - these 10 are ordinary room decor,
+    not blocking any system, so the general law would normally just leave
+    them logged-missing (as Stage 9 originally did). This is an explicit
+    owner override of that threshold for this fix-up, not a re-reading of
+    the law itself. The source files themselves are still genuinely absent,
+    so Missing_Assets_Log.txt is still written for all 10 exactly as before -
+    only ImportAndCorrect's response to that changed. Every one of Stage 9's
+    55 props is now physically present in the mansion scene (58 with the 3
+    extra drawer children).
+
+Missing this stage (10): Bedroom1_Curtains_01, Bedroom1_Window_01, Bathroom1_Window_01, Bedroom2_Poster_01, Bedroom2_Curtains_01, Bedroom2_Window_01, Bathroom2_ShowerDoor_01, Bathroom2_Towel_01, Bathroom2_Door_01, Bathroom2_TrashBin_01
+Scale warnings this stage (24): Bedroom1_Pillow_01: factor=0.000 (expected 0.5m, measured 5673.413m); Bedroom1_LampSide_01: factor=0.003 (expected 0.35m, measured 124.300m); Bedroom1_Dresser_01: factor=0.004 (expected 0.9m, measured 227.369m); Bedroom1_MirrorDresser_01: factor=0.004 (expected 0.7m, measured 178.677m); Bedroom1_Perfume_01: factor=0.164 (expected 0.12m, measured 0.732m); Bedroom1_Perfume_02: factor=0.017 (expected 0.12m, measured 7.056m); Bedroom1_JewelryBox_01: factor=0.001 (expected 0.2m, measured 192.877m); Bedroom1_ReadingChair_01: factor=0.022 (expected 0.9m, measured 41.676m); Bedroom1_Door_01: factor=0.119 (expected 2.1m, measured 17.671m); Bedroom1_LaundryBasket_01: factor=0.016 (expected 0.4m, measured 24.400m); Bathroom1_Toilet_01: factor=0.010 (expected 0.75m, measured 74.384m); Bathroom1_SoapBottle_01: factor=0.054 (expected 0.25m, measured 4.641m); Bathroom1_BathMat_01: factor=0.185 (expected 0.6m, measured 3.250m); Bathroom1_ToothbrushCup_01: factor=0.000 (expected 0.1m, measured 757.000m); Bathroom1_Mirror_01: factor=0.005 (expected 0.9m, measured 178.677m); Bathroom1_Door_01: factor=0.113 (expected 2m, measured 17.671m); Bedroom2_CeilingFan_01: factor=0.001 (expected 1.2m, measured 958.351m); Bedroom2_Clock_01: factor=0.045 (expected 0.15m, measured 3.310m); Bedroom2_Door_01: factor=0.119 (expected 2.1m, measured 17.671m); Bathroom2_Toilet_01: factor=0.010 (expected 0.75m, measured 74.384m); Bathroom2_TowelRack_01: factor=0.000 (expected 0.6m, measured 1500.000m); Bathroom2_SoapDispenser_01: factor=0.009 (expected 0.15m, measured 17.330m); Bathroom2_ShowerHead_01: factor=0.065 (expected 0.15m, measured 2.318m); Bathroom2_Mirror_01: factor=0.005 (expected 0.9m, measured 178.677m)

@@ -1,0 +1,33 @@
+=== Stage 9 - Dynamic Bedroom Props Test (real meshes, Play Mode) ===
+
+[PASS] Setup: Bedrooms props root exists in the scene -> found=True
+[PASS] Setup: Bedroom1_Pillow_01 instance found in scene -> found=True
+[PASS] A real Bedroom prop mesh (Bedroom1_Pillow_01) can be picked up (Part 7.1) -> picked=True
+[PASS] Setup: Bathroom1_SoapBottle_01 instance found in scene -> found=True
+[PASS] Bathroom1_SoapBottle_01 is the real pourable prop (Part 7.4) -> pourable=True
+[PASS] Setup: real soap bottle was picked up -> held=True
+[PASS] Long-pressing with the real soap bottle actually pours a slip zone (Part 7.4) -> pourCount=1 elapsed=0.83s
+[PASS] A real slip zone was spawned by the real soap bottle -> found=True
+[PASS] Setup: Bedroom2_CeilingFan_01 instance found in scene -> found=True
+[PASS] Bedroom2_CeilingFan_01 has the real CeilingFan component (Part 2.2/7.5) -> found=True
+[PASS] The real fan spins ambiently even with nobody mounted (Law 2.2) -> initialYaw=47.36 nowYaw=48.36
+[PASS] Setup: victim restrained for the real-fan mount test -> restrained=True
+[PASS] Setup: victim jointly carried toward the real fan -> isJointCarried=True
+[PASS] Mounting on the REAL Bedroom2 ceiling fan works end to end (Part 7.5) -> mounted=True
+[PASS] Setup: Bedroom1_Blanket_01 instance found in scene -> found=True
+[PASS] Bedroom1_Blanket_01 has the real GrabbableDragProp component (Part 2 fix-up) -> found=True
+[PASS] The real blanket has 4 corner grab points (Part 2 fix-up) -> count=4
+[PASS] The real blanket can be grabbed by a corner (Part 2 fix-up) -> grabbed=True
+[PASS] Dragging the real blanket past 0.4m fires OnBlanketPulled (Part 2 fix-up) -> triggered=True eventFired=True elapsed=0.24s
+[PASS] A dummy body "on the bed" is released (isKinematic=false) once pulled (Part 2 fix-up) -> isKinematic=False
+[PASS] Setup: Bedroom1_Dresser_01 instance found in scene -> found=True
+[PASS] Bedroom1_Dresser_01 has the real InteractiveContainerProp component (Part 3 fix-up) -> found=True
+[PASS] The real dresser has its 3 drawers built (Part 3 fix-up) -> count=3
+[PASS] The real dresser starts kinematic (not tipped yet) (Part 3 fix-up) -> isKinematic=True
+[PASS] The real drawer's handle can be grabbed (Part 3 fix-up) -> grabbed=True
+[PASS] Pulling the real drawer past 0.30m ejects a dummy item inside it (Part 3 fix-up) -> isKinematic=False openDistance=0.301
+[PASS] Setup: a second real drawer can be grabbed too (Part 3 fix-up) -> grabbed=True
+[PASS] Opening 2 real drawers past 0.25m each tips the real dresser over (Part 3 fix-up) -> hasTipped=True isKinematic=False d0=0.301 d1=0.255
+
+TOTAL: 28/28 passed
+RESULT: Stage 9 real-mesh Bedroom props work correctly with the existing physics systems.
