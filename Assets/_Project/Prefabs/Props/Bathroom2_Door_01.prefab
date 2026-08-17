@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2237143899148950886}
   - component: {fileID: 1645588604691265866}
   - component: {fileID: 5022077258663553749}
+  - component: {fileID: 1936505505581801269}
   m_Layer: 0
   m_Name: Bathroom2_Door_01
   m_TagString: Placeholder
@@ -112,3 +113,18 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1936505505581801269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3077484502499314750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb6218e5dd9aab42a76a1c74b8eca64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Entities.DoorProp
+  interactRange: 2
+  openAngleDeg: 90
+  hingeAxis: 0

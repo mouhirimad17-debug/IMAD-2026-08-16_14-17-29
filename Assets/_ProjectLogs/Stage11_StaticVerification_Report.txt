@@ -1,0 +1,22 @@
+=== Stage 11 - Static Verification (Part 8 + Law 0.2) ===
+
+[PASS] Kitchen_Door_01: has a real DoorProp (Part 8.1) -> found=True
+[PASS] Kitchen_Door_01: main-door interact range/angle (Part 8.1) -> range=2 angle=90
+[PASS] Bathroom1_Door_01: has a real DoorProp (Part 8.1) -> found=True
+[PASS] Bathroom1_Door_01: main-door interact range/angle (Part 8.1) -> range=2 angle=90
+[PASS] Bedroom1_Door_01: has a real DoorProp (Part 8.1) -> found=True
+[PASS] Bedroom1_Door_01: main-door interact range/angle (Part 8.1) -> range=2 angle=90
+[PASS] Bedroom2_Door_01: has a real DoorProp (Part 8.1) -> found=True
+[PASS] Bedroom2_Door_01: main-door interact range/angle (Part 8.1) -> range=2 angle=90
+[PASS] Bathroom2_Door_01: has a real DoorProp (Part 8.1) -> found=True
+[PASS] Bathroom2_Door_01: main-door interact range/angle (Part 8.1) -> range=2 angle=90
+[PASS] Bathroom2_ShowerDoor_01: has a real DoorProp (Part 8.1) -> found=True
+[PASS] Bathroom2_ShowerDoor_01: main-door interact range/angle (Part 8.1) -> range=2 angle=90
+[PASS] Kitchen_FullCombo_01's real washer door has a DoorProp (Part 8.2) -> found=True
+[PASS] Office_FilingCabinet_01 placeholder prefab exists (Part 8.3) -> path=Assets/_Project/Prefabs/Props/Office_FilingCabinet_01.prefab
+[PASS] Office_FilingCabinet_01 is Pushable (Part 4.4) -> found=True
+[PASS] Office_FilingCabinet_01 has 3 DrawerSlideProp children (Part 8.3) -> count=3
+[PASS] Placeholder filing cabinet is placed in the actual mansion scene -> found=True
+
+TOTAL: 17/17 passed
+RESULT: PASS

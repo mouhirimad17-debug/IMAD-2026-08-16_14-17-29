@@ -68,6 +68,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: b1c93f6f3623e93449fcf7cbeb1cdfc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2306493248557064954}
     - targetCorrespondingSourceObject: {fileID: -989479390124347880, guid: b1c93f6f3623e93449fcf7cbeb1cdfc7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6048932449773445979}
@@ -114,6 +117,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3014640217045799354, guid: b1c93f6f3623e93449fcf7cbeb1cdfc7, type: 3}
+--- !u!1 &1227864738301761838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6689036041284674117, guid: b1c93f6f3623e93449fcf7cbeb1cdfc7, type: 3}
+  m_PrefabInstance: {fileID: 3612314955908727957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2306493248557064954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227864738301761838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb6218e5dd9aab42a76a1c74b8eca64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Entities.DoorProp
+  interactRange: 2
+  openAngleDeg: 90
+  hingeAxis: 0
 --- !u!1 &2150654010326762259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3456843932280719238, guid: b1c93f6f3623e93449fcf7cbeb1cdfc7, type: 3}

@@ -1,0 +1,18 @@
+=== Stage 11 - Dynamic Door/Drawer System Test (Play Mode) ===
+
+[PASS] Setup: Bathroom1_Door_01 instance found in scene -> found=True
+[PASS] Bathroom1_Door_01 has the real DoorProp component (Part 8.1) -> found=True
+[PASS] The real Bathroom1_Door_01 can be toggled by the interact button (Part 8.1) -> toggled=True
+[PASS] The real Bathroom1_Door_01 finishes opening (Part 8.1: ~0.4s ease-out) -> state=Open elapsed=0.26s
+[PASS] The real Bathroom1_Door_01 closes again on a second press (Part 8.1: toggle) -> state=Closed elapsed=0.72s
+[PASS] Setup: Kitchen_FullCombo_01 instance found in scene -> found=True
+[PASS] The real kitchen washer's door has a DoorProp (Part 8.2) -> found=True
+[PASS] The washer door uses a horizontal hinge axis (Part 8.2's circular-door case) -> axis=Horizontal
+[PASS] The real washer door swings open on a real horizontal hinge (Part 8.2) -> toggled=True state=Open elapsed=0.40s
+[PASS] Setup: Office_FilingCabinet_01 placeholder found in scene -> found=True
+[PASS] The placeholder filing cabinet is Pushable (Part 4.4) -> found=True
+[PASS] The placeholder filing cabinet has a real DrawerSlideProp drawer (Part 8.3) -> found=True
+[PASS] Pressing interact slides the real drawer ~0.40m open (Part 8.3) -> toggled=True state=Open slid=0.400m elapsed=0.42s
+
+TOTAL: 13/13 passed
+RESULT: Stage 11 door/drawer system works correctly on real props.
