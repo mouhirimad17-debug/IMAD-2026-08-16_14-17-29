@@ -1,3 +1,4 @@
+using System;
 using PrankMansion.Entities;
 using UnityEngine;
 
@@ -20,6 +21,10 @@ namespace PrankMansion.Player
         public const float BasePushForce = 5f;
         public float pushForceMultiplier = 1f;
 
+        // Stage 12: lets PlayerAnimatorDriver play Part 5.3's "دفع" (Push) clip on
+        // an actual push, without this component needing to know Animator exists.
+        public event Action OnPushed;
+
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             if (hit.rigidbody == null || hit.rigidbody.isKinematic) return;
@@ -32,6 +37,7 @@ namespace PrankMansion.Player
 
             hit.rigidbody.AddForceAtPosition(pushDir.normalized * (BasePushForce * pushForceMultiplier),
                 hit.point, ForceMode.Impulse);
+            OnPushed?.Invoke();
         }
     }
 }

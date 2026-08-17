@@ -15,6 +15,14 @@ GameObject:
   - component: {fileID: 2022752190778732475}
   - component: {fileID: 6317500589313998848}
   - component: {fileID: 9206066336475812081}
+  - component: {fileID: 5763358911277827005}
+  - component: {fileID: 3868466627354044655}
+  - component: {fileID: 6849968057471059984}
+  - component: {fileID: 2115759172448575445}
+  - component: {fileID: 5832234848283985399}
+  - component: {fileID: 5928309145777964200}
+  - component: {fileID: 7096738196739763407}
+  - component: {fileID: 5623804730280634166}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -105,6 +113,7 @@ MonoBehaviour:
   windStartDelay: 1
   launchHorizontalFraction: 0.2
   launchVerticalFraction: 0.8
+  throwPowerMultiplier: 1
 --- !u!114 &6317500589313998848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,3 +138,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d908a1409a5a44f9ef3c2bfbe739d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.PlayerCapture
+--- !u!114 &5763358911277827005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781107845260956917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6de5097c7c07d440ae8d1e3721f47ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.PlayerPushInteraction
+  pushForceMultiplier: 1
+--- !u!114 &3868466627354044655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781107845260956917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41b80beaea724142bb2543c48cc94ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.PlayerDragInteraction
+--- !u!114 &6849968057471059984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781107845260956917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc29d9b1d360ffc4a97601a96d155afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.PlayerDoorInteraction
+--- !u!114 &2115759172448575445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781107845260956917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472956fc25412c84b9b5bd9510c33840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.FootstepSoundEmitter
+  audibleRange: 8
+--- !u!114 &5832234848283985399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781107845260956917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9a836ff7573814bb5852cb97140b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.SoundDetector
+  hearingRange: 8
+--- !u!114 &5928309145777964200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781107845260956917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f110aaa39d172ac48b90269d7754e446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.FunnyAnimationSwapper
+--- !u!114 &7096738196739763407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781107845260956917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832b87aa2c089ca4fa91776314643b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.PlayerAnimatorDriver
+  animator: {fileID: 0}
+--- !u!114 &5623804730280634166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781107845260956917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6414d6c619eb656408d6651acd5cb7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.CharacterSelector

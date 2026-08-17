@@ -1,4 +1,5 @@
 using System;
+using PrankMansion.Player;
 using PrankMansion.Systems;
 using UnityEngine;
 
@@ -91,6 +92,10 @@ namespace PrankMansion.Entities
 
             motionElapsed = 0f;
             audioSource.PlayOneShot(doorClip);
+
+            // Part 5.2 (Reno): "سماع خطوات وفتح أبواب" - door open/close is a
+            // detectable sound event too, same standard 8m range as footsteps.
+            SoundEvents.Emit(hingeWorldPoint, CharacterProfile.StandardFootstepAudibleRange, gameObject);
             return true;
         }
 

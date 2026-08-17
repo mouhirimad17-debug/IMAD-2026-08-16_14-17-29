@@ -57,3 +57,15 @@
 2026-08-17 | Assets/_Project/Models/Gym/(Static|Throwable)/Gym_MedicineBall_01.* | Part 4.7 Gym prop - source file not found, no numbered variant or clear synonym either
 2026-08-17 | Assets/_Project/Models/Gym/(Static|Throwable)/Gym_Door_01.* | Part 4.7 Gym prop - source file not found, no numbered variant or clear synonym either
 2026-08-17 | Assets/_Project/Models/Gym/(Static|Throwable)/Gym_Window_01.* | Part 4.7 Gym prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Animations/Player_Common/Pour.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/JointCarryEnd.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/RopeTie.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/Idle_silly.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/Pour.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/JointCarryEnd.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/RopeTie.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/Idle_silly.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/Pour.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/JointCarryEnd.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/RopeTie.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Animations/Player_Common/Idle_silly.fbx | Part 5.3 shared animation - source file not found, no numbered variant either

@@ -45,6 +45,13 @@ namespace PrankMansion.Player
         // objects; <1 = heavy-carry speed decay, per-character value from Part 5.2).
         public float SpeedMultiplier { get; set; } = 1f;
 
+        // Part 5.2's permanent per-character base speed trait (Bomba's -15%, everyone
+        // else 1). Separate from SpeedMultiplier above, which is a TEMPORARY state
+        // penalty (heavy carry, joint carry) that resets on its own - this one is set
+        // once at character selection and stays for the whole session. Stacks
+        // multiplicatively with SpeedMultiplier.
+        public float CharacterSpeedMultiplier { get; set; } = 1f;
+
         // Part 7.2: continuous additive push applied on top of normal movement (the
         // wind system's constant forward shove while active). Owned/updated every
         // frame by whichever system needs it (PlayerCarry); this component just adds
@@ -123,7 +130,7 @@ namespace PrankMansion.Player
             Vector3 wishDir = camYawRot * new Vector3(moveInput.x, 0f, moveInput.y);
             if (wishDir.sqrMagnitude > 1f) wishDir.Normalize();
 
-            float targetSpeed = (sprintHeld ? RunSpeed : WalkSpeed) * SpeedMultiplier;
+            float targetSpeed = (sprintHeld ? RunSpeed : WalkSpeed) * SpeedMultiplier * CharacterSpeedMultiplier;
             Vector3 horizontalVelocity = wishDir * targetSpeed + ExternalVelocity;
             CurrentHorizontalSpeed = horizontalVelocity.magnitude;
 

@@ -104,16 +104,51 @@ namespace PrankMansion.Player
             if (Held == null) TryPickUpNearest();
         }
 
-        // Part 7.1/7.2 never specify a throw mechanic numerically (only a per-character
-        // throw-power bonus in 5.2, with no base value) - out of this stage's scope.
-        // The Throw button is wired to a plain drop instead, so a held object is never
-        // permanently stuck on a test rig with nothing to release it. Part 7.5's three
-        // joint-carry finishing moves also share this button, context-sensitive on
-        // location (balcony edge / fan / anywhere else).
-        private void HandleThrowPressed()
+        // Part 7.1/7.2 never give a throw mechanic a base numeric value - only Part
+        // 5.2's per-character RELATIVE bonus (Nouka: +25%). DECISION (Stage 12):
+        // BaseThrowSpeed below is a reasonable, logged value in the same physics
+        // scale as the project's other established forces (RocketForce=12,
+        // PlayerPushInteraction.BasePushForce=5). Part 7.5's three joint-carry
+        // finishing moves also share this button, context-sensitive on location
+        // (balcony edge / fan / anywhere else).
+        public const float BaseThrowSpeed = 8f;
+        public float throwPowerMultiplier = 1f; // Stage 12's CharacterSelector sets Nouka's to 1.25
+
+        // Public (not just the private event handler) so test code can invoke it
+        // directly on a rig with no PlayerInputReader, same established pattern as
+        // TryPickUpNearest/Drop/TryRestrainNearestUnconscious below.
+        public void HandleThrowPressed()
         {
-            if (Held != null) { Drop(); return; }
+            if (Held != null) { ThrowHeld(); return; }
             TryResolveJointCarryInsult();
+        }
+
+        private void ThrowHeld()
+        {
+            var obj = Held;
+            bool wasPrimary = IsPrimaryCarrier;
+            Held = null;
+            IsPrimaryCarrier = false;
+
+            if (!wasPrimary)
+            {
+                // A secondary (joint) carrier can't unilaterally throw a jointly-held
+                // object - same as Drop()'s secondary-path, just lets go of their grip.
+                var primaryOnly = obj.PrimaryCarrier;
+                obj.AttachSecondary(null);
+                if (primaryOnly != null)
+                {
+                    primaryOnly.locomotion.SpeedMultiplier = primaryOnly.heavySpeedFactor;
+                    primaryOnly.heavyCarryStartTime = Time.time;
+                }
+                return;
+            }
+
+            if (obj.SecondaryCarrier != null) obj.SecondaryCarrier.ForceReleaseHeld();
+            obj.DetachAll();
+            locomotion.SpeedMultiplier = 1f;
+            StopWind();
+            obj.Body.linearVelocity = transform.forward * (BaseThrowSpeed * throwPowerMultiplier);
         }
 
         public bool TryRestrainNearestUnconscious()

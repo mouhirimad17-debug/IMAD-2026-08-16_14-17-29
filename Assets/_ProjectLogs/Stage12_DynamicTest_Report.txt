@@ -1,0 +1,41 @@
+=== Stage 12 - Dynamic Character Test (Part 5, Play Mode) ===
+
+[PASS] Character_Slowpoke_01: CharacterSelector loads the real visual model (Part 5) -> selected=True hasVisual=True
+[PASS] Character_Slowpoke_01: real model has a valid Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_Strongman_01: CharacterSelector loads the real visual model (Part 5) -> selected=True hasVisual=True
+[PASS] Character_Strongman_01: real model has a valid Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_StrongPush_01: CharacterSelector loads the real visual model (Part 5) -> selected=True hasVisual=True
+[PASS] Character_StrongPush_01: real model has a valid Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_BigEars_01: CharacterSelector loads the real visual model (Part 5) -> selected=True hasVisual=True
+[PASS] Character_BigEars_01: real model has a valid Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_QuietSteps_01: CharacterSelector loads the real visual model (Part 5) -> selected=True hasVisual=True
+[PASS] Character_QuietSteps_01: real model has a valid Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_QuickPour_01: CharacterSelector loads the real visual model (Part 5) -> selected=True hasVisual=True
+[PASS] Character_QuickPour_01: real model has a valid Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_Featherweight_01: CharacterSelector loads the real visual model (Part 5) -> selected=True hasVisual=True
+[PASS] Character_Featherweight_01: real model has a valid Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Bomba runs at 5.10 m/s (-15%, Part 5.2) -> speed=5.100 expected=5.100
+[PASS] Bomba walks at 2.55 m/s (-15%, Part 5.2) -> speed=2.550 expected=2.550
+[PASS] Zico's carry stats match Part 5.2 (30% penalty / 3s wind delay) -> heavySpeedFactor=0.7 windStartDelay=3
+[PASS] Zico solo-carrying heavy keeps 70% speed instead of standard 30% (Part 5.2) -> multiplier=0.700
+[PASS] Zico's wind has NOT started yet at the standard 1s delay (Part 5.2: needs 3s) -> windActive=False
+[PASS] Zico's wind starts once the full 3s delay elapses (Part 5.2) -> windActive=True
+[PASS] Doran's push force multiplier matches Part 5.2 (+40%) -> multiplier=1.4
+[PASS] Doran actually pushes a real PushableProp (Part 4.1) -> pushedEvent=True
+[PASS] Doran's push measurably outpaces the standard 5N push (Part 5.2: +40%) -> peakSpeed=17.482
+[PASS] Reno's hearing range matches Part 5.2 (15m) -> hearingRange=15
+[PASS] Reno gets the sound-direction indicator (Part 11.5) -> 
+[PASS] Reno detects a standard-range footstep from 10m away (beyond the standard 8m) -> detected=True
+[PASS] A standard listener does NOT detect the same 10m footstep (Part 5.1: standard 8m) -> detected=False
+[PASS] Fifi's footstep audible range matches Part 5.2 (4m) -> audibleRange=4
+[PASS] A standard listener does NOT hear Fifi's footstep from 6m away (Part 5.2: only carries 4m) -> detected=False
+[PASS] Setup: the same listener WOULD hear a standard-range footstep from 6m (control) -> detected=True
+[PASS] Nouka's throw power multiplier matches Part 5.2 (+25%) -> multiplier=1.25
+[PASS] Nouka's throw launches the object at 1.25x base speed (Part 5.2) -> speed=10.002 expected=10.000
+[PASS] Bouf's launch fractions match Part 5.2 (60% horizontal / 40% vertical) -> horizontal=0.6 vertical=0.4
+[PASS] Setup: Bouf's wind is active before ignition -> windActive=True
+[PASS] Bouf's ignition launch splits 60%/40% instead of the standard 20%/80% (Part 5.2) -> vertical=4.800 expectedVertical=4.800 horizontal=7.200 expectedHorizontal=7.200
+[PASS] Funny-swap never activates while ragdolled (Part 5.3) -> isFunnyActive=False
+
+TOTAL: 36/36 passed
+RESULT: Stage 12 character system matches Part 5 end to end.

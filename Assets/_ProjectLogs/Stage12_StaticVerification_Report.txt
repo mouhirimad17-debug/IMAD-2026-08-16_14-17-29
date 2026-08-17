@@ -1,0 +1,53 @@
+=== Stage 12 - Static Verification (Part 5 + Law 0.1/0.3) ===
+
+[PASS] Shared PlayerAnimator controller exists -> path=Assets/_Project/Animations/PlayerAnimator.controller
+[PASS] AnimatorController has the 'Idle' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Walk' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Run' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'WalkingBackwards' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'StrafeLeft' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'StrafeRight' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Jumpstart' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Fall' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Land' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'idleCarrylight' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Walkcarrylight' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'WalkCarryHeavy' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Push' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Throw' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'interact' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Walk_silly' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'Run_silly' state with a real clip (Part 5.3) -> present=True
+[PASS] AnimatorController has the 'WalkBackwards_silly' state with a real clip (Part 5.3) -> present=True
+[PASS] Character_Slowpoke_01: corrected character prefab exists -> path=Assets/_Project/Prefabs/Characters/Character_Slowpoke_01.prefab
+[PASS] Character_Slowpoke_01: corrected height matches Law 0.1 (1.000m within 10%) -> measured=1.000m
+[PASS] Character_Slowpoke_01: has a real Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_Strongman_01: corrected character prefab exists -> path=Assets/_Project/Prefabs/Characters/Character_Strongman_01.prefab
+[PASS] Character_Strongman_01: corrected height matches Law 0.1 (1.000m within 10%) -> measured=1.000m
+[PASS] Character_Strongman_01: has a real Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_StrongPush_01: corrected character prefab exists -> path=Assets/_Project/Prefabs/Characters/Character_StrongPush_01.prefab
+[PASS] Character_StrongPush_01: corrected height matches Law 0.1 (1.000m within 10%) -> measured=1.000m
+[PASS] Character_StrongPush_01: has a real Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_BigEars_01: corrected character prefab exists -> path=Assets/_Project/Prefabs/Characters/Character_BigEars_01.prefab
+[PASS] Character_BigEars_01: corrected height matches Law 0.1 (1.000m within 10%) -> measured=1.000m
+[PASS] Character_BigEars_01: has a real Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_QuietSteps_01: corrected character prefab exists -> path=Assets/_Project/Prefabs/Characters/Character_QuietSteps_01.prefab
+[PASS] Character_QuietSteps_01: corrected height matches Law 0.1 (1.000m within 10%) -> measured=1.000m
+[PASS] Character_QuietSteps_01: has a real Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_QuickPour_01: corrected character prefab exists -> path=Assets/_Project/Prefabs/Characters/Character_QuickPour_01.prefab
+[PASS] Character_QuickPour_01: corrected height matches Law 0.1 (1.000m within 10%) -> measured=1.000m
+[PASS] Character_QuickPour_01: has a real Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Character_Featherweight_01: corrected character prefab exists -> path=Assets/_Project/Prefabs/Characters/Character_Featherweight_01.prefab
+[PASS] Character_Featherweight_01: corrected height matches Law 0.1 (1.000m within 10%) -> measured=1.000m
+[PASS] Character_Featherweight_01: has a real Humanoid Animator (Part 5.3) -> found=True isHuman=True
+[PASS] Player.prefab has PlayerAnimatorDriver (Stage 12) -> 
+[PASS] Player.prefab has FunnyAnimationSwapper (Part 5.3) -> 
+[PASS] Player.prefab has FootstepSoundEmitter (Part 5.1) -> 
+[PASS] Player.prefab has SoundDetector (Part 5.1/5.2) -> 
+[PASS] Player.prefab has CharacterSelector (Stage 12) -> 
+[PASS] Player.prefab has PlayerPushInteraction (Part 4.1, retrofitted) -> 
+[PASS] Player.prefab has PlayerDragInteraction (Stage 9, retrofitted) -> 
+[PASS] Player.prefab has PlayerDoorInteraction (Stage 11, retrofitted) -> 
+
+TOTAL: 48/48 passed
+RESULT: PASS

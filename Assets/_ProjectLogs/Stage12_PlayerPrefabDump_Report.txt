@@ -1,0 +1,8 @@
+Player
+  [Transform]
+  [CharacterController]
+  [PlayerLocomotion]
+  [PlayerInputReader]
+  [PlayerCarry]
+  [PlayerRagdoll]
+  [PlayerCapture]
