@@ -1,0 +1,122 @@
+using System.IO;
+using PrankMansion.Networking;
+using Unity.Netcode;
+using Unity.Netcode.Components;
+using UnityEditor;
+using UnityEngine;
+
+namespace PrankMansion.Blockout
+{
+    /// <summary>
+    /// Stage 15: wires Part 10.5's networked player components (NetworkObject,
+    /// Netcode's own NetworkTransform, and this project's NetworkPlayerState) onto
+    /// the real Player.prefab. No Steam wiring, no NetworkManager/transport scene
+    /// setup, and no NetworkPrefabsList registration here - per the owner's
+    /// explicit decision (no Steamworks App ID exists yet), this stage builds and
+    /// verifies the ARCHITECTURE (lobby create/search/join/ready-gating rules,
+    /// host-migration rules, the synced-state component itself) while deferring
+    /// anything that only matters once a real transport exists: a working
+    /// NetworkManager config would need reconfiguring the moment Steam replaces
+    /// whatever placeholder transport it used, so building one now is wasted work,
+    /// not saved work. See Stage15_Decisions_Log.txt for the complete deferral list.
+    /// </summary>
+    public static class Stage15NetworkingSetup
+    {
+        private const string PrefabPath = "Assets/_Project/Prefabs/Characters/Player.prefab";
+        private const string DecisionsLogPath = "Assets/_ProjectLogs/Stage15_Decisions_Log.txt";
+
+        [MenuItem("PrankMansion/Stage 15 - Build Networking Architecture")]
+        public static void BuildNetworkingArchitecture()
+        {
+            var prefabRoot = PrefabUtility.LoadPrefabContents(PrefabPath);
+
+            if (prefabRoot.GetComponent<NetworkObject>() == null)
+                prefabRoot.AddComponent<NetworkObject>();
+            if (prefabRoot.GetComponent<NetworkTransform>() == null)
+                prefabRoot.AddComponent<NetworkTransform>();
+            if (prefabRoot.GetComponent<NetworkPlayerState>() == null)
+                prefabRoot.AddComponent<NetworkPlayerState>();
+
+            PrefabUtility.SaveAsPrefabAsset(prefabRoot, PrefabPath);
+            PrefabUtility.UnloadPrefabContents(prefabRoot);
+
+            WriteDecisionsLog();
+            Debug.Log("[Stage15NetworkingSetup] NetworkObject/NetworkTransform/NetworkPlayerState wired onto Player.prefab.");
+        }
+
+        [MenuItem("PrankMansion/Stage 15 - Build And Run Networking Test (Batch)")]
+        public static void BuildAndTest()
+        {
+            BuildNetworkingArchitecture();
+
+            var testGo = new GameObject("Stage15_NetworkingTestRunner");
+            testGo.AddComponent<Stage15NetworkingTest>();
+
+            Debug.Log("[Stage15NetworkingSetup] Entering Play Mode to run networking architecture test...");
+            EditorApplication.isPlaying = true;
+        }
+
+        private static void WriteDecisionsLog()
+        {
+            var dir = Path.GetDirectoryName(DecisionsLogPath);
+            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+
+            var lines = new[]
+            {
+                "=== Stage 15 - Steam Multiplayer Architecture - Logged Technical Decisions (Law 21.2) ===",
+                "",
+                "0. SCOPE DECISION (explicit owner sign-off, no Steamworks App ID exists yet):",
+                "   build Part 10's full architecture now against an ILobbyDirectory",
+                "   abstraction with a local, single-process LocalLobbyDirectory implementation",
+                "   (Law 0.2), and defer everything that can only be built/verified against a",
+                "   real Steam App ID and a real second peer:",
+                "     - Steamworks.NET integration + a real SteamLobbyDirectory (Part 10.1/10.2's",
+                "       friends-only lobby creation, lobby metadata for room name/code)",
+                "     - NetworkManager scene setup + transport configuration (a placeholder",
+                "       transport would need reconfiguring the moment Steam's real transport",
+                "       replaces it, so building one now is wasted work, not saved work)",
+                "     - NetworkPrefabsList registration",
+                "     - Live cross-client sync of NetworkPlayerState/NetworkTransform (needs a",
+                "       second connected peer to prove)",
+                "     - The actual live host-handoff over a real network session (Part 10.6)",
+                "     - Part 10.7's own mandatory test: two devices on two genuinely separate",
+                "       networks - impossible for a single agent/environment to perform at all",
+                "   Everything Part 10 actually SPECIFIES AS RULES (not as \"talk to Steam\") is",
+                "   built and tested now: room-name validation, six-character code generation/",
+                "   matching, full-room detection order, ready-gating math, and host-migration-",
+                "   by-join-order selection.",
+                "",
+                "1. Part 10.5's position/rotation sync reuses Unity Netcode's own",
+                "   NetworkTransform component directly (\"وفق التوصيات القياسية لنظام",
+                "   Netcode\") rather than reimplementing it - NetworkPlayerState only covers",
+                "   the DISCRETE states the document calls out by name (heavy-carry/wind flag,",
+                "   physical state, selected character, display name) plus one-shot instant",
+                "   events (slip/flour-explode/wind-ignite/rope-tie) via a single ServerRpc/",
+                "   ClientRpc round trip each, matching \"حدث لحظي واحد يُرسَل كحدث شبكي لمرة",
+                "   واحدة\" instead of continuous state.",
+                "",
+                "2. Every NetworkPlayerState field is owner-authoritative",
+                "   (NetworkVariableWritePermission.Owner) - this project's existing design",
+                "   already runs PlayerCarry/PlayerRagdoll/PlayerCapture/CharacterSelector",
+                "   locally on whichever client owns that player, so each player syncing their",
+                "   own state outward (rather than the server computing it) matches how the",
+                "   single-player logic already works, with no separate server-side reimplementation.",
+                "",
+                "3. Part 10.6's guest-disconnect handling (\"جسمه أو الغرض الذي كان يحمله ...",
+                "   يتحول فوراً لفيزياء طبيعية حرة\") is wired into",
+                "   NetworkPlayerState.OnNetworkDespawn, which drops any currently-held",
+                "   CarryableObject before the player's own NetworkObject despawns - the object",
+                "   falls in place with real physics instead of disappearing along with the",
+                "   departing player's model.",
+                "",
+                "4. Part 10.4's \"host presses start\" (LobbyManager.TryStartGame) hands off",
+                "   directly to Stage 14's RoundManager.StartRound once >=2 players are",
+                "   connected and everyone is ready - the actual synchronized scene-load/spawn-",
+                "   point choreography Part 10.4 also describes is Stage 16's UI/scene-flow job,",
+                "   not this stage's.",
+            };
+
+            File.WriteAllLines(DecisionsLogPath, lines);
+        }
+    }
+}

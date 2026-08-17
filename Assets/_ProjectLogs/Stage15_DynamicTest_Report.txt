@@ -1,0 +1,36 @@
+=== Stage 15 - Dynamic Networking Architecture Test (Part 10, Play Mode) ===
+
+[PASS] Valid room name (letters/digits/spaces, <=20 chars) is accepted (Part 10.2) -> 
+[PASS] Empty room name is rejected (Part 10.2: create button stays disabled) -> 
+[PASS] Room name over 20 characters is rejected (Part 10.2) -> 
+[PASS] Room name with special characters is rejected (Part 10.2: letters/digits/spaces only) -> 
+[PASS] Room creation rejects a max-players value outside {2,4,6,8} (Part 10.2) -> created=False
+[PASS] Room creation rejects a round duration outside {5min,10min} (Part 10.2) -> created=False
+[PASS] Valid room creation succeeds (Part 10.2) -> created=True lobbyId=local_1
+[PASS] Generated code is exactly six characters (Part 10.2 step 2) -> code=B8MUKW
+[PASS] Creator is registered as the host, not yet ready (Part 10.4) -> count=1 isHost=True
+[PASS] Room codes never contain the visually-confusable O/I/0/1 (Part 10.2 step 2) -> anyForbidden=False
+[PASS] Room codes are always exactly six characters -> anyWrongLength=False
+[PASS] Room search filters by name substring (Part 10.3) -> count=1
+[PASS] Empty search query returns all visible rooms (Part 10.3) -> count=2
+[PASS] Wrong code is rejected without joining (Part 10.3) -> result=WrongCode
+[PASS] Correct code joins successfully (Part 10.3) -> result=Success
+[PASS] Room now shows 2/2 players -> count=2
+[PASS] Joining a full room reports Full even with a wrong code (Part 10.3 ordering) -> result=Full
+[PASS] Start button gated off with only 1 player, even if ready (Part 10.4) -> 
+[PASS] Start button gated off while any player is not ready (Part 10.4) -> canStart=False
+[PASS] Start button enabled once >=2 players are all ready (Part 10.4) -> canStart=True
+[PASS] Non-host cannot start the game even when ready-gated (Part 10.4: host-only) -> started=False
+[PASS] Host starting the game hands off to RoundManager.StartRound (Part 10.4 -> Stage 14) -> started=True roundActive=True timeRemaining=300
+[PASS] Host migrates to the next player by original join order (Part 10.6) -> newHost=playerB
+[PASS] OnHostChanged fires with the correct new host id (Part 10.6) -> newHostId=playerB
+[PASS] NetworkPlayerState requires a NetworkObject on the same GameObject (Part 10.5) -> 
+[PASS] Position/rotation sync uses Unity Netcode's own NetworkTransform (Part 10.5) -> 
+[PASS] Physical state defaults to Normal before any player action -> value=Normal
+[PASS] Heavy-carry/wind flag defaults to false -> value=False
+[PASS] Selected character index defaults to -1 (none chosen yet) -> value=-1
+[PASS] Setup: player is holding the object before disconnecting -> held=True
+[PASS] Disconnect cleanup drops the held object with free physics (Part 10.6) -> heldIsNowNull=True isKinematic=False
+
+TOTAL: 31/31 passed
+RESULT: Stage 15 networking architecture matches Part 10's specified rules end to end.
