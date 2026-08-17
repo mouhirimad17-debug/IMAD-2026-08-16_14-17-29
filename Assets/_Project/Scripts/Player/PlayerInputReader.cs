@@ -27,6 +27,11 @@ namespace PrankMansion.Player
         public event Action OnInteractReleased;
         public event Action OnThrowPressed;
 
+        // Part 9.3: "تجميد فوري لأي تحكم إضافي من طرف اللاعبين ... تعطيل مؤقت
+        // لمدخلات الحركة والتفاعل" at round end - a single global flag since every
+        // player's controls freeze at the same instant, not per-player.
+        public static bool RoundInputFrozen;
+
         // Part 7.4's pour mechanic needs to poll "is interact still held" every frame
         // (a 0.8s long-press) rather than react to a single press/release edge.
         public bool IsInteractHeld => interactAction != null && interactAction.IsPressed();
@@ -47,10 +52,10 @@ namespace PrankMansion.Player
             throwAction = map.FindAction("Throw");
             map.Enable();
 
-            jumpAction.performed += _ => locomotion.RequestJump();
-            interactAction.performed += _ => OnInteractPressed?.Invoke();
-            interactAction.canceled += _ => OnInteractReleased?.Invoke();
-            throwAction.performed += _ => OnThrowPressed?.Invoke();
+            jumpAction.performed += _ => { if (!RoundInputFrozen) locomotion.RequestJump(); };
+            interactAction.performed += _ => { if (!RoundInputFrozen) OnInteractPressed?.Invoke(); };
+            interactAction.canceled += _ => OnInteractReleased?.Invoke(); // releasing is always safe to let through
+            throwAction.performed += _ => { if (!RoundInputFrozen) OnThrowPressed?.Invoke(); };
         }
 
         private void OnEnable()
@@ -74,8 +79,16 @@ namespace PrankMansion.Player
 
         private void Update()
         {
-            locomotion.SetMoveInput(moveAction.ReadValue<Vector2>());
-            locomotion.SetSprint(sprintAction.IsPressed());
+            if (!RoundInputFrozen)
+            {
+                locomotion.SetMoveInput(moveAction.ReadValue<Vector2>());
+                locomotion.SetSprint(sprintAction.IsPressed());
+            }
+            else
+            {
+                locomotion.SetMoveInput(Vector2.zero);
+                locomotion.SetSprint(false);
+            }
 
             if (cameraRig != null)
             {

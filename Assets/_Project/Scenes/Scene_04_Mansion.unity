@@ -2174,6 +2174,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173952440}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &174341033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174341035}
+  - component: {fileID: 174341034}
+  m_Layer: 0
+  m_Name: Stage14_RoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &174341034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174341033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bda10ff999ea2c4d90e84d3fd193c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Systems.RoundManager
+--- !u!4 &174341035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174341033}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &177410480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12097,6 +12141,7 @@ GameObject:
   - component: {fileID: 1145522279}
   - component: {fileID: 1145522280}
   - component: {fileID: 1145522281}
+  - component: {fileID: 1145522282}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -12212,6 +12257,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d908a1409a5a44f9ef3c2bfbe739d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.PlayerCapture
+--- !u!114 &1145522282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145522274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b63dba9a5276e348ba8553cf496bd56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrankMansion.Player.PlayerTeam
 --- !u!1 &1151718422
 GameObject:
   m_ObjectHideFlags: 0
@@ -25581,3 +25638,4 @@ SceneRoots:
   - {fileID: 245790407}
   - {fileID: 1015819973}
   - {fileID: 446949095}
+  - {fileID: 174341035}

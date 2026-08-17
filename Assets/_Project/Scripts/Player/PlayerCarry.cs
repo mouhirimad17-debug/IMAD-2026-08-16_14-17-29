@@ -149,6 +149,9 @@ namespace PrankMansion.Player
             locomotion.SpeedMultiplier = 1f;
             StopWind();
             obj.Body.linearVelocity = transform.forward * (BaseThrowSpeed * throwPowerMultiplier);
+
+            var myTeam = GetComponent<PlayerTeam>();
+            obj.MarkThrown(myTeam != null ? myTeam.Team : Team.None, gameObject); // Part 9.1: direct-hit throw scoring
         }
 
         public bool TryRestrainNearestUnconscious()
@@ -372,7 +375,9 @@ namespace PrankMansion.Player
 
             var zoneGo = new GameObject("SlipZone");
             zoneGo.transform.position = contactPoint + Vector3.up * 0.01f;
-            zoneGo.AddComponent<SlipZone>(); // RequireComponent adds its SphereCollider
+            var zone = zoneGo.AddComponent<SlipZone>(); // RequireComponent adds its SphereCollider
+            var placerTeam = GetComponent<PlayerTeam>();
+            zone.PlacerTeam = placerTeam != null ? placerTeam.Team : Team.None; // Part 9.1 scoring credit
 
             Held = null;
             IsPrimaryCarrier = false;
@@ -431,6 +436,14 @@ namespace PrankMansion.Player
             float vert = RocketForce * launchVerticalFraction;
             Vector3 launchVelocity = transform.forward * horiz + Vector3.up * vert;
             locomotion.BeginFreeFlight(launchVelocity);
+
+            // Part 9.1 event 3: this mechanic is inherently self-inflicted (the
+            // wind-active carrier is the one who walks into the fire), so there is no
+            // second acting player to credit - per 9.1's own explicit simplification
+            // note, the point goes to the launched player's OPPOSING team as a whole.
+            var myTeam = GetComponent<PlayerTeam>();
+            if (myTeam != null && myTeam.Team != Team.None)
+                RoundManager.Instance?.RegisterPoint(PlayerTeam.Opponent(myTeam.Team));
         }
 
         // ---------------------------------------------------------------

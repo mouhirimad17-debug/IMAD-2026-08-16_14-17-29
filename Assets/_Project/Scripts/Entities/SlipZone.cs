@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using PrankMansion.Player;
+using PrankMansion.Systems;
 using UnityEngine;
 
 namespace PrankMansion.Entities
@@ -19,6 +20,9 @@ namespace PrankMansion.Entities
         public const float SpinRadiansPerSecond = 2f * Mathf.PI / 0.4f; // Law 0.5: full turn every ~0.4s
 
         public static readonly List<SlipZone> AllActive = new List<SlipZone>();
+
+        // Part 9.1: which team gets credit if an OPPONENT walks into this zone.
+        public Team PlacerTeam { get; set; } = Team.None;
 
         private SphereCollider trigger;
 
@@ -62,10 +66,16 @@ namespace PrankMansion.Entities
             Vector2 randomDir2D = Random.insideUnitCircle.normalized;
             Vector3 push = new Vector3(randomDir2D.x, 0f, randomDir2D.y) * RandomPushForce;
             ragdoll.TriggerRagdoll(push, SpinRadiansPerSecond);
+
+            // Part 9.1: only the OPPOSING team from whoever placed it scores - the
+            // physics reaction above still applies to everyone, "بلا استثناء أو حصانة".
+            var victimTeam = other.GetComponentInParent<PlayerTeam>();
+            if (PlacerTeam != Team.None && victimTeam != null && victimTeam.Team != Team.None && victimTeam.Team != PlacerTeam)
+                RoundManager.Instance?.RegisterPoint(PlacerTeam);
         }
 
-        /// Part 7.4: "تُمسح كل الفخاخ تلقائياً عند بداية جولة جديدة" - hook for the
-        /// round system (Stage 9, not built yet) to call once it exists.
+        /// Part 7.4: "تُمسح كل الفخاخ تلقائياً عند بداية جولة جديدة" - called by
+        /// RoundManager.StartRound (Stage 14).
         public static void ClearAllForNewRound()
         {
             foreach (var zone in new List<SlipZone>(AllActive))

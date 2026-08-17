@@ -1,4 +1,5 @@
 using PrankMansion.Player;
+using PrankMansion.Systems;
 using UnityEngine;
 
 namespace PrankMansion.Entities
@@ -33,12 +34,42 @@ namespace PrankMansion.Entities
         public PlayerCarry SecondaryCarrier { get; private set; }
         public int CarrierCount => (PrimaryCarrier != null ? 1 : 0) + (SecondaryCarrier != null ? 1 : 0);
 
+        // Part 9.1's throw-hit scoring event: "إصابة خصم بغرض مرمي بشكل مباشر".
+        public bool WasThrown { get; private set; }
+        public Team ThrownByTeam { get; private set; } = Team.None;
+        private GameObject thrownFromObject;
+
         private Collider[] colliders;
 
         private void Awake()
         {
             Body = GetComponent<Rigidbody>();
             colliders = GetComponentsInChildren<Collider>();
+        }
+
+        public void MarkThrown(Team throwerTeam, GameObject thrower)
+        {
+            WasThrown = true;
+            ThrownByTeam = throwerTeam;
+            thrownFromObject = thrower;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (!WasThrown) return;
+            // The hand-attach release point sits close enough to the thrower's own
+            // capsule to spuriously brush it on release (well within
+            // CharacterController's default skin width) - that's not a "hit", so it
+            // doesn't consume the throw's one direct-hit eligibility below.
+            if (collision.gameObject == thrownFromObject) return;
+
+            WasThrown = false; // "مباشر" (direct) - only the very first real contact after a throw counts, no bounces
+
+            var victimTeam = collision.gameObject.GetComponentInParent<PlayerTeam>();
+            if (victimTeam == null || victimTeam.Team == Team.None || victimTeam.Team == ThrownByTeam) return;
+            if (collision.relativeVelocity.magnitude < RoundManager.ThrowHitMinSpeed) return;
+
+            RoundManager.Instance?.RegisterPoint(ThrownByTeam);
         }
 
         public void AttachPrimary(PlayerCarry carrier)

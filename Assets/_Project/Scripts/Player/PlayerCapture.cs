@@ -1,5 +1,6 @@
 using PrankMansion.Blockout;
 using PrankMansion.Entities;
+using PrankMansion.Systems;
 using UnityEngine;
 
 namespace PrankMansion.Player
@@ -118,6 +119,14 @@ namespace PrankMansion.Player
             restrainedTimer = 0f;
             mountedOnFan = false;
             Destroy(rope.gameObject); // "الحبل يُستهلك عند الاستخدام"
+
+            // Part 9.1: point for successfully restraining an OPPONENT, at the exact
+            // moment of the Unconscious -> Restrained transition.
+            var rescuerTeam = rescuer.GetComponent<PlayerTeam>();
+            var victimTeam = GetComponent<PlayerTeam>();
+            if (rescuerTeam != null && victimTeam != null && rescuerTeam.Team != Team.None && rescuerTeam.Team != victimTeam.Team)
+                RoundManager.Instance?.RegisterPoint(rescuerTeam.Team);
+
             return true;
         }
 

@@ -1,0 +1,19 @@
+=== Stage 14 - Dynamic Scoring/Team Test (Part 9 + 9.5, Play Mode) ===
+
+[PASS] Team split is perfectly even (Part 9.5.1: always exactly 2 teams) -> team1=4 team2=4 unassigned=0
+[PASS] Round starts with both scores at zero (Part 9.2) -> team1=0 team2=0
+[PASS] Final-countdown flag is false with more than 30s left -> timeRemaining=30.3 isFinal=False
+[PASS] RegisterPoint credits the correct team (Part 9.2 counters) -> team1=2 team2=1
+[PASS] Final-countdown flag becomes true once 30s or less remain (Part 9.2) -> timeRemaining=29.8 isFinal=True
+[PASS] Round ends on its own once the timer reaches zero (Part 9.3) -> hasEnded=True roundActive=False elapsed=0.3s
+[PASS] Higher-scoring team is declared winner (Part 9.3) -> winner=Team1 isTie=False team1=2 team2=1
+[PASS] Movement/interact input freezes at round end (Part 9.3) -> frozen=True
+[PASS] Equal scores at round end produce a tie, no winner (Part 9.3) -> isTie=True winner=None team1=1 team2=1
+[PASS] Direct thrown-object hit on an OPPONENT above 3 m/s scores for the thrower's team (Part 9.1) -> team1=1 team2=0
+[PASS] Opponent entering an opposing-placed slip zone scores for the placer's team (Part 9.1) -> team1=1 team2=0
+[PASS] Same-team player entering their own team's slip zone does NOT score (Part 9.1) -> team1=1 team2=0
+[PASS] Setup: victim settles into Unconscious before the restrain attempt -> state=Unconscious elapsed=3.3s
+[PASS] Restraining an OPPONENT scores for the rescuer's team, at the Unconscious->Restrained moment (Part 9.1) -> restrained=True team1=1 team2=0
+
+TOTAL: 14/14 passed
+RESULT: Stage 14 scoring/team system matches Part 9/9.5 end to end.
