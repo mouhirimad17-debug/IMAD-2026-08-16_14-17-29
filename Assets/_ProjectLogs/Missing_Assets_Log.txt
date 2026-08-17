@@ -69,3 +69,5 @@
 2026-08-17 | Assets/_Project/Animations/Player_Common/JointCarryEnd.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
 2026-08-17 | Assets/_Project/Animations/Player_Common/RopeTie.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
 2026-08-17 | Assets/_Project/Animations/Player_Common/Idle_silly.fbx | Part 5.3 shared animation - source file not found, no numbered variant either
+2026-08-17 | Assets/_Project/Audio/Voice/Parrot/SFX_parrotmock_AR_*.mp3 | Part 6.3 Arabic mockery sentence set - no file found (only *_EN_* and *LAUGH* exist); ParrotController falls back to the English set whenever the 50/50 Arabic roll is picked.
+2026-08-17 | Assets/_Project/Audio/Voice/Parrot/SFX_parrotmock_AR_*.mp3 | Part 6.3 Arabic mockery sentence set - no file found (only *_EN_* and *LAUGH* exist); ParrotController falls back to the English set whenever the 50/50 Arabic roll is picked.

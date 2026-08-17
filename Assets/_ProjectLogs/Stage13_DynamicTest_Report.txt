@@ -1,0 +1,17 @@
+=== Stage 13 - Dynamic Parrot Test (Part 6, Play Mode) ===
+
+[PASS] Parrot starts in Idle state (Part 6.1) -> state=Idle
+[PASS] Parrot mocks a ragdolled player within 10m (Part 6.2/6.3) -> state=Mocking triggerCount=1
+[PASS] Mockery fires immediately - no approach phase (Part 6.3) -> triggerCount=1
+[PASS] Parrot returns to Idle after the mockery duration ends (Part 6.3) -> state=Idle
+[PASS] Parrot does NOT mock a ragdolled player beyond 10m (Part 6.2) -> state=Idle
+[PASS] Ragdoll settles into PlayerCapture.Unconscious within a reasonable time (Part 7.3/7.5 prerequisite) -> state=Unconscious elapsed=3.2s
+[PASS] At settle time, IsRagdolled has already flipped back to false (isolates the Unconscious branch) -> isRagdolled=False
+[PASS] Parrot did not mock while the target was out of range (setup check) -> triggerCount=0
+[PASS] Parrot mocks an Unconscious (non-ragdolled) player within 10m (Part 6.2: ragdoll OR unconscious) -> state=Mocking triggerCount=1
+[PASS] Cage carries no Rigidbody (Part 6.4) -> 
+[PASS] Cage does not move even after a direct hard hit (Part 6.4: zero physical reaction) -> startPos=(0.00, 1.75, 0.00) endPos=(0.00, 1.75, 0.00)
+[PASS] Mockery pick produces both the simple-laugh and full-sentence outcomes (Part 6.3: 60/40 split) -> laugh=181 sentence=119 of 300
+
+TOTAL: 12/12 passed
+RESULT: Stage 13 parrot system matches Part 6 end to end.

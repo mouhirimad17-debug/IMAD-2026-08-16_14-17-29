@@ -1,0 +1,13 @@
+=== Stage 13 - Static Verification (Part 6 + Law 0.3 + Law 0.2) ===
+
+[PASS] Parrot_Cage_01 composite is placed in the mansion scene -> found=True
+[PASS] ParrotController component present -> found=True
+[PASS] Cage carries no Rigidbody (Part 6.4: zero physical reaction to pushes) -> 
+[PASS] Cage has a solid collider (players can still collide with it, just can't move it) -> 
+[PASS] visualRoot assigned for Look_Around / jump bounce -> 
+[PASS] At least one laugh clip loaded -> count=5
+[PASS] At least one English mockery clip loaded -> count=7
+[PASS] Missing Arabic mockery set logged (Law 0.2) -> checked Missing_Assets_Log.txt
+
+TOTAL: 8/8 passed
+RESULT: PASS

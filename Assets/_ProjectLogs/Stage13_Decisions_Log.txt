@@ -1,0 +1,44 @@
+=== Stage 13 - Parrot/Cage Import - Logged Technical Decisions (Law 21.2) ===
+
+1. Part 4's prop table has no row for Parrot_Cage_01 or Parrot_Model_01, so
+   Law 0.3's scale correction has no expected-dimension number to target.
+   Chose ExpectedParrotMaxDim=0.35m and
+   ExpectedCageMaxDim=0.9m against Law 0.1's 1.000m
+   character reference - bird-sized next to a character, cage roomy enough to
+   read clearly without dwarfing it. Purely a visual/scale call, not a balance
+   number, so decided and logged here rather than blocking on the owner per 21.2.
+
+2. Placement: Part 6.0 asks for a mount height between 1.5-2m near the foyer
+   center; Part 3.3 reserves the exact foyer center for the future seating
+   cluster, and the relocated staircase footprint (MansionSpec.StaircaseFootprint,
+   x:[36,54] z:[24,36]) also covers part of that same central area. Used the
+   midpoint height (1.75m) offset
+   (-10m, -10m) into the foyer's open
+   front-left quadrant, clearing both the reserved seating spot and the
+   staircase footprint while staying close enough to center for the 10m
+   detection radius to cover most of the room.
+
+3. Cage and parrot are assembled into ONE composite prefab (Parrot_Cage_01)
+   with ParrotController on the root - Part 6 always treats them as a single
+   fixed entity (the parrot never leaves the cage), so one prefab/one scene
+   object matches the document's own framing better than two separate props.
+
+4. Only the cage gets a collider (non-convex MeshCollider, no Rigidbody -
+   Stage 6's PureStatic pattern, so pushes/collisions produce zero reaction
+   by construction, matching 6.4 exactly). The parrot mesh itself is left
+   collider-free since it's already enclosed by the cage's own solid volume.
+
+5. Part 6.1's Look_Around and the Law 0.5 jump bounce both have no real
+   animation clip (Animations/Parrot is empty) and no numeric turn rate is
+   given anywhere. Built procedurally in ParrotController instead of blocking:
+   a 25deg yaw sway over 4s while idle, and a
+   0.1m/0.3s bounce (Law 0.5's own numbers) while any mockery audio plays.
+
+6. Audio folder scan found 5 laugh clip(s) and 7 English
+   mockery clip(s), but 0 Arabic mockery clip(s) - Part 6.3 needs a
+   50/50 Arabic/English split. Logged to Missing_Assets_Log.txt per Law 0.2;
+   ParrotController falls back to the English set whenever the Arabic roll is
+   picked, rather than staying silent, until the Arabic set is supplied.
+
+Scale warnings this stage (2): Parrot_Cage_01: factor=0.179 (expected 0.9m); Parrot_Model_01: factor=0.001 (expected 0.35m)
+Missing this stage: Arabic mockery audio set (SFX_parrotmock_AR_*.mp3)

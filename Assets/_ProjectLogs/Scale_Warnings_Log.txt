@@ -98,3 +98,7 @@
 2026-08-17 | Gym_YogaMat_01: factor=0.024 (expected 1.8m, measured 74.201m)
 2026-08-17 | Gym_WaterBottle_01: factor=0.000 (expected 0.25m, measured 1364.110m)
 2026-08-17 | Gym_Towel_01: factor=0.004 (expected 0.6m, measured 141.499m)
+2026-08-17 | Parrot_Cage_01: factor=0.179 (expected 0.9m)
+2026-08-17 | Parrot_Model_01: factor=0.001 (expected 0.35m)
+2026-08-17 | Parrot_Cage_01: factor=0.179 (expected 0.9m)
+2026-08-17 | Parrot_Model_01: factor=0.001 (expected 0.35m)
