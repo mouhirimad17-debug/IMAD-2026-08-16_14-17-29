@@ -1,0 +1,51 @@
+=== Stage 10 - Gym Prop Import - Logged Technical Decisions (Law 21.2) ===
+
+1. Pivot recentering (Entities root cause found during the Stage 9 fix-up,
+   see Stage9_Decisions_Log.txt point 7) is applied from the start here -
+   every corrected mesh is recentered to its own X/Z center and Y minimum
+   before Law 0.3's uniform scale is applied, so it actually stands on its
+   floor slot instead of wherever the source file's arbitrary pivot was.
+   Exception: Gym_PunchingBag_01 keeps its own geometric center as pivot
+   (not recentered to its base) since it hangs from a ceiling anchor rather
+   than resting on the floor - see point 4 below.
+
+2. Gym_DumbbellHeavy_01 matched to Gym_dumbbell_01.glb - an unlabeled
+   numbered variant set (Gym_dumbbell_01/02/03.glb) sitting alongside the
+   clearly-labeled gym_dumbbelllight_01.glb. Part 4.7 only lists one Heavy
+   dumbbell entry, so _01 is used and _02/_03 are left as unused spare
+   variants. Flagged as a lower-confidence inferred match, same caveat as
+   prior stages' synonym matches.
+
+3. Gym_Barbell_01 matched the same way to gym_barbell_01.glb out of its own
+   01/02/03 variant set (gym_barbell_02.glb in particular is a much larger
+   file than the other two - not investigated further since _01 already
+   satisfies the single required entry).
+
+4. Gym_PunchingBag_01's "يتأرجح فيزيائياً عند الاصطدام من نقطة تعليق علوية"
+   (swings physically on impact from an upper suspension point) is fully
+   described (unlike Stage 9's two document gaps) so no owner clarification
+   was needed - implemented as a new PunchingBagProp component
+   (Entities/PunchingBagProp.cs): a ConfigurableJoint anchored to a fixed
+   world point at the top of its own bounds, linear motion Locked, angular
+   X/Z Free (Y lightly Limited so it doesn't spin freely around its own
+   hanging axis) - ordinary collision physics then makes it swing with no
+   extra "on hit" code required. Placed at ceiling height like Stage 6/9's
+   chandelier/ceiling-fan exceptions rather than the floor grid.
+
+5. Four items have no source file and no numbered variant or clear synonym
+   (Mirror, MedicineBall, Door, Window) - logged per Law 0.2 step 2b. None
+   qualify as "essential to a whole system" (step 3's own threshold), so -
+   unlike Stage 9's owner-directed fix-up - no placeholder was built for
+   any of them here; that override was scoped to that specific fix-up task.
+
+6. Gym_Door_01's hinge/open-close behavior is Stage 11's job, same as every
+   other room's door in Stages 6-9 - moot here anyway since the source file
+   itself is missing (point 5).
+
+7. Scene placement uses the same undirected grid-scatter approach as Stages
+   6-9 (no interior-design coordinates given anywhere in the document),
+   1.5m spacing since gym equipment (treadmill, bike, bench) is larger on
+   average than Kitchen's countertop props.
+
+Missing this stage (4): Gym_Mirror_01, Gym_MedicineBall_01, Gym_Door_01, Gym_Window_01
+Scale warnings this stage (5): Gym_DumbbellLight_01: factor=0.045 (expected 0.25m, measured 5.609m); Gym_Barbell_01: factor=0.020 (expected 1.8m, measured 91.072m); Gym_YogaMat_01: factor=0.024 (expected 1.8m, measured 74.201m); Gym_WaterBottle_01: factor=0.000 (expected 0.25m, measured 1364.110m); Gym_Towel_01: factor=0.004 (expected 0.6m, measured 141.499m)

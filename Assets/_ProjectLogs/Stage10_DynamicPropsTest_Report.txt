@@ -1,0 +1,15 @@
+=== Stage 10 - Dynamic Gym Props Test (real meshes, Play Mode) ===
+
+[PASS] Setup: Gym props root exists in the scene -> found=True
+[PASS] Setup: Gym_WaterBottle_01 instance found in scene -> found=True
+[PASS] A real Gym prop mesh (Gym_WaterBottle_01) can be picked up (Part 7.1) -> picked=True
+[PASS] Setup: Gym_Barbell_01 instance found in scene -> found=True
+[PASS] Gym_Barbell_01 is classified Heavy (Part 4.7) -> weightClass=Heavy
+[PASS] Carrying the real barbell solo applies the 30% speed factor (Part 5.1/7.1) -> picked=True multiplier=0.300
+[PASS] Setup: Gym_PunchingBag_01 instance found in scene -> found=True
+[PASS] Gym_PunchingBag_01 has the real PunchingBagProp component (Part 4.7) -> found=True
+[PASS] The real punching bag is anchored via a ConfigurableJoint (Part 4.7) -> found=True
+[PASS] A hard hit makes the real punching bag swing on its suspension point (Part 4.7) -> maxAngle=179.19deg elapsed=2.01s
+
+TOTAL: 10/10 passed
+RESULT: Stage 10 real-mesh Gym props work correctly with the existing physics systems.

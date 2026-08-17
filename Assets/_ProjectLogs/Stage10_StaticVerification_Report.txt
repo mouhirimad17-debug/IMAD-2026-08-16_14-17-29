@@ -1,0 +1,45 @@
+=== Stage 10 - Static Verification (Part 4.7 + Law 0.3 + Law 0.2) ===
+
+[PASS] Gym_Treadmill_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_Treadmill_01.prefab
+[PASS] Gym_Treadmill_01: corrected size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Gym_Treadmill_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Gym_Bike_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_Bike_01.prefab
+[PASS] Gym_Bike_01: corrected size matches Part 4 (1.2m within 10 %) -> measured=1.200m expected=1.2m
+[PASS] Gym_Bike_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Gym_DumbbellLight_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_DumbbellLight_01.prefab
+[PASS] Gym_DumbbellLight_01: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Gym_DumbbellLight_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Gym_DumbbellHeavy_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_DumbbellHeavy_01.prefab
+[PASS] Gym_DumbbellHeavy_01: corrected size matches Part 4 (0.35m within 10 %) -> measured=0.350m expected=0.35m
+[PASS] Gym_DumbbellHeavy_01: correct Part 4.1 classification component(s) -> class=CarryHeavy
+[PASS] Gym_WeightsRack_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_WeightsRack_01.prefab
+[PASS] Gym_WeightsRack_01: corrected size matches Part 4 (1.2m within 10 %) -> measured=1.200m expected=1.2m
+[PASS] Gym_WeightsRack_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Gym_Barbell_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_Barbell_01.prefab
+[PASS] Gym_Barbell_01: corrected size matches Part 4 (1.8m within 10 %) -> measured=1.800m expected=1.8m
+[PASS] Gym_Barbell_01: correct Part 4.1 classification component(s) -> class=CarryHeavy
+[PASS] Gym_YogaMat_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_YogaMat_01.prefab
+[PASS] Gym_YogaMat_01: corrected size matches Part 4 (1.8m within 10 %) -> measured=1.800m expected=1.8m
+[PASS] Gym_YogaMat_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Gym_PunchingBag_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_PunchingBag_01.prefab
+[PASS] Gym_PunchingBag_01: corrected size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Gym_PunchingBag_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Gym_PunchingBag_01: has the real PunchingBagProp component (Part 4.7) -> found=True
+[PASS] Gym_PunchingBag_01: anchored via a ConfigurableJoint (Part 4.7) -> found=True
+[PASS] Gym_Mirror_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Gym_WaterBottle_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_WaterBottle_01.prefab
+[PASS] Gym_WaterBottle_01: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Gym_WaterBottle_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Gym_Towel_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_Towel_01.prefab
+[PASS] Gym_Towel_01: corrected size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Gym_Towel_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Gym_MedicineBall_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Gym_Bench_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Gym_Bench_01.prefab
+[PASS] Gym_Bench_01: corrected size matches Part 4 (1.2m within 10 %) -> measured=1.200m expected=1.2m
+[PASS] Gym_Bench_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Gym_Door_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Gym_Window_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Gym props are placed in the actual mansion scene -> childCount=11 expected=11
+
+TOTAL: 40/40 passed
+RESULT: PASS

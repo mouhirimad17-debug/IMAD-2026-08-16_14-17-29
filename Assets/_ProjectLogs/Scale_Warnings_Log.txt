@@ -93,3 +93,8 @@
 2026-08-17 | Bathroom2_SoapDispenser_01: factor=0.009 (expected 0.15m, measured 17.330m)
 2026-08-17 | Bathroom2_ShowerHead_01: factor=0.065 (expected 0.15m, measured 2.318m)
 2026-08-17 | Bathroom2_Mirror_01: factor=0.005 (expected 0.9m, measured 178.677m)
+2026-08-17 | Gym_DumbbellLight_01: factor=0.045 (expected 0.25m, measured 5.609m)
+2026-08-17 | Gym_Barbell_01: factor=0.020 (expected 1.8m, measured 91.072m)
+2026-08-17 | Gym_YogaMat_01: factor=0.024 (expected 1.8m, measured 74.201m)
+2026-08-17 | Gym_WaterBottle_01: factor=0.000 (expected 0.25m, measured 1364.110m)
+2026-08-17 | Gym_Towel_01: factor=0.004 (expected 0.6m, measured 141.499m)

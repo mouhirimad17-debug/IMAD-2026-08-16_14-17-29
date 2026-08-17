@@ -53,3 +53,7 @@
 2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_Towel_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
 2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_Door_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
 2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_TrashBin_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Gym/(Static|Throwable)/Gym_Mirror_01.* | Part 4.7 Gym prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Gym/(Static|Throwable)/Gym_MedicineBall_01.* | Part 4.7 Gym prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Gym/(Static|Throwable)/Gym_Door_01.* | Part 4.7 Gym prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Gym/(Static|Throwable)/Gym_Window_01.* | Part 4.7 Gym prop - source file not found, no numbered variant or clear synonym either
