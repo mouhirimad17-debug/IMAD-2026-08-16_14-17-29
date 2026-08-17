@@ -1,0 +1,37 @@
+=== Stage 16 - Dynamic UI System Test (Part 11, Play Mode) ===
+
+[PASS] First-ever launch starts on the language-select screen (Part 11.1) -> screen=LanguageSelect
+[PASS] Choosing a language advances straight to name entry, no separate continue button -> screen=NameEntry
+[PASS] Confirming a valid name advances to the forced character-select screen -> screen=CharacterSelect forced=True
+[PASS] Forced first-pick starts with confirm disabled (nothing chosen yet) (Part 11.2) -> canConfirm=False
+[PASS] Selecting a card enables confirm -> canConfirm=True
+[PASS] Confirming a character on the forced first-launch path completes it and reaches the main menu -> screen=MainMenu hasProfile=True character=3
+[PASS] Player name was saved permanently (Part 11.1) -> name=Imad
+[PASS] A repeat launch (saved profile already exists) skips straight to the main menu (Part 11.1) -> screen=MainMenu
+[PASS] Empty name keeps continue disabled (Part 11.1) -> canConfirm=False
+[PASS] Name over 15 characters is rejected by the validation rule itself (Part 11.1) -> 
+[PASS] A valid name enables continue -> canConfirm=True
+[PASS] Character select reached NOT via forced first-pick starts with confirm already enabled (Part 11.2) -> selectedIndex=0 canConfirm=True
+[PASS] Main menu's Create Room button navigates to the create-room screen (Part 11.3) -> screen=CreateRoom
+[PASS] Empty room name keeps create disabled (Part 10.2/11.4) -> 
+[PASS] Creating a valid room navigates to the waiting room (Part 10.2 -> 10.4) -> screen=WaitingRoom
+[PASS] Creator is registered as host in the resulting lobby -> isHost=True
+[PASS] Join-room search finds the externally-created room (Part 10.3) -> count=1
+[PASS] Wrong code shows an error and does not navigate away (Part 10.3) -> result=WrongCode screen=JoinRoom
+[PASS] Correct code joins successfully and navigates to the waiting room (Part 10.3 -> 10.4) -> result=Success screen=WaitingRoom
+[PASS] Start button is visible for the host, disabled with only 1 player (Part 10.4) -> 
+[PASS] Start button becomes interactable once >=2 players are all ready (Part 10.4) -> 
+[PASS] HUD score counters reflect RoundManager's live scores (Part 11.5) -> team1Text=1 team2Text=2
+[PASS] Carry-warning icon is hidden while not heavy-carrying solo -> 
+[PASS] Nameplate shows the correct display name (Part 11.5) -> text=TestPlayer
+[PASS] Nameplate background uses the player's team color (Part 9.5.2) -> color=RGBA(1.000, 0.000, 0.000, 0.600)
+[PASS] Nameplate is positioned above the target's head -> nameplateY=1.3 targetY=0
+[PASS] Setup: round actually ended before checking end-screen behaviour -> hasEnded=True
+[PASS] End-round winner text names the actual winning team (Part 11.6) -> text=Team 1 Wins!
+[PASS] Local player on the WINNING team gets the victory jingle (Part 11.6 personal-result music) -> clip=Placeholder_VictoryJingle
+[PASS] Local player on the LOSING team gets a different jingle (Part 11.6 personal-result music) -> clip=Placeholder_DefeatJingle
+[PASS] Music volume slider writes through to PlayerProfile (Part 11.7) -> volume=0.4
+[PASS] SFX volume slider writes through to PlayerProfile independently (Part 11.7) -> volume=0.9
+
+TOTAL: 32/32 passed
+RESULT: Stage 16 UI system matches Part 11 end to end.
