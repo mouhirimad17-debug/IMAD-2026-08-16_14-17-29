@@ -1,0 +1,55 @@
+2026-08-16 | Assets/_Project/Models/Foyer/Throwable/Foyer_ChampagneBottle_01.* | Stage 3 light-carryable test prop (Part 4.2)
+2026-08-16 | Assets/_Project/Models/Kitchen/Throwable/Kitchen_Watermelon_01.* | Stage 3 heavy-carryable test prop (Part 4.3)
+2026-08-16 | Assets/_Project/Models/Foyer/Static/Foyer_CandelabraStanding_01.* | Stage 3 fire-source test prop (Part 4.2)
+2026-08-16 | Assets/_Project/Audio/SFX/Fart/*.wav | Part 7.2 wind loop + ignition explosion cues
+2026-08-16 | Assets/_Project/Models (soap bottle pourable prop) | Stage 4 pour-mechanic test prop (Part 4.1/7.4)
+2026-08-16 | No character skeleton/skinned mesh exists yet (Stage 12) | Part 7.3 ragdoll rig is a procedural capsule placeholder, not a skinned humanoid
+2026-08-16 | Assets/_Project/Models (restrain rope prop) | Stage 5 restrain-mechanic test prop (Part 7.5)
+2026-08-16 | Assets/_Project/Models/Bedroom2_Bathroom2/Static (ceiling fan prop) | Stage 5 fan-mount test prop (Part 2.2/7.5)
+2026-08-16 | Assets/_Project/Models (restrain rope prop) | Stage 5 restrain-mechanic test prop (Part 7.5)
+2026-08-16 | Assets/_Project/Models/Bedroom2_Bathroom2/Static (ceiling fan prop) | Stage 5 fan-mount test prop (Part 2.2/7.5)
+2026-08-16 | Assets/_Project/Models (restrain rope prop) | Stage 5 restrain-mechanic test prop (Part 7.5)
+2026-08-16 | Assets/_Project/Models/Bedroom2_Bathroom2/Static (ceiling fan prop) | Stage 5 fan-mount test prop (Part 2.2/7.5)
+2026-08-16 | Assets/_Project/Models/Foyer/(Static|Throwable)/Foyer_Curtains_01.* | Part 4.2 Foyer prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Foyer/(Static|Throwable)/Foyer_UmbrellaStand_01.* | Part 4.2 Foyer prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Foyer/(Static|Throwable)/Foyer_ChessTable_01.* | Part 4.2 Foyer prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Foyer/(Static|Throwable)/Foyer_ChessPiece_01.* | Part 4.2 Foyer prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Foyer/(Static|Throwable)/Foyer_FloorLamp_01.* | Part 4.2 Foyer prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Foyer/(Static|Throwable)/Foyer_WineBottle_01.* | Part 4.2 Foyer prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Kitchen/(Static|Throwable)/Kitchen_EggCarton_01.* | Part 4.3 Kitchen prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Kitchen/(Static|Throwable)/Kitchen_SugarBag_01.* | Part 4.3 Kitchen prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Kitchen/(Static|Throwable)/Kitchen_SpiceJar_01.* | Part 4.3 Kitchen prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Kitchen/(Static|Throwable)/Kitchen_Window_01.* | Part 4.3 Kitchen prop - source file not found, no numbered variant either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_BookStack_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_LampFloor_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_HolePuncher_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_PaperStack_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_Globe_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_Trophy_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_FilingCabinet_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_Marker_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_CoffeeMug_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_CoffeeMachine_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_Telephone_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_Curtains_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Office/(Static|Throwable)/Office_Door_01.* | Part 4.4 Office prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom1_Curtains_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom1_Window_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom1_Window_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom2_Poster_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom2_Curtains_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom2_Window_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_ShowerDoor_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_Towel_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_Door_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-16 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_TrashBin_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom1_Curtains_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom1_Window_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom1_Window_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom2_Poster_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom2_Curtains_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bedroom2_Window_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_ShowerDoor_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_Towel_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_Door_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
+2026-08-17 | Assets/_Project/Models/Bedroom{1,2}_Bathroom{1,2}/(Static|Throwable)/Bathroom2_TrashBin_01.* | Part 4.5/4.6 Bedroom/Bathroom prop - source file not found, no numbered variant or clear synonym either
