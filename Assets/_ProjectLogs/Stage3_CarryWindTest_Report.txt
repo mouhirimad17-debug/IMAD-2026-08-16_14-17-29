@@ -1,0 +1,27 @@
+=== Stage 3 - Carry & Wind System Test (Part 7.1 + 7.2) ===
+
+[PASS] Pickup range rejects a target beyond 2m (Part 7.1) -> held=False
+[PASS] Pickup cone rejects a target beyond 45deg off facing (Part 7.1) -> held=False
+[PASS] Pickup succeeds within 2m range and 45deg cone (Part 7.1) -> held=True
+[PASS] Light carry applies no speed penalty (Part 7.1: 100% speed) -> multiplier=1.000
+[PASS] Heavy solo carry applies the 30% speed factor (Part 5.1/7.1) -> multiplier=0.300 expected=0.3
+[PASS] Wind has not started immediately after pickup (Part 7.1: 1s delay) -> windActive=False
+[PASS] Wind starts after the 1s delay (Part 7.1) -> windActive=True
+[PASS] Wind push magnitude matches 10% of run speed (Part 7.2) -> push=0.600 expected=0.600
+[PASS] Dropping the heavy object stops the wind (Part 7.2) -> windActive=False
+[PASS] Dropping the heavy object restores full speed (Part 7.1) -> multiplier=1.000
+[PASS] Setup: wind is active before the second carrier joins -> windActive=True
+[PASS] Second carrier joins a solo-held heavy object within 1.5m (Part 7.1) -> joined=True
+[PASS] Both carriers return to 100% speed on joint carry (Part 7.1) -> A=1.000 B=1.000
+[PASS] Wind stops immediately when the second carrier joins (Part 7.1) -> windActive=False
+[PASS] Setup: wind active before ignition -> windActive=True
+[PASS] Fire proximity triggers ignition (Part 7.2: 1m radius) -> igniteCount=1
+[PASS] Ignition stops the wind immediately -> windActive=False
+[PASS] Ignition drops the carried object -> held=False
+[PASS] Ignition launches the player into free flight (Part 7.2) -> isFreeFlight=True
+[PASS] Launch force splits 20% horizontal / 80% vertical (Part 5.2 standard) -> vertical=9.600 expectedVertical=9.600 horizontal=2.400 expectedHorizontal=2.400
+[PASS] Player gains height during the launch -> peakY=4.713 startY=0.080
+[PASS] Player lands and free flight ends within a reasonable time -> isFreeFlight=False elapsed=1.95s
+
+TOTAL: 22/22 passed
+RESULT: Stage 3 carry & wind systems match Part 7.1 / Part 7.2.

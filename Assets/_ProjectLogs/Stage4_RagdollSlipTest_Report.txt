@@ -1,0 +1,18 @@
+=== Stage 4 - Ragdoll & Slip Trap Test (Part 7.3 + 7.4) ===
+
+[PASS] Falling more than 1.5m triggers full ragdoll (Part 7.3) -> isRagdolled=True elapsed=0.57s
+[PASS] TriggerRagdoll() enters the ragdoll state immediately -> isRagdolled=True
+[PASS] Player control is suspended while ragdolled (Part 7.3) -> isExternallyControlled=True
+[PASS] Ragdoll lasts at least the 2s minimum duration (Part 7.3) -> elapsed=2.19s min=2
+[PASS] Ragdoll ends and returns control within a reasonable time -> isRagdolled=False isExternallyControlled=False elapsed=2.19s
+[PASS] Triggering an already-ragdolled player is a no-op (no restart storm) -> triggerCount=1
+[PASS] Colliding at over 5 m/s relative speed triggers ragdoll (Part 7.3) -> isRagdolled=True elapsed=0.23s
+[PASS] Entering a slip zone triggers ragdoll, no exemption for anyone (Part 7.4) -> isRagdolled=True
+[PASS] Setup: pourable object was picked up -> held=True
+[PASS] Holding interact for 0.8s while carrying a pourable pours it (Part 7.4) -> pourCount=1 elapsed=0.80s
+[PASS] The pourable is consumed on pour -> held=False
+[PASS] A slip zone exists after pouring -> zoneFound=True
+[PASS] The pourer is not exempt from their own trap (Part 7.4) -> isRagdolled=True
+
+TOTAL: 13/13 passed
+RESULT: Stage 4 ragdoll & slip systems match Part 7.3 / Part 7.4.

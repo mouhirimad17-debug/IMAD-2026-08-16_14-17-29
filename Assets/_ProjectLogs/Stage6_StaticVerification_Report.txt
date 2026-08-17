@@ -1,0 +1,90 @@
+=== Stage 6 - Static Verification (Part 4.2 + Law 0.3 + Law 0.2) ===
+
+[PASS] Foyer_SofaLuxury_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_SofaLuxury_01.prefab
+[PASS] Foyer_SofaLuxury_01: corrected size matches Part 4 (2.2m within 10 %) -> measured=2.200m expected=2.2m
+[PASS] Foyer_SofaLuxury_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Foyer_Armchair_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Armchair_01.prefab
+[PASS] Foyer_Armchair_01: corrected size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Foyer_Armchair_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Foyer_CoffeeTable_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_CoffeeTable_01.prefab
+[PASS] Foyer_CoffeeTable_01: corrected size matches Part 4 (1.2m within 10 %) -> measured=1.200m expected=1.2m
+[PASS] Foyer_CoffeeTable_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Foyer_Rug_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Rug_01.prefab
+[PASS] Foyer_Rug_01: corrected size matches Part 4 (3m within 10 %) -> measured=3.000m expected=3m
+[PASS] Foyer_Rug_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Foyer_Chandelier_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Chandelier_01.prefab
+[PASS] Foyer_Chandelier_01: corrected size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Foyer_Chandelier_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Foyer_Painting_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Painting_01.prefab
+[PASS] Foyer_Painting_01: corrected size matches Part 4 (1.2m within 10 %) -> measured=1.200m expected=1.2m
+[PASS] Foyer_Painting_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Foyer_VaseLarge_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_VaseLarge_01.prefab
+[PASS] Foyer_VaseLarge_01: corrected size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Foyer_VaseLarge_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Foyer_VaseSmall_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_VaseSmall_01.prefab
+[PASS] Foyer_VaseSmall_01: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Foyer_VaseSmall_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Foyer_ClockGrand_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_ClockGrand_01.prefab
+[PASS] Foyer_ClockGrand_01: corrected size matches Part 4 (2.2m within 10 %) -> measured=2.200m expected=2.2m
+[PASS] Foyer_ClockGrand_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Foyer_SideTable_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_SideTable_01.prefab
+[PASS] Foyer_SideTable_01: corrected size matches Part 4 (0.6m within 10 %) -> measured=0.600m expected=0.6m
+[PASS] Foyer_SideTable_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Foyer_Curtains_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Foyer_Statue_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Statue_01.prefab
+[PASS] Foyer_Statue_01: corrected size matches Part 4 (1.6m within 10 %) -> measured=1.600m expected=1.6m
+[PASS] Foyer_Statue_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Foyer_FruitBowl_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_FruitBowl_01.prefab
+[PASS] Foyer_FruitBowl_01: corrected size matches Part 4 (0.4m within 10 %) -> measured=0.400m expected=0.4m
+[PASS] Foyer_FruitBowl_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Foyer_CandelabraStanding_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_CandelabraStanding_01.prefab
+[PASS] Foyer_CandelabraStanding_01: corrected size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Foyer_CandelabraStanding_01: correct Part 4.1 classification component(s) -> class=FireSourceFallable
+[PASS] Foyer_Ottoman_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Ottoman_01.prefab
+[PASS] Foyer_Ottoman_01: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Foyer_Ottoman_01: correct Part 4.1 classification component(s) -> class=Pushable
+[PASS] Foyer_BookshelfTall_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_BookshelfTall_01.prefab
+[PASS] Foyer_BookshelfTall_01: corrected size matches Part 4 (2.5m within 10 %) -> measured=2.500m expected=2.5m
+[PASS] Foyer_BookshelfTall_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Foyer_UmbrellaStand_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Foyer_MirrorOrnate_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_MirrorOrnate_01.prefab
+[PASS] Foyer_MirrorOrnate_01: corrected size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Foyer_MirrorOrnate_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Foyer_ChampagneBottle_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_ChampagneBottle_01.prefab
+[PASS] Foyer_ChampagneBottle_01: corrected size matches Part 4 (0.35m within 10 %) -> measured=0.350m expected=0.35m
+[PASS] Foyer_ChampagneBottle_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Foyer_ChampagneGlass_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_ChampagneGlass_01.prefab
+[PASS] Foyer_ChampagneGlass_01: corrected size matches Part 4 (0.2m within 10 %) -> measured=0.200m expected=0.2m
+[PASS] Foyer_ChampagneGlass_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Foyer_Ashtray_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Ashtray_01.prefab
+[PASS] Foyer_Ashtray_01: corrected size matches Part 4 (0.15m within 10 %) -> measured=0.150m expected=0.15m
+[PASS] Foyer_Ashtray_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Foyer_ChessTable_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Foyer_ChessPiece_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Foyer_Sconce_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Sconce_01.prefab
+[PASS] Foyer_Sconce_01: corrected size matches Part 4 (0.2m within 10 %) -> measured=0.200m expected=0.2m
+[PASS] Foyer_Sconce_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Foyer_PianoGrand_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_PianoGrand_01.prefab
+[PASS] Foyer_PianoGrand_01: corrected size matches Part 4 (1.5m within 10 %) -> measured=1.500m expected=1.5m
+[PASS] Foyer_PianoGrand_01: correct Part 4.1 classification component(s) -> class=Pushable
+[PASS] Foyer_PianoBench_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_PianoBench_01.prefab
+[PASS] Foyer_PianoBench_01: corrected size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Foyer_PianoBench_01: correct Part 4.1 classification component(s) -> class=Pushable
+[PASS] Foyer_FloorLamp_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Foyer_CoatRack_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_CoatRack_01.prefab
+[PASS] Foyer_CoatRack_01: corrected size matches Part 4 (1.8m within 10 %) -> measured=1.800m expected=1.8m
+[PASS] Foyer_CoatRack_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Foyer_Pillow_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_Pillow_01.prefab
+[PASS] Foyer_Pillow_01: corrected size matches Part 4 (0.4m within 10 %) -> measured=0.400m expected=0.4m
+[PASS] Foyer_Pillow_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Foyer_WineRack_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_WineRack_01.prefab
+[PASS] Foyer_WineRack_01: corrected size matches Part 4 (1.2m within 10 %) -> measured=1.200m expected=1.2m
+[PASS] Foyer_WineRack_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Foyer_WineBottle_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Foyer_MainDoor_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Foyer_MainDoor_01.prefab
+[PASS] Foyer_MainDoor_01: corrected size matches Part 4 (2.4m within 10 %) -> measured=2.400m expected=2.4m
+[PASS] Foyer_MainDoor_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Foyer props are placed in the actual mansion scene -> childCount=26 expected=26
+
+TOTAL: 85/85 passed
+RESULT: PASS

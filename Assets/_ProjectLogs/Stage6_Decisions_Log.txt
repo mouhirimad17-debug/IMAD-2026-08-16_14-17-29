@@ -1,0 +1,46 @@
+=== Stage 6 - Foyer Prop Import - Logged Technical Decisions (Law 21.2) ===
+
+1. Foyer_StaircaseDouble_01 and Foyer_Railing_01 (Part 4.2) are NOT processed
+   this stage. Swapping them for Stage 1's tested procedural blockout means
+   matching a real mesh's pivot/orientation to the exact Law-0.4-verified
+   footprint - not safely confirmable without visually inspecting the asset,
+   which headless batch mode cannot do. Doing it blind risks silently
+   breaking the already-verified wall-closure/traversal test. Deferred to a
+   pass where the result can be visually checked.
+
+2. Foyer_StaircaseDouble_01's own Part 4 entry (6.00m) also predates Part
+   3.3's revision (footprint now 18x12m after the x3 mansion resize) and
+   was evidently not updated when the owner revised Part 3 - another reason
+   to defer rather than scale-correct against a now-stale number.
+
+3. Foyer_MainDoor_01's source file was found at
+   Assets/_Project/Models/Architecture/arch_maindoor_01.glb, not under
+   Foyer/Static/ as its Unity name would suggest - used anyway since it is
+   clearly the intended asset (only one door-shaped model in the project).
+   Only its static model is corrected/placed here; the hinge/open-close
+   behavior noted in its Part 4.2 row ("مفصلي - الجزء 8") is Stage 11's job.
+
+4. Dynamic props (Fallable/CarryLight/Pushable/FireSourceFallable) get
+   convex MeshColliders (PhysX requires a convex hull for any collider that
+   can end up on a non-kinematic Rigidbody) - an approximation of the real
+   mesh silhouette, not pixel-perfect collision, which is normal/expected
+   for a first import pass. Purely static props keep exact non-convex
+   MeshColliders.
+
+5. Part 4.1's "ثابت قابل للسقوط" tip threshold reuses Part 7.3's already-
+   established 5 m/s "hard impact" definition (see FallableProp.cs) rather
+   than inventing a second, separate number - the document gives no value
+   of its own for this.
+
+6. Scene placement uses a simple non-overlapping grid scatter across the
+   Foyer's open floor (2m spacing, 1.5m wall margin, staircase footprint
+   excluded) since the document gives no interior-design coordinates for
+   furniture anywhere - only structural ones. Chandelier is hung near the
+   ceiling and Painting/MirrorOrnate/Sconce are placed at a fixed 1.5m wall
+   height by a simple name-keyword rule; everything else sits on the floor.
+   A real art-direction pass (matching the sofa/coffee-table/rug cluster to
+   Part 3.3's reserved center-of-foyer seating area specifically) is a
+   future refinement, not attempted here.
+
+Missing this stage (6): Foyer_Curtains_01, Foyer_UmbrellaStand_01, Foyer_ChessTable_01, Foyer_ChessPiece_01, Foyer_FloorLamp_01, Foyer_WineBottle_01
+Scale warnings this stage (16): Foyer_SofaLuxury_01: factor=0.019 (expected 2.2m, measured 112.992m); Foyer_Armchair_01: factor=0.001 (expected 0.9m, measured 1300.584m); Foyer_Rug_01: factor=0.006 (expected 3m, measured 521.393m); Foyer_Chandelier_01: factor=0.001 (expected 1.5m, measured 1767.260m); Foyer_VaseLarge_01: factor=0.182 (expected 0.6m, measured 3.291m); Foyer_VaseSmall_01: factor=0.004 (expected 0.25m, measured 60.000m); Foyer_SideTable_01: factor=0.167 (expected 0.6m, measured 3.587m); Foyer_Statue_01: factor=7.273 (expected 1.6m, measured 0.220m); Foyer_FruitBowl_01: factor=0.001 (expected 0.4m, measured 777.222m); Foyer_CandelabraStanding_01: factor=0.039 (expected 1.5m, measured 38.151m); Foyer_Ottoman_01: factor=0.001 (expected 0.5m, measured 334.058m); Foyer_ChampagneBottle_01: factor=0.014 (expected 0.35m, measured 24.950m); Foyer_ChampagneGlass_01: factor=0.018 (expected 0.2m, measured 11.131m); Foyer_Ashtray_01: factor=0.006 (expected 0.15m, measured 24.181m); Foyer_PianoGrand_01: factor=0.180 (expected 1.5m, measured 8.314m); Foyer_MainDoor_01: factor=0.136 (expected 2.4m, measured 17.671m)

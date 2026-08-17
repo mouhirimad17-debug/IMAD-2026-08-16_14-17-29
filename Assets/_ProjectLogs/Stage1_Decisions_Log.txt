@@ -1,0 +1,57 @@
+=== Stage 1 Blockout - Logged Technical Decisions (Law 21.2) ===
+REVISION: rebuilt per the owner's 3-point correction to Part 3 (x3 footprint,
+side staircase, mandatory interior door gaps).
+
+1. Floor-to-floor rise = 3.20m clear height + 0.30m slab = 3.50m total.
+   Part 3.1 gives clear height (3.20) and slab thickness (0.30) as two
+   separate explicit values; Part 3.3's staircase note "(3.20 m)" for
+   reaching floor 2 reads as shorthand for the floor-height constant, not
+   a separately re-derived total rise. Used 3.50m as the authoritative rise.
+   Unaffected by the x3 revision (only horizontal dimensions scaled).
+
+2. Roof slab (0.30m) and ground slab (0.30m) added for a closed volume.
+   Not numerically specified in Part 3; reused the inter-floor slab
+   thickness for consistency. Purely technical, no gameplay effect.
+
+3. Staircase built as literal stacked cube steps (10 steps per flight,
+   0.75m tread / 0.175m rise) since Part 3.3 gives only overall footprint
+   (18x12m) and total rise, not step count. Tread run scaled x3 with the
+   footprint; rise/step-count left unchanged since floor height did not
+   scale. Matches this stage's own name ("blockout WITH CUBES"). Will be
+   replaced by Foyer_StaircaseDouble_01 in Stage 6.
+
+4. Floor 2 wing corner assignment: Office = back-west, Bedroom2 = front-west,
+   Bedroom1 = back-east; front-east corner left open as the stair-arrival
+   hallway hub (the document names three corners without coordinates).
+   Carried over unchanged from the original build, coordinates rescaled x3.
+
+5. Balcony railing thickness: 0.10m placeholder (not specified numerically).
+
+6. NEW - staircase relocated to the foyer's long wall opposite the main
+   entrance (z = Foyer.zMax = 36, shared with the back service corridor),
+   footprint 18m along the wall x 12m into the room, flush against it.
+   "Long side wall" read as the wall running along the foyer's longer
+   (42m) dimension. The central light-well opening stays independently
+   centered on the foyer per the document's explicit instruction that its
+   position does not follow the stairs. Because the foyer is only 36m
+   deep, the centered 18m-deep opening (z:9-27) and the wall-flush 12m-
+   deep stair shaft (z:24-36) unavoidably overlap by 3m given both
+   footprints and positions are individually pinned by the document -
+   resolved by building both the floor-2 slab and its balcony railing
+   with a generic rectilinear cut-around-N-holes algorithm rather than a
+   hand-placed single gap, so the merged void and its one real opening
+   seam are derived automatically and stay correct if either rect moves.
+
+7. NEW - law 3.6 (every interior wall needs a ~1m x 2.1m door gap from
+   Blockout onward) applied literally to ALL 14 interior wall pieces on
+   both floors (ground: gym/foyer, foyer/kitchen, and all 3 room/corridor
+   dividers; floor 2: both hallway-facing walls plus the bathroom split
+   wall in each of the 3 wings) - read from the document's own stronger,
+   unconditional restatement ("لا يُقبل أن تكون الجدران الداخلية بين أي
+   غرفتين مصمتة بالكامل") rather than only the walls where Part 4
+   happens to name a door prop. Door gap defaults to each wall's own
+   center; exact placement is not given per-wall in the document and real
+   door props are only imported in Stage 11.
+
+All decisions are easily adjustable - see MansionSpec.cs, which is the
+single source of truth both the builder and the wall-closure test read from.

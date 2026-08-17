@@ -1,0 +1,12 @@
+2026-08-16 | Placeholder_LightCarryable (0.3m cube) | stands in for a Part 4.2 light-carryable prop
+2026-08-16 | Placeholder_HeavyCarryable (0.7m cube) | stands in for a Part 4 heavy-carryable prop
+2026-08-16 | Placeholder_FireSource (0.2x1.5x0.2m box) | stands in for Foyer_CandelabraStanding_01
+2026-08-16 | PlaceholderAudio.GenerateTone procedural clips | stand in for Part 7.2 wind-loop and ignition-explosion SFX
+2026-08-16 | Placeholder_PourableSoap (0.25m cube) | stands in for a Part 4 pourable prop
+2026-08-16 | PlayerRagdoll's 12-capsule procedural rig | stands in for a real Part 5 character skeleton (Stage 12)
+2026-08-16 | Placeholder_Rope (0.6x0.08x0.08m box) | stands in for the Part 7.5 restrain rope
+2026-08-16 | Placeholder_CeilingFan_Bedroom2 | stands in for the real Bedroom2 ceiling fan prop
+2026-08-16 | Placeholder_Rope (0.6x0.08x0.08m box) | stands in for the Part 7.5 restrain rope
+2026-08-16 | Placeholder_CeilingFan_Bedroom2 | stands in for the real Bedroom2 ceiling fan prop
+2026-08-16 | Placeholder_Rope (0.6x0.08x0.08m box) | stands in for the Part 7.5 restrain rope
+2026-08-16 | Placeholder_CeilingFan_Bedroom2 | stands in for the real Bedroom2 ceiling fan prop

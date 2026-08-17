@@ -1,0 +1,73 @@
+=== Stage 8 - Static Verification (Part 4.4 + Law 0.3 + Law 0.2) ===
+
+[PASS] Office_DeskExec_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_DeskExec_01.prefab
+[PASS] Office_DeskExec_01: corrected size matches Part 4 (1.8m within 10 %) -> measured=1.800m expected=1.8m
+[PASS] Office_DeskExec_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Office_ChairWheels_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_ChairWheels_01.prefab
+[PASS] Office_ChairWheels_01: corrected size matches Part 4 (1.1m within 10 %) -> measured=1.100m expected=1.1m
+[PASS] Office_ChairWheels_01: correct Part 4.1 classification component(s) -> class=Pushable
+[PASS] Office_ChairGuest_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_ChairGuest_01.prefab
+[PASS] Office_ChairGuest_01: corrected size matches Part 4 (0.9m within 10 %) -> measured=0.900m expected=0.9m
+[PASS] Office_ChairGuest_01: correct Part 4.1 classification component(s) -> class=Pushable
+[PASS] Office_BookshelfLarge_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_BookshelfLarge_01.prefab
+[PASS] Office_BookshelfLarge_01: corrected size matches Part 4 (2.2m within 10 %) -> measured=2.200m expected=2.2m
+[PASS] Office_BookshelfLarge_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Office_Book_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Book_01.prefab
+[PASS] Office_Book_01: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Office_Book_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_Book_02: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Book_02.prefab
+[PASS] Office_Book_02: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Office_Book_02: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_Book_03: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Book_03.prefab
+[PASS] Office_Book_03: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Office_Book_03: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_Book_04: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Book_04.prefab
+[PASS] Office_Book_04: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Office_Book_04: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_Book_05: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Book_05.prefab
+[PASS] Office_Book_05: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Office_Book_05: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_Book_06: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Book_06.prefab
+[PASS] Office_Book_06: corrected size matches Part 4 (0.25m within 10 %) -> measured=0.250m expected=0.25m
+[PASS] Office_Book_06: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_BookStack_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_Printer_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Printer_01.prefab
+[PASS] Office_Printer_01: corrected size matches Part 4 (0.45m within 10 %) -> measured=0.450m expected=0.45m
+[PASS] Office_Printer_01: correct Part 4.1 classification component(s) -> class=CarryHeavy
+[PASS] Office_LampDesk_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_LampDesk_01.prefab
+[PASS] Office_LampDesk_01: corrected size matches Part 4 (0.4m within 10 %) -> measured=0.400m expected=0.4m
+[PASS] Office_LampDesk_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_LampFloor_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_Stapler_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Stapler_01.prefab
+[PASS] Office_Stapler_01: corrected size matches Part 4 (0.15m within 10 %) -> measured=0.150m expected=0.15m
+[PASS] Office_Stapler_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_HolePuncher_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_PaperStack_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_ClockWall_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_ClockWall_01.prefab
+[PASS] Office_ClockWall_01: corrected size matches Part 4 (0.3m within 10 %) -> measured=0.300m expected=0.3m
+[PASS] Office_ClockWall_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Office_Globe_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_Trophy_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_FilingCabinet_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_TrashBin_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_TrashBin_01.prefab
+[PASS] Office_TrashBin_01: corrected size matches Part 4 (0.5m within 10 %) -> measured=0.500m expected=0.5m
+[PASS] Office_TrashBin_01: correct Part 4.1 classification component(s) -> class=Pushable
+[PASS] Office_Whiteboard_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Whiteboard_01.prefab
+[PASS] Office_Whiteboard_01: corrected size matches Part 4 (1.2m within 10 %) -> measured=1.200m expected=1.2m
+[PASS] Office_Whiteboard_01: correct Part 4.1 classification component(s) -> class=PureStatic
+[PASS] Office_Marker_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_CoffeeMug_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_CoffeeMachine_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_Telephone_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_DeskOrganizer_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_DeskOrganizer_01.prefab
+[PASS] Office_DeskOrganizer_01: corrected size matches Part 4 (0.2m within 10 %) -> measured=0.200m expected=0.2m
+[PASS] Office_DeskOrganizer_01: correct Part 4.1 classification component(s) -> class=CarryLight
+[PASS] Office_Painting_01: corrected prefab exists -> path=Assets/_Project/Prefabs/Props/Office_Painting_01.prefab
+[PASS] Office_Painting_01: corrected size matches Part 4 (1m within 10 %) -> measured=1.000m expected=1m
+[PASS] Office_Painting_01: correct Part 4.1 classification component(s) -> class=Fallable
+[PASS] Office_Curtains_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office_Door_01: logged as missing (Law 0.2) -> checked Missing_Assets_Log.txt
+[PASS] Office props are placed in the actual mansion scene -> childCount=18 expected=18
+
+TOTAL: 68/68 passed
+RESULT: PASS

@@ -1,0 +1,84 @@
+=== Stage 1 - Project Reorganized To Match Part 1 (Folder Structure) ===
+
+--- Actions taken ---
+Renamed folder: Assets/Project -> Assets/_Project
+Renamed folder (case-fix): Assets/_Project/models -> Assets/_Project/Models
+Renamed folder: Assets/_Project/Models/Bedroom1-Bathroom1 -> Assets/_Project/Models/Bedroom1_Bathroom1
+Renamed folder: Assets/_Project/Models/Bedroom2-Bathroom2 -> Assets/_Project/Models/Bedroom2_Bathroom2
+Renamed folder: Assets/_Project/Models/Misc-Props -> Assets/_Project/Models/Misc_Global
+Created folder: Assets/_Project/Models/Foyer/Static
+Created folder: Assets/_Project/Models/Foyer/Throwable
+Created folder: Assets/_Project/Models/Kitchen/Static
+Created folder: Assets/_Project/Models/Kitchen/Throwable
+Created folder: Assets/_Project/Models/Office/Static
+Created folder: Assets/_Project/Models/Office/Throwable
+Created folder: Assets/_Project/Models/Bedroom1_Bathroom1/Static
+Created folder: Assets/_Project/Models/Bedroom1_Bathroom1/Throwable
+Created folder: Assets/_Project/Models/Bedroom2_Bathroom2/Static
+Created folder: Assets/_Project/Models/Bedroom2_Bathroom2/Throwable
+Created folder: Assets/_Project/Models/Gym/Static
+Created folder: Assets/_Project/Models/Gym/Throwable
+Created folder: Assets/_Project/Models/Characters/Player/Character_Slowpoke_01
+Created folder: Assets/_Project/Models/Characters/Player/Character_Strongman_01
+Created folder: Assets/_Project/Models/Characters/Player/Character_StrongPush_01
+Created folder: Assets/_Project/Models/Characters/Player/Character_BigEars_01
+Created folder: Assets/_Project/Models/Characters/Player/Character_QuietSteps_01
+Created folder: Assets/_Project/Models/Characters/Player/Character_QuickPour_01
+Created folder: Assets/_Project/Models/Characters/Player/Character_Featherweight_01
+Created folder: Assets/_Project/Models/Characters/Parrot/Parrot_Model_01
+Created folder: Assets/_Project/Models/Characters/Parrot/Parrot_Cage_01
+Created folder: Assets/_Project/Animations
+Created folder: Assets/_Project/Animations/Player_Common
+Created folder: Assets/_Project/Animations/Parrot
+Created folder: Assets/_Project/Audio/SFX/Physics
+Created folder: Assets/_Project/Audio/SFX/Fart
+Created folder: Assets/_Project/Audio/SFX/Slip
+Created folder: Assets/_Project/Audio/SFX/Doors
+Created folder: Assets/_Project/Audio/SFX/UI
+Created folder: Assets/_Project/Audio/Voice
+Created folder: Assets/_Project/Audio/Voice/Parrot
+Created folder: Assets/_Project/VFX/FartSmoke
+Created folder: Assets/_Project/VFX/FartIgnite
+Created folder: Assets/_Project/VFX/DustImpact
+Created folder: Assets/_Project/VFX/FlourExplosion
+Created folder: Assets/_Project/VFX/SplashPour
+Created folder: Assets/_Project/VFX/StarsRagdoll
+Created folder: Assets/_Project/VFX/SparkleGeneric
+Created folder: Assets/_Project/Prefabs
+Created folder: Assets/_Project/Prefabs/Environment
+Created folder: Assets/_Project/Prefabs/Characters
+Created folder: Assets/_Project/Prefabs/Props
+Created folder: Assets/_Project/Prefabs/UI
+Created folder: Assets/_Project/Materials
+Created folder: Assets/_Project/UI
+Created folder: Assets/_Project/UI/Fonts
+Created folder: Assets/_Project/UI/Icons
+Created folder: Assets/_Project/UI/Backgrounds
+Created folder: Assets/_Project/Localization
+Created folder: Assets/_Project/Localization/StringTables
+Created folder: Assets/_Project/Plugins
+Created folder: Assets/_Project/Scripts/Networking
+Created folder: Assets/_Project/Scripts/Player
+Created folder: Assets/_Project/Scripts/Entities
+Created folder: Assets/_Project/Scripts/UI
+Created folder: Assets/_Project/Scripts/Localization
+Created folder: Assets/_Project/Scenes
+Deleted now-empty Assets/Scenes.
+
+--- Left as-is / needs your confirmation later ---
+Foyer: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Foyer/Static
+Foyer: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Foyer/Throwable
+Kitchen: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Kitchen/Static
+Kitchen: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Kitchen/Throwable
+Office: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Office/Static
+Office: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Office/Throwable
+office_lamp_01.glb: table has two distinct lamp entries (Office_LampDesk_01=carryable, Office_LampFloor_01=static-fall) and the file name doesn't say which. Filed under Throwable as a guess - please confirm in Stage 8.
+Bedroom1_Bathroom1: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Bedroom1_Bathroom1/Static
+Bedroom1_Bathroom1: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Bedroom1_Bathroom1/Throwable
+Bedroom1_Bathroom1/bedroom1__towel_01.glb and wooden_door.glb: not named in Part 4.5's table (no bathroom1 towel listed there, and 'wooden_door' is generic). Placed by physical nature (Throwable / Static respectively); confirm identity in Stage 9.
+Bedroom2_Bathroom2: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Bedroom2_Bathroom2/Static
+Bedroom2_Bathroom2: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Bedroom2_Bathroom2/Throwable
+Gym: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Gym/Static
+Gym: left unsorted in region root (not in Static/Throwable list): Assets/_Project/Models/Gym/Throwable
+Characters/Player root: RM_Roll_back/left45/right45/front/front_left45/front_right45 and ShadowBoxing_mixamo.fbx left in place - not named in Part 5.3's common-animation list, not renamed/moved to avoid guessing. Also left in place: ~20 vendor mocap/animation package folders (Combat, Dancing, Destiny, Guns, Magic, Meme, Misc, MoCapCentral, Movement, Music, Sitting, Sports, StarWars, SuperHero, VanillaLoopStudio, Zombie, Brawler Animations Sample, Free Interaction Animation, IdlesMocapPack_noFACE, RokokoTVContest_MocapAssets, New Folder) - Part 1 does not govern raw third-party source libraries, only the project's own curated assets.
+Audio/SFX: vendor packs ('Cartoon Game Sound 2.0', 'Casual Game Sounds U6', 'UI SFX Free Pack') left in place, not sorted into Physics/Fart/Slip/Doors/UI - that curation is Stage 13's job (Part 13), not a folder rename.

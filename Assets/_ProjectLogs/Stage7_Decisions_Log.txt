@@ -1,0 +1,42 @@
+=== Stage 7 - Kitchen Prop Import - Logged Technical Decisions (Law 21.2) ===
+
+1. Watermelon is the project's first real Heavy-carryable prop - tagged
+   CarryableObject.WeightClass.Heavy, which already wires it into the full
+   Part 7.1/7.2 solo-carry speed penalty + wind-timer system built in
+   Stage 3, with no new carry code needed.
+
+2. FlourBag/Plate/MilkCarton get the new ImpactReactionProp component on
+   top of their normal Light-carryable classification (Explode/Shatter/
+   Leak respectively) - Part 4.3 describes these as an extra one-shot
+   visual note on an otherwise ordinary carryable item, not a separate
+   physical class. Explode/Shatter reuse Part 7.3's 5 m/s "قوي" impact
+   definition; Leak has no such qualifier in the document ("عند السقوط"
+   only) so it fires on any landing. No FlourExplosion/SplashPour VFX
+   assets exist yet (both folders are empty) - simple procedural particle
+   bursts stand in, per Law 0.2.
+
+3. Several items have a different number of real source-file variants than
+   Part 4.3's own range mentions suggest: Apple/Orange/Tomato/Plate each
+   have only one file (not the two/three implied), while Banana/Egg/Knife
+   each have two despite the document listing them as single items. Each
+   actually-found file becomes its own correctly-numbered prefab rather
+   than forcing a specific count - Law 0.2's variant-set handling is about
+   using what exists, not manufacturing placeholders for a hinted-at range
+   when the base item itself was already found.
+
+4. Kitchen_FullCombo_01's internal sub-door hierarchy is left completely
+   untouched (Part 4.3: "تُستخدم بأسمائها الأصلية ... دون إعادة تسمية") -
+   Law 0.3 step 6 (scale correction applies to the root node only) already
+   guarantees this by construction; no special-case code was needed.
+
+5. Kitchen_Door_01's hinge/open-close behavior ("مفصلي داخلي") is Stage 11's
+   job, same as Foyer_MainDoor_01 in Stage 6 - only the static model is
+   corrected/placed here.
+
+6. Scene placement uses the same undirected grid-scatter approach as Stage
+   6 (no interior-design coordinates are given anywhere in the document),
+   tighter spacing (1m) since kitchen items are mostly small countertop
+   props rather than room-scale furniture.
+
+Missing this stage (4): Kitchen_EggCarton_01, Kitchen_SugarBag_01, Kitchen_SpiceJar_01, Kitchen_Window_01
+Scale warnings this stage (20): Kitchen_Table_01: factor=0.003 (expected 1.5m, measured 451.759m); Kitchen_Chair_01: factor=0.009 (expected 0.9m, measured 101.482m); Kitchen_Apple_01: factor=0.117 (expected 0.08m, measured 0.685m); Kitchen_Banana_01: factor=0.001 (expected 0.18m, measured 206.250m); Kitchen_Banana_02: factor=0.074 (expected 0.18m, measured 2.428m); Kitchen_Tomato_01: factor=0.000 (expected 0.07m, measured 265.980m); Kitchen_Egg_01: factor=0.030 (expected 0.06m, measured 2.000m); Kitchen_Egg_02: factor=0.000 (expected 0.06m, measured 209.750m); Kitchen_Watermelon_01: factor=0.069 (expected 0.35m, measured 5.049m); Kitchen_Pan_01: factor=0.005 (expected 0.3m, measured 57.419m); Kitchen_Knife_01: factor=0.025 (expected 0.25m, measured 9.894m); Kitchen_RollingPin_01: factor=0.032 (expected 0.4m, measured 12.389m); Kitchen_Bowl_01: factor=0.043 (expected 0.2m, measured 4.685m); Kitchen_WineBottle_01: factor=0.009 (expected 0.3m, measured 34.768m); Kitchen_CuttingBoard_01: factor=0.048 (expected 0.3m, measured 6.311m); Kitchen_Blender_01: factor=0.087 (expected 0.4m, measured 4.596m); Kitchen_Kettle_01: factor=0.113 (expected 0.25m, measured 2.208m); Kitchen_FruitBasket_01: factor=0.001 (expected 0.4m, measured 777.222m); Kitchen_TrashBin_01: factor=0.002 (expected 0.6m, measured 313.974m); Kitchen_Door_01: factor=0.010 (expected 2.1m, measured 206.000m)

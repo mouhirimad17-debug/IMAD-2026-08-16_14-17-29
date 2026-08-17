@@ -1,0 +1,48 @@
+=== Stage 8 - Office Prop Import - Logged Technical Decisions (Law 21.2) ===
+
+1. DOCUMENT GAP (flagged, not implemented): Office_ChairWheels_01's row says
+   "خاص: قابل لتثبيت خصم مقيّد عليه (الجزء 7.5)" citing Part 7.5, but Part
+   7.5's own text (fully built in Stage 5: rope-restrain, joint-carry,
+   balcony-throw, fan-mount, 30s timeout) never mentions a wheeled chair
+   anywhere. This is a genuine gap between this table row and Part 7.5's
+   actual content, not a missed spec in Stage 5. No new finishing-move
+   mechanic was invented to fill it, per the document's own no-guessing
+   principle - the chair is imported and classified Pushable only (its
+   other stated property). Recommend the project owner extend Part 7.5
+   with the missing numeric spec if this mechanic is actually wanted.
+
+2. Several source files use different words than Part 4.4's Unity names -
+   matched on the same single-plausible-candidate judgment as Stage 6's
+   sofa/champagne/MainDoor: office_desk_01->DeskExec, office_meetingchair_01
+   ->ChairGuest, Office_Bookschelf_01->BookshelfLarge (near-certain typo),
+   office_lamp_01->LampDesk, Office_clock_01->ClockWall,
+   office_wastebasketmetal_01->TrashBin, office_bulletinboard_01->
+   Whiteboard, office_worldmap_01->Painting, office_penholder_01->
+   DeskOrganizer. The last three are lower-confidence functional analogues
+   (a corkboard/map/pen-holder standing in for a whiteboard/painting/
+   organizer) rather than near-certain renames - flagged here in case a
+   more exact asset is added later.
+
+3. Office_CoffeeMug_01 was NOT matched to office_waterglass_01 despite both
+   being drinking vessels - a water glass and a coffee mug are visually and
+   functionally distinct enough that forcing the match seemed less honest
+   than logging CoffeeMug as missing. Office_Marker_01 was similarly NOT
+   matched to the three office_pen_*.glb files (a pen is not a whiteboard
+   marker) - those pens aren't in Part 4.4's table at all and are left
+   unprocessed as bonus assets.
+
+4. The Office models folder contains numerous other bonus assets with no
+   corresponding Part 4.4 table row at all (safe, shredder, leather sofa,
+   meeting table, desk fan, Newton's cradle, scissors, tape dispenser,
+   water pitcher/glass, cigar ashtray, humidor, calendar, card holder,
+   push pin, stamp, monitor, umbrella) - left unprocessed this stage since
+   Stage 8's scope is fulfilling Part 4.4's table, not importing every file
+   in the folder. Available for a future document revision if the owner
+   wants them formally added.
+
+5. Placement uses the same grid-scatter approach as Stages 6/7, on floor 2
+   within MansionSpec.OfficeWing at Floor2FloorY (unlike the Foyer/
+   Kitchen's ground-floor placement).
+
+Missing this stage (13): Office_BookStack_01, Office_LampFloor_01, Office_HolePuncher_01, Office_PaperStack_01, Office_Globe_01, Office_Trophy_01, Office_FilingCabinet_01, Office_Marker_01, Office_CoffeeMug_01, Office_CoffeeMachine_01, Office_Telephone_01, Office_Curtains_01, Office_Door_01
+Scale warnings this stage (11): Office_Book_01: factor=0.000 (expected 0.25m, measured 540.871m); Office_Book_04: factor=0.055 (expected 0.25m, measured 4.542m); Office_Book_05: factor=0.125 (expected 0.25m, measured 2.000m); Office_Printer_01: factor=0.002 (expected 0.45m, measured 200.000m); Office_LampDesk_01: factor=0.009 (expected 0.4m, measured 46.687m); Office_Stapler_01: factor=0.002 (expected 0.15m, measured 63.804m); Office_ClockWall_01: factor=0.150 (expected 0.3m, measured 2.000m); Office_TrashBin_01: factor=48.253 (expected 0.5m, measured 0.010m); Office_Whiteboard_01: factor=0.108 (expected 1.2m, measured 11.160m); Office_DeskOrganizer_01: factor=0.001 (expected 0.2m, measured 275.048m); Office_Painting_01: factor=0.105 (expected 1m, measured 9.490m)

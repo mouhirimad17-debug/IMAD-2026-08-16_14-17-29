@@ -1,0 +1,14 @@
+=== Stage 8 - Dynamic Office Props Test (real meshes, Play Mode) ===
+
+[PASS] Setup: Office props root exists in the scene -> found=True
+[PASS] Setup: Office_Book_01 instance found in scene -> found=True
+[PASS] A real Office prop mesh (Office_Book_01) can be picked up (Part 7.1) -> picked=True
+[PASS] Setup: Office_Printer_01 instance found in scene -> found=True
+[PASS] Office_Printer_01 is classified Heavy (Part 4.4) -> weightClass=Heavy
+[PASS] Carrying the real printer solo applies the 30% speed factor (Part 5.1/7.1) -> picked=True multiplier=0.300
+[PASS] Setup: Office_ChairWheels_01 instance found in scene -> found=True
+[PASS] Office_ChairWheels_01 has a PushableProp + non-kinematic Rigidbody (Part 4.4) -> pushable=True body=True kinematic=False
+[PASS] Walking into a real Pushable prop shoves it along the floor (Part 4.1) -> moved=0.227m elapsed=0.17s
+
+TOTAL: 9/9 passed
+RESULT: Stage 8 real-mesh Office props work correctly with the existing physics systems.

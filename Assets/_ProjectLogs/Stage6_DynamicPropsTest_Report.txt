@@ -1,0 +1,18 @@
+=== Stage 6 - Dynamic Foyer Props Test (real meshes, Play Mode) ===
+
+[PASS] Setup: Foyer props root exists in the scene -> found=True
+[PASS] Setup: Foyer_ChampagneGlass_01 instance found in scene -> found=True
+[PASS] Foyer_ChampagneGlass_01 has a CarryableObject (real mesh + convex collider) -> found=True
+[PASS] A real prop mesh (Foyer_ChampagneGlass_01) can actually be picked up (Part 7.1) -> picked=True held=True
+[PASS] Setup: Foyer_CoffeeTable_01 instance found in scene -> found=True
+[PASS] Foyer_CoffeeTable_01 has a FallableProp + Rigidbody (real mesh + convex collider) -> fallable=True body=True
+[PASS] Foyer_CoffeeTable_01 starts kinematic (stands still until hit hard) -> isKinematic=True
+[PASS] A hard impact (>5 m/s) tips a real Fallable prop over (Part 4.1) -> isKinematic=False elapsed=0.11s
+[PASS] Setup: Foyer_CandelabraStanding_01 instance found in scene -> found=True
+[PASS] Foyer_CandelabraStanding_01 has both FireSource and FallableProp (Part 4.2's fire-source classification) -> fireSource=True fallable=True
+[PASS] Foyer_CandelabraStanding_01 is registered in FireSource.Active -> registered=True
+[PASS] Setup: wind active before approaching the real fire source -> windActive=True
+[PASS] Wind ignites against a real Foyer fire-source prop (Part 7.2) -> windActive=False
+
+TOTAL: 13/13 passed
+RESULT: Stage 6 real-mesh props work correctly with the existing physics systems.

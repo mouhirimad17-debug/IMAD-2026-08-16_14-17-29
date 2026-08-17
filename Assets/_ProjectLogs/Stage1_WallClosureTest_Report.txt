@@ -1,0 +1,30 @@
+=== Stage 1 - Law 0.4 Exterior Wall Closure Test ===
+Real PhysX rigidbody push test (player controller not yet built - see Stage 2).
+
+[PASS] Front(Z=0) along=23.50 y=1.60 -> finalCoord=0.600 outerFace=0.00
+[PASS] Front(Z=0) along=23.50 y=5.00 -> finalCoord=0.600 outerFace=0.00
+[PASS] Front(Z=0) along=45.00 y=1.60 -> finalCoord=0.600 outerFace=0.00
+[PASS] Front(Z=0) along=45.00 y=5.00 -> finalCoord=0.600 outerFace=0.00
+[PASS] Front(Z=0) along=66.50 y=1.60 -> finalCoord=0.600 outerFace=0.00
+[PASS] Front(Z=0) along=66.50 y=5.00 -> finalCoord=0.600 outerFace=0.00
+[PASS] Back(Z=WidZ) along=23.50 y=1.60 -> finalCoord=59.400 outerFace=60.00
+[PASS] Back(Z=WidZ) along=23.50 y=5.00 -> finalCoord=59.400 outerFace=60.00
+[PASS] Back(Z=WidZ) along=45.00 y=1.60 -> finalCoord=59.400 outerFace=60.00
+[PASS] Back(Z=WidZ) along=45.00 y=5.00 -> finalCoord=59.400 outerFace=60.00
+[PASS] Back(Z=WidZ) along=66.50 y=1.60 -> finalCoord=59.400 outerFace=60.00
+[PASS] Back(Z=WidZ) along=66.50 y=5.00 -> finalCoord=59.400 outerFace=60.00
+[PASS] Left(X=0) along=16.00 y=1.60 -> finalCoord=0.600 outerFace=0.00
+[PASS] Left(X=0) along=16.00 y=5.00 -> finalCoord=0.600 outerFace=0.00
+[PASS] Left(X=0) along=30.00 y=1.60 -> finalCoord=0.600 outerFace=0.00
+[PASS] Left(X=0) along=30.00 y=5.00 -> finalCoord=0.600 outerFace=0.00
+[PASS] Left(X=0) along=44.00 y=1.60 -> finalCoord=0.600 outerFace=0.00
+[PASS] Left(X=0) along=44.00 y=5.00 -> finalCoord=0.600 outerFace=0.00
+[PASS] Right(X=LenX) along=16.00 y=1.60 -> finalCoord=89.400 outerFace=90.00
+[PASS] Right(X=LenX) along=16.00 y=5.00 -> finalCoord=89.400 outerFace=90.00
+[PASS] Right(X=LenX) along=30.00 y=1.60 -> finalCoord=89.400 outerFace=90.00
+[PASS] Right(X=LenX) along=30.00 y=5.00 -> finalCoord=89.400 outerFace=90.00
+[PASS] Right(X=LenX) along=44.00 y=1.60 -> finalCoord=89.400 outerFace=90.00
+[PASS] Right(X=LenX) along=44.00 y=5.00 -> finalCoord=89.400 outerFace=90.00
+
+TOTAL: 24/24 passed
+RESULT: ALL EXTERIOR WALLS CLOSED - Law 0.4 satisfied (pre-player-controller physics test).

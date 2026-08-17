@@ -1,0 +1,31 @@
+=== Stage 5 - Capture & Restraint Test (Part 7.5) ===
+
+[PASS] Ragdoll settling enters Unconscious, not direct standing (Part 7.5) -> state=Unconscious
+[PASS] Player stays lying still (control suspended) while unconscious -> isExternallyControlled=True
+[PASS] Unconscious auto-wakes after 6s with no rescue (Part 7.5) -> state=None isExternallyControlled=False
+[PASS] Setup: victim is unconscious -> state=Unconscious
+[PASS] Setup: rescuer picked up the rope -> held=True
+[PASS] Approaching an unconscious victim with a rope restrains them (Part 7.5) -> restrained=True
+[PASS] Restraining consumes the rope -> held=False
+[PASS] Victim is now Restrained -> state=Restrained
+[PASS] Two different rescuers can each grab an end (Part 7.5) -> head=True feet=True
+[PASS] Grabbing both ends within the sync window activates joint carry -> isJointCarried=True
+[PASS] Both carriers take the 20% speed penalty (Part 7.5) -> head=0.80 feet=0.80 expected=0.8
+[PASS] Setup: victim is jointly carried before the balcony test -> isJointCarried=True
+[PASS] Resolving the insult at the balcony edge throws the victim (Part 7.5) -> state=None isFreeFlight=True
+[PASS] Landing from the balcony throw re-triggers full ragdoll (Part 7.3/7.5) -> isRagdolled=True
+[PASS] The thrown victim recovers into Unconscious again afterward -> state=Unconscious
+[PASS] Setup: rescuer re-picked up a rope for the fan test -> pickedUp=True
+[PASS] Setup: re-restrained for the fan test -> restrained=True
+[PASS] Setup: re-restrained and re-grabbed for the fan test -> isJointCarried=True
+[PASS] Resolving the insult near a fan mounts the victim on it (Part 7.5) -> mounted=True
+[PASS] Joint carry ends once mounted -> isJointCarried=False
+[PASS] Victim stays Restrained while mounted (no auto-release) -> state=Restrained
+[PASS] Mounted victim's position follows the spinning fan -> moved=True
+[PASS] Setup: rescuer picked up a rope for the timeout test -> pickedUp=True
+[PASS] Setup: restrained for the release/timeout test -> restrained=True
+[PASS] Resolving the insult away from any special spot just lets go (Part 7.5 option 3) -> isJointCarried=False state=Restrained
+[PASS] Restrained state auto-releases after its 30s cap (Part 7.5) -> state=None
+
+TOTAL: 26/26 passed
+RESULT: Stage 5 capture/restraint system matches Part 7.5.

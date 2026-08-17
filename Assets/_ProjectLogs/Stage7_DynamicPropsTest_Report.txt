@@ -1,0 +1,17 @@
+=== Stage 7 - Dynamic Kitchen Props Test (real meshes, Play Mode) ===
+
+[PASS] Setup: Kitchen props root exists in the scene -> found=True
+[PASS] Setup: Kitchen_Apple_01 instance found in scene -> found=True
+[PASS] A real Kitchen prop mesh (Kitchen_Apple_01) can be picked up (Part 7.1) -> picked=True
+[PASS] Setup: Kitchen_Watermelon_01 instance found in scene -> found=True
+[PASS] Kitchen_Watermelon_01 is classified Heavy (Part 4.3's first real Heavy prop) -> weightClass=Heavy
+[PASS] Carrying the real watermelon solo applies the 30% speed factor (Part 5.1/7.1) -> picked=True multiplier=0.300
+[PASS] Setup: Kitchen_FlourBag_01 instance found in scene -> found=True
+[PASS] Kitchen_FlourBag_01 has an ImpactReactionProp (Explode) -> found=True
+[PASS] A hard impact makes the real flour bag explode (Part 4.3) -> triggered=True elapsed=0.07s
+[PASS] Setup: Kitchen_MilkCarton_01 instance found in scene -> found=True
+[PASS] Kitchen_MilkCarton_01 has an ImpactReactionProp (Leak) -> found=True
+[PASS] Even a gentle landing (no 'قوي' qualifier) makes the milk carton leak (Part 4.3) -> triggered=True elapsed=0.00s
+
+TOTAL: 12/12 passed
+RESULT: Stage 7 real-mesh Kitchen props work correctly with the existing physics systems.
