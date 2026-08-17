@@ -54,12 +54,19 @@ namespace PrankMansion.Player
         private Vector3 settledPosition;
         private float settledYaw;
         private float headGrabTime = -999f, feetGrabTime = -999f;
+        private AudioSource audioSource;
+        private AudioClip ropeTieClip;
 
         private void Awake()
         {
             ragdoll = GetComponent<PlayerRagdoll>();
             locomotion = GetComponent<PlayerLocomotion>();
             ragdoll.OnSettled += HandleRagdollSettled;
+
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 1f;
+            ropeTieClip = PlaceholderAudio.GenerateTone("Placeholder_RopeTie", 200f, 0.25f, 0.3f); // Part 13.1: "صوت ربط الحبل"
         }
 
         private void OnDestroy()
@@ -118,6 +125,7 @@ namespace PrankMansion.Player
             State = CaptureState.Restrained;
             restrainedTimer = 0f;
             mountedOnFan = false;
+            AudioService.PlayOneShotSfx(audioSource, ropeTieClip); // Part 13.1: "يُشغَّل عند لحظة تحول أي لاعب ... لحالة مقيّد"
             Destroy(rope.gameObject); // "الحبل يُستهلك عند الاستخدام"
 
             // Part 9.1: point for successfully restraining an OPPONENT, at the exact

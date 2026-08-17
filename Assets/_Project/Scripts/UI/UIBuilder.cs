@@ -1,3 +1,5 @@
+using PrankMansion.Localization;
+using PrankMansion.Systems;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -72,6 +74,43 @@ namespace PrankMansion.UI
             textRect.offsetMin = Vector2.zero;
             textRect.offsetMax = Vector2.zero;
 
+            // Part 13.1: "أصوات واجهة المستخدم العامة (نقر الأزرار ...) تُشغَّل
+            // عند كل تفاعل مع أي عنصر واجهة تفاعلي في أي مكان من المشروع" - a
+            // single insertion point here covers every button across the whole
+            // project, localized or not (CreateLocalizedButton calls this).
+            var clickAudio = go.AddComponent<AudioSource>();
+            clickAudio.playOnAwake = false;
+            clickAudio.spatialBlend = 0f; // UI sound - not positional
+            button.onClick.AddListener(() => AudioService.PlayOneShotSfx(clickAudio, GetUiClickClip()));
+
+            return button;
+        }
+
+        private static AudioClip uiClickClip;
+        private static AudioClip GetUiClickClip() => uiClickClip ??= PlaceholderAudio.GenerateTone("Placeholder_UIClick", 700f, 0.08f, 0.25f);
+
+        // --- Part 12: localized variants -----------------------------------
+        // Same visuals as CreateText/CreateButton above, but the label is bound
+        // to a StringTable key via LocalizedText instead of a literal string, so
+        // it re-renders live on LocalizationManager.OnLanguageChanged (Part
+        // 12.2). Use these for every player-facing label; keep the plain
+        // CreateText/CreateButton above only for content that Part 12.3
+        // explicitly excludes from translation (player names, room names) or
+        // purely numeric display (scores, timers).
+        public static Text CreateLocalizedText(Transform parent, string name, string key, int fontSize, Color color,
+            TextAnchor anchor = TextAnchor.MiddleCenter)
+        {
+            var text = CreateText(parent, name, "", fontSize, color);
+            text.alignment = anchor;
+            LocalizedText.Bind(text, key, anchor);
+            return text;
+        }
+
+        public static Button CreateLocalizedButton(Transform parent, string name, string key, Color bg, Color fg, int fontSize = 24)
+        {
+            var button = CreateButton(parent, name, "", bg, fg, fontSize);
+            var label = button.transform.Find("Label").GetComponent<Text>();
+            LocalizedText.Bind(label, key, TextAnchor.MiddleCenter);
             return button;
         }
 
@@ -86,10 +125,17 @@ namespace PrankMansion.UI
             var textGo = new GameObject("Text");
             textGo.transform.SetParent(go.transform, false);
             var text = textGo.AddComponent<Text>();
-            text.font = BuiltinFont;
+            // Part 12.2 RTL: alignment reflects the language active at BUILD
+            // time. Not live-updating like LocalizedText - this project's flow
+            // never shows a language switch and a text-entry field on the same
+            // built screen at once (LanguageSelect/Settings are separate screens
+            // from NameEntry/CreateRoom/JoinRoom), so a rebuild-on-next-open is
+            // sufficient, same "logic now, live-mid-screen edge case deferred"
+            // boundary as the rest of this stage's layout work.
+            text.font = LocalizationManager.GetFont();
             text.fontSize = 22;
             text.color = Color.black;
-            text.alignment = TextAnchor.MiddleLeft;
+            text.alignment = LocalizationManager.MirrorAnchor(TextAnchor.MiddleLeft);
             var textRect = textGo.GetComponent<RectTransform>();
             textRect.anchorMin = Vector2.zero;
             textRect.anchorMax = Vector2.one;

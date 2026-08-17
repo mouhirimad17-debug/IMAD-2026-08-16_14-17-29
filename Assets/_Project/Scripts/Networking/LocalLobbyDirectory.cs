@@ -58,10 +58,13 @@ namespace PrankMansion.Networking
                 if (!string.IsNullOrEmpty(query) && r.Settings.RoomName.IndexOf(query, StringComparison.OrdinalIgnoreCase) < 0)
                     continue;
 
+                var host = r.Players.Find(p => p.IsHost);
+
                 results.Add(new LobbyInfo
                 {
                     LobbyId = kv.Key,
                     RoomName = r.Settings.RoomName,
+                    HostDisplayName = host?.DisplayName ?? "",
                     CurrentPlayerCount = r.Players.Count,
                     MaxPlayers = r.Settings.MaxPlayers,
                     RoundDurationSeconds = r.Settings.RoundDurationSeconds

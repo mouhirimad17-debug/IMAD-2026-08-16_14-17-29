@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kitchen_FullCombo_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8128668236925612103, guid: 69100613297b3e84fa5b799e5dff7ade, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: 69100613297b3e84fa5b799e5dff7ade, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1699326

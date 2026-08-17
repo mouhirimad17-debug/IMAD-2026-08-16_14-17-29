@@ -6,7 +6,7 @@ namespace PrankMansion.UI
     public enum UIScreenKind
     {
         LanguageSelect, NameEntry, CharacterSelect, MainMenu,
-        CreateRoom, JoinRoom, WaitingRoom, Settings, None
+        CreateRoom, JoinRoom, WaitingRoom, Settings, Credits, None
     }
 
     /// <summary>
@@ -18,7 +18,8 @@ namespace PrankMansion.UI
     /// Stage 15's LobbyManager. Gameplay-only screens (GameplayHUD, EndRoundPanel)
     /// aren't managed here - they need a live RoundManager/local player that only
     /// exists once a round has actually started, same "menu vs in-round" boundary
-    /// Stage 15 already drew.
+    /// Stage 15 already drew. Every screen's own text now re-renders live in the
+    /// chosen language via Stage 17's LocalizationManager/LocalizedText.
     /// </summary>
     public class UIManager : MonoBehaviour
     {
@@ -32,6 +33,7 @@ namespace PrankMansion.UI
         public JoinRoomPanel JoinRoomPanel { get; private set; }
         public WaitingRoomPanel WaitingRoomPanel { get; private set; }
         public SettingsPanel SettingsPanel { get; private set; }
+        public CreditsPanel CreditsPanel { get; private set; }
 
         public LobbyManager LobbyManager { get; private set; }
 
@@ -73,6 +75,11 @@ namespace PrankMansion.UI
             SettingsPanel.BuildUI();
             SettingsPanel.OnSwitchCharacterRequested += () => ShowCharacterSelect(forced: false, returnTo: UIScreenKind.Settings);
             SettingsPanel.OnBack += () => Show(UIScreenKind.MainMenu);
+            SettingsPanel.OnCreditsRequested += () => Show(UIScreenKind.Credits);
+
+            CreditsPanel = BuildChild<CreditsPanel>("CreditsPanel");
+            CreditsPanel.BuildUI();
+            CreditsPanel.OnBack += () => Show(UIScreenKind.Settings);
 
             SetAllInactive();
 
@@ -158,6 +165,7 @@ namespace PrankMansion.UI
                 case UIScreenKind.JoinRoom: JoinRoomPanel.gameObject.SetActive(true); break;
                 case UIScreenKind.WaitingRoom: WaitingRoomPanel.gameObject.SetActive(true); break;
                 case UIScreenKind.Settings: SettingsPanel.gameObject.SetActive(true); break;
+                case UIScreenKind.Credits: CreditsPanel.gameObject.SetActive(true); break;
             }
         }
 
@@ -171,6 +179,7 @@ namespace PrankMansion.UI
             JoinRoomPanel.gameObject.SetActive(false);
             WaitingRoomPanel.gameObject.SetActive(false);
             SettingsPanel.gameObject.SetActive(false);
+            CreditsPanel.gameObject.SetActive(false);
         }
     }
 }

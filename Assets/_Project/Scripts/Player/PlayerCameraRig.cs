@@ -26,23 +26,46 @@ namespace PrankMansion.Player
         public const float ObstacleSkin = 0.15f;
         public const float DistanceRecoverySpeedPerSec = 6f;
 
+        // Law 0.5: "اصطدام قوي بين جسمين ... اهتزاز خفيف للشاشة، سعة تقريبية 0.15
+        // وحدة، مدة 0.2 ثانية، يتلاشى تدريجياً". The single local player's own
+        // camera rig - callers reach it via LocalInstance rather than an event bus,
+        // matching RoundManager.Instance's existing singleton-ish pattern.
+        public const float ShakeAmplitude = 0.15f;
+        public const float ShakeDurationSeconds = 0.2f;
+
+        public static PlayerCameraRig LocalInstance { get; private set; }
+
         public Transform target;
         public LayerMask obstacleMask = ~0;
 
         private float yaw;
         private float pitch = DefaultPitch;
         private float currentDistance = DefaultDistance;
+        private float shakeTimer;
 
         public float Yaw => yaw;
         public float Pitch => pitch;
         public float CurrentDistance => currentDistance;
         public Vector3 Pivot => target.position + Vector3.up * PivotHeight;
+        public bool IsShaking => shakeTimer > 0f;
+
+        // Test-only: lets a Play Mode test inspect a triggered shake's remaining
+        // duration without waiting for it to actually fade.
+        public float DebugShakeTimer => shakeTimer;
 
         private void Awake()
         {
             pitch = DefaultPitch;
             currentDistance = DefaultDistance;
+            LocalInstance = this;
         }
+
+        private void OnDestroy()
+        {
+            if (LocalInstance == this) LocalInstance = null;
+        }
+
+        public void TriggerShake() => shakeTimer = ShakeDurationSeconds;
 
         /// <summary>Instant response - no damping/lerp on yaw or pitch (Part 14.2).</summary>
         public void SetLookDelta(Vector2 delta)
@@ -76,7 +99,15 @@ namespace PrankMansion.Player
                 ? desiredDistance // instant pull-in: never allow clipping, even for one frame
                 : Mathf.MoveTowards(currentDistance, desiredDistance, DistanceRecoverySpeedPerSec * dt);
 
-            transform.position = pivot + back * currentDistance;
+            Vector3 position = pivot + back * currentDistance;
+            if (shakeTimer > 0f)
+            {
+                shakeTimer = Mathf.Max(0f, shakeTimer - dt);
+                float fade = shakeTimer / ShakeDurationSeconds; // "يتلاشى تدريجياً"
+                position += Random.insideUnitSphere * (ShakeAmplitude * fade);
+            }
+
+            transform.position = position;
             transform.rotation = rot;
         }
     }

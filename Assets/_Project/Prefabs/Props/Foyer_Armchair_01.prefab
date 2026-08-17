@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foyer_Armchair_01
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 1484830eaf2c27843926937dd9c89d8a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 1484830eaf2c27843926937dd9c89d8a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0006919967

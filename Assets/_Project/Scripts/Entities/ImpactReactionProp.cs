@@ -1,3 +1,4 @@
+using PrankMansion.Systems;
 using UnityEngine;
 
 namespace PrankMansion.Entities
@@ -28,6 +29,15 @@ namespace PrankMansion.Entities
         public ReactionType reactionType = ReactionType.Explode;
         public bool Triggered { get; private set; }
 
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 1f;
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
             if (Triggered) return;
@@ -36,7 +46,26 @@ namespace PrankMansion.Entities
             if (!qualifies) return;
 
             Triggered = true;
+            AudioService.PlayOneShotSfx(audioSource, GetReactionClip());
             SpawnReactionBurst();
+        }
+
+        // Part 13.1: "صوت انفجار الدقيق" for Explode; Shatter/Leak get their own
+        // distinct placeholder tones for the same reason (Law 0.2 - no real SFX
+        // assets exist for any of the three yet).
+        private static AudioClip explodeClip, shatterClip, leakClip;
+
+        private AudioClip GetReactionClip()
+        {
+            switch (reactionType)
+            {
+                case ReactionType.Explode:
+                    return explodeClip ??= PlaceholderAudio.GenerateTone("Placeholder_FlourExplode", 100f, 0.3f, 0.35f);
+                case ReactionType.Shatter:
+                    return shatterClip ??= PlaceholderAudio.GenerateTone("Placeholder_PlateShatter", 1600f, 0.2f, 0.3f);
+                default:
+                    return leakClip ??= PlaceholderAudio.GenerateTone("Placeholder_MilkLeak", 300f, 0.25f, 0.2f);
+            }
         }
 
         private void SpawnReactionBurst()

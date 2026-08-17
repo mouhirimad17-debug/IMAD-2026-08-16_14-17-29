@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Office_Whiteboard_01
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: afe9018dfa4425c4194ed8f8ae62c7e7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: afe9018dfa4425c4194ed8f8ae62c7e7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.10752687

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using PrankMansion.Localization;
 using PrankMansion.Networking;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ namespace PrankMansion.UI
         private string selectedLobbyId;
         private InputField[] codeBoxes;
         private Text errorText;
+        private string currentErrorKey = "";
 
         public List<LobbyInfo> LastResults => lastResults;
         public JoinResult LastAttemptResult { get; private set; } = JoinResult.NotFound;
@@ -32,7 +34,7 @@ namespace PrankMansion.UI
             lobbyManager = manager;
             var canvas = UIBuilder.CreateScreenCanvas("JoinRoomCanvas", transform);
 
-            UIBuilder.CreateText(canvas.transform, "SearchLabel", "Search Rooms", 18, Color.white);
+            UIBuilder.CreateLocalizedText(canvas.transform, "SearchLabel", "joinroom.searchlabel", 18, Color.white);
             searchField = UIBuilder.CreateInputField(canvas.transform, "SearchInput", 20);
             searchField.onValueChanged.AddListener(RefreshSearch);
 
@@ -51,6 +53,21 @@ namespace PrankMansion.UI
             RefreshSearch("");
         }
 
+        private void OnEnable() => LocalizationManager.OnLanguageChanged += RefreshErrorText;
+        private void OnDisable() => LocalizationManager.OnLanguageChanged -= RefreshErrorText;
+
+        private void SetError(string key)
+        {
+            currentErrorKey = key;
+            RefreshErrorText();
+        }
+
+        private void RefreshErrorText()
+        {
+            errorText.text = string.IsNullOrEmpty(currentErrorKey) ? "" : LocalizationManager.Get(currentErrorKey);
+            errorText.font = LocalizationManager.GetFont();
+        }
+
         private void RefreshSearch(string query) => lastResults = lobbyManager.SearchRooms(query);
 
         // Real result rows (a scrollable list widget with click handlers) need
@@ -61,7 +78,7 @@ namespace PrankMansion.UI
             selectedLobbyId = lobbyId;
             SetCodeBoxesActive(true);
             foreach (var box in codeBoxes) box.text = "";
-            errorText.text = "";
+            SetError("");
         }
 
         private void SetCodeBoxesActive(bool active)
@@ -98,18 +115,18 @@ namespace PrankMansion.UI
             switch (result)
             {
                 case JoinResult.Success:
-                    errorText.text = "";
+                    SetError("");
                     OnRoomJoined?.Invoke();
                     break;
                 case JoinResult.WrongCode:
-                    errorText.text = "Incorrect code"; // Part 10.3: "كود غير صحيح"
+                    SetError("joinroom.err.wrongcode"); // Part 10.3: "كود غير صحيح"
                     foreach (var box in codeBoxes) box.text = "";
                     break;
                 case JoinResult.Full:
-                    errorText.text = "Room is full"; // Part 10.3: "الغرفة ممتلئة"
+                    SetError("joinroom.err.full"); // Part 10.3: "الغرفة ممتلئة"
                     break;
                 default:
-                    errorText.text = "Room not found";
+                    SetError("joinroom.err.notfound");
                     break;
             }
         }

@@ -1,4 +1,5 @@
 using System;
+using PrankMansion.Systems;
 using UnityEngine;
 
 namespace PrankMansion.Player
@@ -70,6 +71,8 @@ namespace PrankMansion.Player
             public Quaternion RestLocalRot;
         }
 
+        private AudioSource impactAudio;
+
         private void Awake()
         {
             locomotion = GetComponent<PlayerLocomotion>();
@@ -80,6 +83,10 @@ namespace PrankMansion.Player
             locomotion.OnFreeFlightLanded += HandleFreeFlightLanded;
             wasGroundedLastFrame = controller.isGrounded;
             fallPeakY = transform.position.y;
+
+            impactAudio = gameObject.AddComponent<AudioSource>();
+            impactAudio.playOnAwake = false;
+            impactAudio.spatialBlend = 1f;
         }
 
         private void OnDestroy()
@@ -144,7 +151,14 @@ namespace PrankMansion.Player
             if (hit.rigidbody == null || hit.rigidbody.isKinematic) return; // Part 7.3: "لاعب آخر، غرض قابل للدفع متحرك"
 
             Vector3 relativeVelocity = locomotion.CurrentVelocity - hit.rigidbody.linearVelocity;
-            if (relativeVelocity.magnitude > CollisionSpeedThreshold) TriggerRagdoll();
+            if (relativeVelocity.magnitude > CollisionSpeedThreshold)
+            {
+                // Part 13.1's Human-material collision sound + Law 0.5's camera
+                // shake, same hard-impact moment that triggers the ragdoll itself.
+                AudioService.PlayOneShotSfx(impactAudio, ImpactSoundLibrary.GetClip(ImpactMaterial.Human));
+                PlayerCameraRig.LocalInstance?.TriggerShake();
+                TriggerRagdoll();
+            }
         }
 
         private void UpdateRagdollState(float dt)

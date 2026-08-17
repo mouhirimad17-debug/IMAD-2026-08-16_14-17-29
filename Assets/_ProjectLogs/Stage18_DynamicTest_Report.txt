@@ -1,0 +1,34 @@
+=== Stage 18 - Dynamic Finalization Test (Parts 13/15/16/18/19, Play Mode) ===
+
+[PASS] Registering a music source applies the current slider * its own baseline volume immediately (Part 13.3) -> volume=0.5
+[PASS] Changing music volume LIVE updates every registered music source, no restart needed (Part 13.3) -> volume=0.15
+[PASS] SFX volume tracks independently of music volume (Part 13.3's separate sliders) -> sfx=0.7 music=0.15
+[PASS] PlayOneShotSfx actually starts playback -> 
+[PASS] Every button built via UIBuilder carries its own click-sound AudioSource (Part 13.1) -> 
+[PASS] Pressing a button plays the UI click sound -> 
+[PASS] Each of the four materials resolves to a valid, distinct clip (Part 13.1) -> 
+[PASS] Repeated lookups return the SAME cached clip instance (no per-collision regeneration) -> 
+[PASS] CarryableObject/FallableProp/PushableProp each carry an AudioSource for material-tagged impact sound (Part 13.1) -> 
+[PASS] All three default to a reasonable material tag (Wood) -> 
+[PASS] Part 16.2's out-of-bounds recovery is auto-attached to all three physical prop classes ('any physical object') -> 
+[PASS] PlayerCameraRig.LocalInstance is reachable the moment a rig exists (Law 0.5 needs a hookable local camera) -> 
+[PASS] TriggerShake starts a shake (Law 0.5: ~0.15 unit amplitude, 0.2s duration) -> 
+[PASS] The shake fully fades out once its duration elapses -> 
+[PASS] Background music starts the moment a round starts (Part 13.1) -> 
+[PASS] Music restarts cleanly on a fresh round -> 
+[PASS] Background music stops the moment the round ends (Part 13.1) -> hasEnded=True musicPlaying=False
+[PASS] A stationary carryable object left untouched puts its Rigidbody to sleep (Part 15.2) -> isSleeping=True
+[PASS] A player wedged despite active movement input is auto-repositioned to a known safe spot (Part 16.1) -> recoveries=1 pos=(0.00, 0.00, 0.00) spawn=(0.00, 0.00, 0.00)
+[PASS] Recovery hands normal control back to the player -> isExternallyControlled=False
+[PASS] A prop that falls far below the floor is auto-restored to its original designed position (Part 16.2) -> recoveries=1 pos=(0.00, 0.00, 0.00) original=(0.00, 0.00, 0.00)
+[PASS] Part 16.4: every special action silently no-ops when its precondition isn't met, with zero exceptions or side effects -> grabEnd=False balconyThrow=False fanMount=False state=None
+[PASS] Two rooms sharing an exact name are both returned, distinguishable by host name (Part 16.5) -> count=2 alice=True bob=True
+[PASS] Credits screen exists and shows the developer's name (Part 19.3) -> title=Credits name=Imad
+[PASS] Credits screen title re-renders live in Darija like every other screen (Part 12.2) -> title=شكر وتقدير
+[PASS] The developer's own proper name is never translated -> name=Imad
+[PASS] Setup: victim reached Unconscious -> state=Unconscious
+[PASS] Setup: restraining succeeded -> restrained=True
+[PASS] Restraining an unconscious victim plays the rope-tie sound (Part 13.1) -> sourceCount=3
+
+TOTAL: 29/29 passed
+RESULT: Stage 18 finalization matches Parts 13/15/16/18/19 end to end.

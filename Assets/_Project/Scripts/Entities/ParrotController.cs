@@ -1,5 +1,6 @@
 using PrankMansion.Blockout;
 using PrankMansion.Player;
+using PrankMansion.Systems;
 using UnityEngine;
 
 namespace PrankMansion.Entities
@@ -105,7 +106,7 @@ namespace PrankMansion.Entities
             if (clip != null)
             {
                 mockDuration = Mathf.Max(clip.length, Stage13ParrotSpec.MinMockDurationSeconds);
-                audioSource.PlayOneShot(clip);
+                AudioService.PlayOneShotSfx(audioSource, clip);
             }
         }
 

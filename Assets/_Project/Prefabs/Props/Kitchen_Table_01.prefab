@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kitchen_Table_01
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 6282e398c2058e24a86ef9cac41baa2e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 6282e398c2058e24a86ef9cac41baa2e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0033203545

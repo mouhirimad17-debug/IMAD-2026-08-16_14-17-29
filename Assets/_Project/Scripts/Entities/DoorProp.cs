@@ -91,7 +91,7 @@ namespace PrankMansion.Entities
             }
 
             motionElapsed = 0f;
-            audioSource.PlayOneShot(doorClip);
+            AudioService.PlayOneShotSfx(audioSource, doorClip);
 
             // Part 5.2 (Reno): "سماع خطوات وفتح أبواب" - door open/close is a
             // detectable sound event too, same standard 8m range as footsteps.

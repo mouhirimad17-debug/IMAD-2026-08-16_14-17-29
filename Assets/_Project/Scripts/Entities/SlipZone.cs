@@ -25,6 +25,8 @@ namespace PrankMansion.Entities
         public Team PlacerTeam { get; set; } = Team.None;
 
         private SphereCollider trigger;
+        private AudioSource audioSource;
+        private AudioClip slipClip;
 
         private void Awake()
         {
@@ -33,6 +35,11 @@ namespace PrankMansion.Entities
             trigger.radius = Radius;
 
             BuildVisualDecal();
+
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 1f;
+            slipClip = PlaceholderAudio.GenerateTone("Placeholder_Slip", 260f, 0.2f, 0.3f); // Part 13.1: "صوت الانزلاق"
         }
 
         private void BuildVisualDecal()
@@ -62,6 +69,8 @@ namespace PrankMansion.Entities
             // "بلا استثناء أو حصانة، حتى من وضعها بنفسه" - no exemptions, not even the placer.
             var ragdoll = other.GetComponentInParent<PlayerRagdoll>();
             if (ragdoll == null) return;
+
+            AudioService.PlayOneShotSfx(audioSource, slipClip);
 
             Vector2 randomDir2D = Random.insideUnitCircle.normalized;
             Vector3 push = new Vector3(randomDir2D.x, 0f, randomDir2D.y) * RandomPushForce;

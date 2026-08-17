@@ -422,7 +422,7 @@ namespace PrankMansion.Player
             IgniteCount++;
             StopWind();
 
-            oneShotAudio.PlayOneShot(igniteClip);
+            AudioService.PlayOneShotSfx(oneShotAudio, igniteClip);
             SpawnIgniteBurst();
 
             if (Held != null)
@@ -484,7 +484,7 @@ namespace PrankMansion.Player
             windAudio = vfxGo.AddComponent<AudioSource>();
             windAudio.playOnAwake = false;
             windAudio.spatialBlend = 1f;
-            windAudio.volume = 0.25f; // "مستوى صوت منخفض نسبياً"
+            AudioService.RegisterSfx(windAudio, 0.25f); // "مستوى صوت منخفض نسبياً" - relative baseline, still scales with the SFX slider
             windLoopClip = PlaceholderAudio.GenerateTone("Placeholder_WindLoop", 90f, 0.5f, 0.15f);
 
             oneShotAudio = gameObject.AddComponent<AudioSource>();

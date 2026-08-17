@@ -22,21 +22,21 @@ namespace PrankMansion.UI
             var canvas = UIBuilder.CreateScreenCanvas("MainMenuCanvas", transform);
 
             playerCornerText = UIBuilder.CreateText(canvas.transform, "PlayerCorner", PlayerProfile.PlayerName, 20, Color.white);
-            UIBuilder.CreateText(canvas.transform, "Logo", "PRANK MANSION", 72, new Color(1f, 0.75f, 0.2f));
+            UIBuilder.CreateLocalizedText(canvas.transform, "Logo", "menu.logo", 72, new Color(1f, 0.75f, 0.2f));
 
-            var createRoom = UIBuilder.CreateButton(canvas.transform, "CreateRoomButton", "Create Room", new Color(0.2f, 0.6f, 0.9f), Color.white);
+            var createRoom = UIBuilder.CreateLocalizedButton(canvas.transform, "CreateRoomButton", "menu.createroom", new Color(0.2f, 0.6f, 0.9f), Color.white);
             createRoom.onClick.AddListener(() => OnCreateRoom?.Invoke());
 
-            var joinRoom = UIBuilder.CreateButton(canvas.transform, "JoinRoomButton", "Join Room", new Color(0.2f, 0.6f, 0.9f), Color.white);
+            var joinRoom = UIBuilder.CreateLocalizedButton(canvas.transform, "JoinRoomButton", "menu.joinroom", new Color(0.2f, 0.6f, 0.9f), Color.white);
             joinRoom.onClick.AddListener(() => OnJoinRoom?.Invoke());
 
-            var switchChar = UIBuilder.CreateButton(canvas.transform, "SwitchCharacterButton", "Switch Character", new Color(0.5f, 0.4f, 0.8f), Color.white);
+            var switchChar = UIBuilder.CreateLocalizedButton(canvas.transform, "SwitchCharacterButton", "menu.switchcharacter", new Color(0.5f, 0.4f, 0.8f), Color.white);
             switchChar.onClick.AddListener(() => OnSwitchCharacter?.Invoke());
 
-            var settings = UIBuilder.CreateButton(canvas.transform, "SettingsButton", "Settings", new Color(0.4f, 0.4f, 0.4f), Color.white);
+            var settings = UIBuilder.CreateLocalizedButton(canvas.transform, "SettingsButton", "menu.settings", new Color(0.4f, 0.4f, 0.4f), Color.white);
             settings.onClick.AddListener(() => OnSettings?.Invoke());
 
-            var quit = UIBuilder.CreateButton(canvas.transform, "QuitButton", "Quit", new Color(0.7f, 0.2f, 0.2f), Color.white);
+            var quit = UIBuilder.CreateLocalizedButton(canvas.transform, "QuitButton", "menu.quit", new Color(0.7f, 0.2f, 0.2f), Color.white);
             quit.onClick.AddListener(() => OnQuit?.Invoke());
         }
 

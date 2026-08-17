@@ -41,6 +41,13 @@ namespace PrankMansion.Player
         public bool IsGrounded => controller.isGrounded;
         public float CurrentHorizontalSpeed { get; private set; }
 
+        // Part 16.1's stuck-detection needs to distinguish "genuinely wedged
+        // despite trying to move" from "voluntarily standing still" - exposes the
+        // raw input signal rather than derived velocity, since a wedged player's
+        // CurrentHorizontalSpeed can be non-zero (wishDir computed) even while
+        // actual world position doesn't change at all.
+        public bool HasActiveMoveInput => moveInput.sqrMagnitude > 0.01f;
+
         // Part 7.1: multiplies Walk/RunSpeed while carrying (1 = no penalty, e.g. light
         // objects; <1 = heavy-carry speed decay, per-character value from Part 5.2).
         public float SpeedMultiplier { get; set; } = 1f;

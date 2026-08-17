@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using PrankMansion.Localization;
 using PrankMansion.Networking;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,24 +42,30 @@ namespace PrankMansion.UI
             listGo.transform.SetParent(canvas.transform, false);
             playerListRoot = listGo.transform;
 
-            readyButton = UIBuilder.CreateButton(canvas.transform, "ReadyToggleButton", "Ready", new Color(0.3f, 0.3f, 0.3f), Color.white);
+            readyButton = UIBuilder.CreateLocalizedButton(canvas.transform, "ReadyToggleButton", "waitingroom.ready", new Color(0.3f, 0.3f, 0.3f), Color.white);
             readyButton.onClick.AddListener(ToggleLocalReady);
 
-            StartButton = UIBuilder.CreateButton(canvas.transform, "StartGameButton", "Start Game", new Color(0.2f, 0.7f, 0.3f), Color.white);
+            StartButton = UIBuilder.CreateLocalizedButton(canvas.transform, "StartGameButton", "waitingroom.startgame", new Color(0.2f, 0.7f, 0.3f), Color.white);
             StartButton.onClick.AddListener(StartGame);
 
-            var leaveButton = UIBuilder.CreateButton(canvas.transform, "LeaveButton", "Leave", new Color(0.6f, 0.2f, 0.2f), Color.white);
+            var leaveButton = UIBuilder.CreateLocalizedButton(canvas.transform, "LeaveButton", "waitingroom.leave", new Color(0.6f, 0.2f, 0.2f), Color.white);
             leaveButton.onClick.AddListener(Leave);
 
             Refresh();
         }
 
+        private void OnEnable() => LocalizationManager.OnLanguageChanged += Refresh;
+        private void OnDisable() => LocalizationManager.OnLanguageChanged -= Refresh;
+
         public void Refresh()
         {
-            if (lobbyManager.CurrentLobbyId == null) return;
+            if (lobbyManager == null || lobbyManager.CurrentLobbyId == null) return;
 
             var settings = lobbyManager.Directory.GetSettings(lobbyManager.CurrentLobbyId);
-            settingsHeader.text = $"{settings.RoomName}  |  {settings.MaxPlayers} players  |  {(settings.RoundDurationSeconds < 400f ? "5 min" : "10 min")}";
+            string playersLabel = LocalizationManager.Format("waitingroom.playerscount", settings.MaxPlayers);
+            string durationLabel = LocalizationManager.Get(settings.RoundDurationSeconds < 400f ? "createroom.duration5min" : "createroom.duration10min");
+            settingsHeader.text = $"{settings.RoomName}  |  {playersLabel}  |  {durationLabel}";
+            settingsHeader.font = LocalizationManager.GetFont();
 
             RebuildPlayerRows(lobbyManager.GetCurrentPlayers());
 
@@ -88,9 +95,13 @@ namespace PrankMansion.UI
                 var p = players[i];
                 var text = rowPool[i].GetComponent<Text>();
                 // Ready indicator: grey (not ready) / green (ready) - Part 10.4's
-                // "رمادي يعني غير جاهز، أخضر يعني جاهز".
-                text.text = $"{p.DisplayName}{(p.IsHost ? " (Host)" : "")}  [{(p.IsReady ? "Ready" : "Not Ready")}]";
+                // "رمادي يعني غير جاهز، أخضر يعني جاهز". DisplayName is the
+                // player's own free-typed name, never translated (Part 12.3).
+                string hostTag = p.IsHost ? "  " + LocalizationManager.Get("waitingroom.host") : "";
+                string readyTag = LocalizationManager.Get(p.IsReady ? "waitingroom.ready" : "waitingroom.notready");
+                text.text = $"{p.DisplayName}{hostTag}  [{readyTag}]";
                 text.color = p.IsReady ? new Color(0.4f, 0.9f, 0.4f) : new Color(0.6f, 0.6f, 0.6f);
+                text.font = LocalizationManager.GetFont();
             }
         }
 

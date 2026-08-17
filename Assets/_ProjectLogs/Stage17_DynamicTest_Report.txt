@@ -1,0 +1,29 @@
+=== Stage 17 - Dynamic Localization System Test (Part 12, Play Mode) ===
+
+[PASS] Default/English lookup returns the English column (Part 12.1) -> value=Create Room
+[PASS] Switching to Darija returns the Arabic-script column, not a transliteration (Part 12.1) -> value=أنشئ غرفة
+[PASS] PlayerProfile.Language stays the single source of truth LocalizationManager reads/writes (Part 12.2) -> lang=Darija
+[PASS] Freshly-built screen shows English text by default -> text=Create Room
+[PASS] Every currently-visible LocalizedText updates IMMEDIATELY in place on language change, no rebuild/restart (Part 12.2) -> text=أنشئ غرفة
+[PASS] Logo (a second, independent LocalizedText on the same screen) updates too -> text=PRANK MANSION
+[PASS] Switching back to English restores the English text on the still-live screen -> text=Create Room
+[PASS] IsRTL is false for English (Part 12.2) -> 
+[PASS] MirrorAnchor is a no-op under LTR -> 
+[PASS] IsRTL is true for Darija (Part 12.2 - 'يتحول تلقائياً لاتجاه الكتابة من اليمين لليسار') -> 
+[PASS] MirrorAnchor flips Left<->Right under RTL -> left->MiddleRight, right->MiddleLeft
+[PASS] MirrorAnchor leaves CENTER anchors untouched under RTL (most of this stage's placeholder layout) -> 
+[PASS] English uses the built-in Latin font (Part 12.2) -> 
+[PASS] Darija resolves SOME font without throwing (OS-dynamic-font fallback, Law 0.2 - see Stage17 decisions log for the known shaping limitation) -> font=Segoe UI
+[PASS] All seven characters have a description key assigned (Part 11.2/12.3) -> count=7
+[PASS] Every character description resolves to a real, distinct-per-language string in both columns (Part 12.3) -> 
+[PASS] All seven character descriptions are textually distinct from each other (no accidental key collisions) -> 
+[PASS] Wrong-code error shows the English message (Part 10.3/12.3) -> text=Incorrect code
+[PASS] Error message updates live to Darija without re-triggering the join attempt (Part 12.2) -> text=الكود غالط
+[PASS] The player's own free-typed name is never looked up in the string table, even under Darija (Part 12.3 explicit exclusion) -> text=Imad
+[PASS] Setup: round actually ended before checking end-screen localization -> hasEnded=True
+[PASS] End-round winner text uses the localized team name (Part 11.6/12.3) -> text=Team 1 Wins!
+[PASS] End-round winner text re-renders live in Darija (Part 12.2) -> text=الفريق 1 ربح!
+[PASS] End-round scores line re-renders live in Darija too -> text=الفريق 1: 1    الفريق 2: 0
+
+TOTAL: 24/24 passed
+RESULT: Stage 17 localization system matches Part 12 end to end.

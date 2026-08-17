@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foyer_SideTable_01
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 913d37fe9ff58b547a6af1f80ea92f67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 913d37fe9ff58b547a6af1f80ea92f67, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.16728273

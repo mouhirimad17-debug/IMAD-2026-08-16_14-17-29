@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foyer_MainDoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: c24373aaa44f30d49b9975a2dcc3175d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: c24373aaa44f30d49b9975a2dcc3175d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13581342

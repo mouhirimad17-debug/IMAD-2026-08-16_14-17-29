@@ -26,11 +26,11 @@ namespace PrankMansion.UI
             lobbyManager = manager;
             var canvas = UIBuilder.CreateScreenCanvas("CreateRoomCanvas", transform);
 
-            UIBuilder.CreateText(canvas.transform, "NameLabel", "Room Name", 18, Color.white);
+            UIBuilder.CreateLocalizedText(canvas.transform, "NameLabel", "createroom.namelabel", 18, Color.white);
             nameField = UIBuilder.CreateInputField(canvas.transform, "RoomNameInput", 20);
             nameField.onValueChanged.AddListener(_ => RefreshCreateButton());
 
-            UIBuilder.CreateText(canvas.transform, "MaxPlayersLabel", "Max Players", 18, Color.white);
+            UIBuilder.CreateLocalizedText(canvas.transform, "MaxPlayersLabel", "createroom.maxplayerslabel", 18, Color.white);
             foreach (int count in LobbySettings.AllowedMaxPlayers)
             {
                 int c = count;
@@ -38,16 +38,16 @@ namespace PrankMansion.UI
                 btn.onClick.AddListener(() => selectedMaxPlayers = c);
             }
 
-            UIBuilder.CreateText(canvas.transform, "DurationLabel", "Round Duration", 18, Color.white);
+            UIBuilder.CreateLocalizedText(canvas.transform, "DurationLabel", "createroom.durationlabel", 18, Color.white);
             foreach (float duration in LobbySettings.AllowedRoundDurations)
             {
                 float d = duration;
-                string label = d < 400f ? "5 min" : "10 min";
-                var btn = UIBuilder.CreateButton(canvas.transform, $"Duration_{d}", label, new Color(0.3f, 0.3f, 0.3f), Color.white);
+                string key = d < 400f ? "createroom.duration5min" : "createroom.duration10min";
+                var btn = UIBuilder.CreateLocalizedButton(canvas.transform, $"Duration_{d}", key, new Color(0.3f, 0.3f, 0.3f), Color.white);
                 btn.onClick.AddListener(() => selectedDuration = d);
             }
 
-            createButton = UIBuilder.CreateButton(canvas.transform, "CreateButton", "Create", new Color(0.2f, 0.7f, 0.3f), Color.white);
+            createButton = UIBuilder.CreateLocalizedButton(canvas.transform, "CreateButton", "createroom.create", new Color(0.2f, 0.7f, 0.3f), Color.white);
             createButton.onClick.AddListener(Create);
             RefreshCreateButton();
         }

@@ -38,11 +38,22 @@ namespace PrankMansion.Systems
         public bool IsTie { get; private set; }
         public bool HasEnded { get; private set; }
 
+        // Test-only: Part 13.1's "الموسيقى الخلفية العامة" start/stop isn't
+        // otherwise observable from outside this class.
+        public bool IsMusicPlaying => musicAudio != null && musicAudio.isPlaying;
+
         public event Action OnRoundEnded;
 
         private AudioSource alertAudio;
         private AudioClip alertClip;
         private float beepTimer;
+
+        // Part 13.1: "الموسيقى الخلفية العامة: تُشغَّل بشكل متكرر مستمر طوال مدة
+        // الجولة الفعلية بأكملها داخل القصر" - starts with the round, stops when
+        // it ends. Registered as MUSIC (not SFX) with AudioService per Part 13.3's
+        // separate music/SFX sliders.
+        private AudioSource musicAudio;
+        private AudioClip musicClip;
 
         private void Awake()
         {
@@ -51,6 +62,14 @@ namespace PrankMansion.Systems
             alertAudio.playOnAwake = false;
             alertAudio.spatialBlend = 0f; // Part 9.2's alert is a global cue, not positional
             alertClip = PlaceholderAudio.GenerateTone("Placeholder_RoundAlert", 880f, 0.15f, 0.3f);
+            AudioService.RegisterSfx(alertAudio);
+
+            musicAudio = gameObject.AddComponent<AudioSource>();
+            musicAudio.playOnAwake = false;
+            musicAudio.spatialBlend = 0f;
+            musicAudio.loop = true;
+            musicClip = PlaceholderAudio.GenerateTone("Placeholder_BackgroundMusic", 440f, 2f, 0.12f);
+            AudioService.RegisterMusic(musicAudio);
         }
 
         private void OnDestroy()
@@ -72,6 +91,9 @@ namespace PrankMansion.Systems
             IsTie = false;
             beepTimer = 0f;
             PlayerInputReader.RoundInputFrozen = false;
+
+            musicAudio.clip = musicClip;
+            musicAudio.Play();
         }
 
         public void RegisterPoint(Team scoringTeam)
@@ -110,6 +132,7 @@ namespace PrankMansion.Systems
             HasEnded = true;
             // Part 9.3: "تعطيل مؤقت لمدخلات الحركة والتفاعل، بلا تجميد الفيزياء نفسها"
             PlayerInputReader.RoundInputFrozen = true;
+            musicAudio.Stop();
 
             if (ScoreTeam1 == ScoreTeam2) IsTie = true;
             else WinnerTeam = ScoreTeam1 > ScoreTeam2 ? Team.Team1 : Team.Team2;

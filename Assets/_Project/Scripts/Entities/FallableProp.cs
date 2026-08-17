@@ -1,3 +1,5 @@
+using PrankMansion.Player;
+using PrankMansion.Systems;
 using UnityEngine;
 
 namespace PrankMansion.Entities
@@ -8,6 +10,7 @@ namespace PrankMansion.Entities
     /// (falls or topples over, then settles under normal physics from then on).
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(OutOfBoundsRecovery))] // Part 16.2
     public class FallableProp : MonoBehaviour
     {
         // DECISION: Part 4.1 says only "اصطدام قوي كافٍ" (a strong enough impact)
@@ -16,18 +19,31 @@ namespace PrankMansion.Entities
         // impact" across the whole game rather than inventing a second one.
         public const float TipCollisionSpeedThreshold = 5f;
 
+        // Part 13.1's material-tagged collision sound - see CarryableObject's own
+        // field for the same Law 21.2 class-level-default reasoning.
+        public ImpactMaterial material = ImpactMaterial.Wood;
+
         private Rigidbody body;
+        private AudioSource impactAudio;
 
         private void Awake()
         {
             body = GetComponent<Rigidbody>();
             body.isKinematic = true;
+
+            impactAudio = gameObject.AddComponent<AudioSource>();
+            impactAudio.playOnAwake = false;
+            impactAudio.spatialBlend = 1f;
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (body.isKinematic && collision.relativeVelocity.magnitude > TipCollisionSpeedThreshold)
-                body.isKinematic = false;
+            if (collision.relativeVelocity.magnitude <= TipCollisionSpeedThreshold) return;
+
+            AudioService.PlayOneShotSfx(impactAudio, ImpactSoundLibrary.GetClip(material));
+            PlayerCameraRig.LocalInstance?.TriggerShake();
+
+            if (body.isKinematic) body.isKinematic = false;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using PrankMansion.Localization;
 using PrankMansion.Player;
 using PrankMansion.Systems;
 using UnityEngine;
@@ -28,31 +29,48 @@ namespace PrankMansion.UI
         public AudioClip LastPlayedClip { get; private set; }
 
         private AudioSource musicSource;
+        private RoundManager roundManagerRef;
 
         public void BuildUI(RoundManager roundManager, Team localTeam)
         {
+            roundManagerRef = roundManager;
             var canvas = UIBuilder.CreateScreenCanvas("EndRoundCanvas", transform);
 
-            string winnerLabel = roundManager.IsTie ? "It's a Tie!" : $"{TeamName(roundManager.WinnerTeam)} Wins!";
-            WinnerText = UIBuilder.CreateText(canvas.transform, "WinnerText", winnerLabel, 56,
+            WinnerText = UIBuilder.CreateText(canvas.transform, "WinnerText", "", 56,
                 roundManager.IsTie ? Color.white : PlayerTeam.GetColor(roundManager.WinnerTeam));
+            ScoresText = UIBuilder.CreateText(canvas.transform, "ScoresText", "", 28, Color.white);
+            RefreshTexts();
 
-            ScoresText = UIBuilder.CreateText(canvas.transform, "ScoresText",
-                $"Team 1: {roundManager.ScoreTeam1}    Team 2: {roundManager.ScoreTeam2}", 28, Color.white);
-
-            var playAgain = UIBuilder.CreateButton(canvas.transform, "PlayAgainButton", "Play Again", new Color(0.2f, 0.7f, 0.3f), Color.white);
+            var playAgain = UIBuilder.CreateLocalizedButton(canvas.transform, "PlayAgainButton", "endround.playagain", new Color(0.2f, 0.7f, 0.3f), Color.white);
             playAgain.onClick.AddListener(() => OnPlayAgain?.Invoke());
 
-            var mainMenu = UIBuilder.CreateButton(canvas.transform, "MainMenuButton", "Main Menu", new Color(0.4f, 0.4f, 0.4f), Color.white);
+            var mainMenu = UIBuilder.CreateLocalizedButton(canvas.transform, "MainMenuButton", "endround.mainmenu", new Color(0.4f, 0.4f, 0.4f), Color.white);
             mainMenu.onClick.AddListener(() => OnMainMenu?.Invoke());
 
             PlayPersonalResultMusic(roundManager, localTeam);
+        }
+
+        private void OnEnable() => LocalizationManager.OnLanguageChanged += RefreshTexts;
+        private void OnDisable() => LocalizationManager.OnLanguageChanged -= RefreshTexts;
+
+        private void RefreshTexts()
+        {
+            if (roundManagerRef == null) return;
+
+            WinnerText.text = roundManagerRef.IsTie
+                ? LocalizationManager.Get("endround.tie")
+                : LocalizationManager.Format("endround.winner", TeamName(roundManagerRef.WinnerTeam));
+            WinnerText.font = LocalizationManager.GetFont();
+
+            ScoresText.text = LocalizationManager.Format("endround.scores", roundManagerRef.ScoreTeam1, roundManagerRef.ScoreTeam2);
+            ScoresText.font = LocalizationManager.GetFont();
         }
 
         private void PlayPersonalResultMusic(RoundManager roundManager, Team localTeam)
         {
             musicSource = gameObject.AddComponent<AudioSource>();
             musicSource.playOnAwake = false;
+            AudioService.RegisterMusic(musicSource); // Part 13.1: "موسيقى نهاية الجولة" - MUSIC slider, not SFX
 
             AudioClip toPlay;
             if (roundManager.IsTie) toPlay = PlaceholderAudio.GenerateTone("Placeholder_TieJingle", 330f, 1f, 0.3f);
@@ -64,6 +82,6 @@ namespace PrankMansion.UI
             musicSource.Play();
         }
 
-        private static string TeamName(Team team) => team == Team.Team1 ? "Team 1" : "Team 2";
+        private static string TeamName(Team team) => LocalizationManager.Get(team == Team.Team1 ? "hud.team1" : "hud.team2");
     }
 }

@@ -15,8 +15,12 @@ namespace PrankMansion.Systems
 
             // Part 11.2's character-select card: proper name (never translated -
             // "أسماء علم خاصة") and a one/two-sentence ability description.
+            // The description IS in-scope for Part 12.3's translation ("أوصاف
+            // المزايا الخاصة بالشخصيات السبع كاملة في شاشة الاختيار"), so it's a
+            // StringTable key (Stage 17) rather than a literal string; displayName
+            // stays a literal proper noun, matching that same comment above.
             public string displayName;
-            public string description;
+            public string descriptionKey;
 
             // Part 5.1 standard values, overridden per-entry only where Part 5.2 gives
             // this character its own number (Bomba only - everyone else's base speed
@@ -68,7 +72,7 @@ namespace PrankMansion.Systems
                 unityName = "Character_Slowpoke_01", // Bomba
                 modelPath = ModelsRoot + "Character_Slowpoke_01/character_slowpoke_01.fbx",
                 displayName = "Bomba",
-                description = "Walks and runs 15% slower than everyone else, with no compensating bonus.",
+                descriptionKey = "char.bomba.desc",
                 speedMultiplier = 0.85f, // "2.55 م/ث" / 3 = "5.10 م/ث" / 6 = 0.85 (both -15%)
                 heavyCarrySpeedFactor = StandardHeavyCarrySpeedFactor,
                 windStartDelaySeconds = StandardWindStartDelay,
@@ -84,7 +88,7 @@ namespace PrankMansion.Systems
                 unityName = "Character_Strongman_01", // Zico
                 modelPath = ModelsRoot + "Character_Strongman_01/character_strongman_01.fbx",
                 displayName = "Zico",
-                description = "Carries heavy objects solo with only a 30% speed penalty instead of 70%, and holds off the wind for a full 3 seconds instead of 1.",
+                descriptionKey = "char.zico.desc",
                 speedMultiplier = StandardSpeedMultiplier,
                 heavyCarrySpeedFactor = 0.70f,   // "سبعين بالمئة من الأساسية" instead of standard 30%
                 windStartDelaySeconds = 3f,       // "ثلاث ثوانٍ كاملة"
@@ -100,7 +104,7 @@ namespace PrankMansion.Systems
                 unityName = "Character_StrongPush_01", // Doran
                 modelPath = ModelsRoot + "Character_StrongPush_01/Character_strobgpush_01.fbx",
                 displayName = "Doran",
-                description = "Pushes objects 40% harder than the standard push force.",
+                descriptionKey = "char.doran.desc",
                 speedMultiplier = StandardSpeedMultiplier,
                 heavyCarrySpeedFactor = StandardHeavyCarrySpeedFactor,
                 windStartDelaySeconds = StandardWindStartDelay,
@@ -116,7 +120,7 @@ namespace PrankMansion.Systems
                 unityName = "Character_BigEars_01", // Reno
                 modelPath = ModelsRoot + "Character_BigEars_01/character_Bigears_01.fbx",
                 displayName = "Reno",
-                description = "Hears footsteps and doors from 15 meters away instead of 8, with a direction arrow only he can see.",
+                descriptionKey = "char.reno.desc",
                 speedMultiplier = StandardSpeedMultiplier,
                 heavyCarrySpeedFactor = StandardHeavyCarrySpeedFactor,
                 windStartDelaySeconds = StandardWindStartDelay,
@@ -133,7 +137,7 @@ namespace PrankMansion.Systems
                 unityName = "Character_QuietSteps_01", // Fifi
                 modelPath = ModelsRoot + "Character_QuietSteps_01/character_QuietSteps_01.fbx",
                 displayName = "Fifi",
-                description = "Footsteps only carry 4 meters to other players instead of 8 - much harder to hear coming.",
+                descriptionKey = "char.fifi.desc",
                 speedMultiplier = StandardSpeedMultiplier,
                 heavyCarrySpeedFactor = StandardHeavyCarrySpeedFactor,
                 windStartDelaySeconds = StandardWindStartDelay,
@@ -149,7 +153,7 @@ namespace PrankMansion.Systems
                 unityName = "Character_QuickPour_01", // Nouka
                 modelPath = ModelsRoot + "Character_QuickPour_01/character_QuickPourr_01.fbx",
                 displayName = "Nouka",
-                description = "Throws objects 25% harder than the standard throw force.",
+                descriptionKey = "char.nouka.desc",
                 speedMultiplier = StandardSpeedMultiplier,
                 heavyCarrySpeedFactor = StandardHeavyCarrySpeedFactor,
                 windStartDelaySeconds = StandardWindStartDelay,
@@ -165,7 +169,7 @@ namespace PrankMansion.Systems
                 unityName = "Character_Featherweight_01", // Bouf
                 modelPath = ModelsRoot + "Character_Featherweight_01/character_Featherweight_01.fbx",
                 displayName = "Bouf",
-                description = "Wind ignition launches him mostly forward (60% horizontal / 40% vertical) instead of mostly straight up.",
+                descriptionKey = "char.bouf.desc",
                 speedMultiplier = StandardSpeedMultiplier,
                 heavyCarrySpeedFactor = StandardHeavyCarrySpeedFactor,
                 windStartDelaySeconds = StandardWindStartDelay,

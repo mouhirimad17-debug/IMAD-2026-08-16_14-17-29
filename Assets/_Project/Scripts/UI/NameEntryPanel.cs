@@ -16,12 +16,12 @@ namespace PrankMansion.UI
         public void BuildUI()
         {
             var canvas = UIBuilder.CreateScreenCanvas("NameEntryCanvas", transform);
-            UIBuilder.CreateText(canvas.transform, "Title", "What's your name?", 40, Color.white);
+            UIBuilder.CreateLocalizedText(canvas.transform, "Title", "name.title", 40, Color.white);
 
             inputField = UIBuilder.CreateInputField(canvas.transform, "NameInput", PlayerProfile.MaxNameLength);
             inputField.onValueChanged.AddListener(_ => RefreshContinueButton());
 
-            continueButton = UIBuilder.CreateButton(canvas.transform, "ContinueButton", "Continue", new Color(0.2f, 0.7f, 0.3f), Color.white);
+            continueButton = UIBuilder.CreateLocalizedButton(canvas.transform, "ContinueButton", "name.continue", new Color(0.2f, 0.7f, 0.3f), Color.white);
             continueButton.onClick.AddListener(Confirm);
             RefreshContinueButton();
         }

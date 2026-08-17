@@ -9,7 +9,7 @@ namespace PrankMansion.UI
     /// <summary>
     /// Part 11.2's character-select grid: seven equal cards, each with a
     /// continuously-rotating 3D preview (one full turn ~6s), name, and a one/two-
-    /// line ability description (CharacterProfile.Entry.description). Single-
+    /// line ability description (CharacterProfile.Entry.descriptionKey, Part 12). Single-
     /// select only. In "forced" mode (Part 11.1's mandatory first pick) the
     /// confirm button starts disabled until a card is chosen; reached later from
     /// Settings/the waiting room it starts enabled, since a prior selection always
@@ -59,13 +59,13 @@ namespace PrankMansion.UI
                 BuildTurntablePreview(previewRoot.transform, entry);
 
                 UIBuilder.CreateText(card.transform, "Name", entry.displayName, 24, Color.white);
-                UIBuilder.CreateText(card.transform, "Description", entry.description, 14, new Color(0.8f, 0.8f, 0.8f));
+                UIBuilder.CreateLocalizedText(card.transform, "Description", entry.descriptionKey, 14, new Color(0.8f, 0.8f, 0.8f));
 
                 var button = card.gameObject.AddComponent<Button>();
                 button.onClick.AddListener(() => Select(index));
             }
 
-            confirmButton = UIBuilder.CreateButton(builtCanvas.transform, "ConfirmButton", "Confirm", new Color(0.2f, 0.7f, 0.3f), Color.white);
+            confirmButton = UIBuilder.CreateLocalizedButton(builtCanvas.transform, "ConfirmButton", "charselect.confirm", new Color(0.2f, 0.7f, 0.3f), Color.white);
             confirmButton.onClick.AddListener(Confirm);
             RefreshSelectionVisuals();
         }

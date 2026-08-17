@@ -14,10 +14,15 @@ namespace PrankMansion.Networking
     }
 
     /// Part 10.3's search-result row: room name, current/max count, round duration.
+    /// HostDisplayName is Part 16.5's disambiguator - "لا مانع تقني" from two rooms
+    /// sharing an exact name, so the host's name rides along on every row so a
+    /// searching player can tell their friend's room apart from an unrelated one
+    /// that happens to share the same name.
     public struct LobbyInfo
     {
         public string LobbyId;
         public string RoomName;
+        public string HostDisplayName;
         public int CurrentPlayerCount;
         public int MaxPlayers;
         public float RoundDurationSeconds;

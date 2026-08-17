@@ -48,7 +48,7 @@ namespace PrankMansion.Entities
 
             State = State == SlideState.Closed ? SlideState.Opening : SlideState.Closing;
             motionElapsed = 0f;
-            audioSource.PlayOneShot(slideClip);
+            AudioService.PlayOneShotSfx(audioSource, slideClip);
             return true;
         }
 

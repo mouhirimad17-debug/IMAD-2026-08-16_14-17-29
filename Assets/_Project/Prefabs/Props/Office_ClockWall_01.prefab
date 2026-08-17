@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Office_ClockWall_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8128668236925612103, guid: e5e796606aabfdf429a0099a057cf90a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: e5e796606aabfdf429a0099a057cf90a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.14999881
