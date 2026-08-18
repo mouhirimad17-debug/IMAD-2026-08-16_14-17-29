@@ -73,6 +73,21 @@ namespace PrankMansion.Blockout
             Debug.Log($"[Stage7KitchenImporter] Done. Corrected {results.Count(r => r.prefab != null)}, missing {missing.Count}.");
         }
 
+        // Fix-up entry point: re-runs ONLY PlaceIntoKitchen against the prefabs
+        // that already exist on disk (no re-import) - see Stage6's counterpart.
+        [MenuItem("PrankMansion/Stage 7 - Regenerate Kitchen Placement Only")]
+        public static void RegeneratePlacementOnly()
+        {
+            var results = new List<(Entry entry, GameObject prefab, float measuredDim, float factor)>();
+            foreach (var entry in Table)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabDir + entry.unityName + ".prefab");
+                results.Add((entry, prefab, entry.expectedMaxDim, 1f));
+            }
+            PlaceIntoKitchen(results);
+            Debug.Log($"[Stage7KitchenImporter] Re-placed {results.Count(r => r.prefab != null)} existing Kitchen prefabs.");
+        }
+
         [MenuItem("PrankMansion/Stage 7 - Import And Run Kitchen Props Test (Batch)")]
         public static void BuildAndTest()
         {
@@ -263,15 +278,13 @@ namespace PrankMansion.Blockout
 
             var kitchen = MansionSpec.Kitchen;
             const float margin = 1.5f;
-            const float spacing = 1f; // Kitchen items are much smaller than Foyer furniture on average
+            const float spacing = 2f;
 
             float xMin = kitchen.x + margin, xMax = kitchen.xMax - margin;
             float zMin = kitchen.z + margin, zMax = kitchen.zMax - margin;
 
-            var slots = new List<Vector2>();
-            for (float z = zMin; z <= zMax; z += spacing)
-            for (float x = xMin; x <= xMax; x += spacing)
-                slots.Add(new Vector2(x, z));
+            int placeCount = results.Count(r => r.prefab != null);
+            var slots = FurnitureGridPlacement.BuildSlots(xMin, xMax, zMin, zMax, placeCount, spacing);
 
             int i = 0;
             foreach (var (entry, prefab, _, _) in results)

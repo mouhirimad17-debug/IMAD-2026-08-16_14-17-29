@@ -73,6 +73,23 @@ namespace PrankMansion.Blockout
             Debug.Log($"[Stage6FoyerImporter] Done. Corrected {results.Count(r => r.prefab != null)}, missing {missing.Count}.");
         }
 
+        // Fix-up entry point: re-runs ONLY PlaceIntoFoyer against the prefabs that
+        // already exist on disk (no re-import, no CorrectAndSavePrefab, no TestBed
+        // scene round-trip) - used to pick up a placement-only algorithm change
+        // (e.g. FurnitureGridPlacement) without touching already-correct prefabs.
+        [MenuItem("PrankMansion/Stage 6 - Regenerate Foyer Placement Only")]
+        public static void RegeneratePlacementOnly()
+        {
+            var results = new List<(Entry entry, GameObject prefab, float measuredDim, float factor)>();
+            foreach (var entry in Table)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabDir + entry.unityName + ".prefab");
+                results.Add((entry, prefab, entry.expectedMaxDim, 1f));
+            }
+            PlaceIntoFoyer(results);
+            Debug.Log($"[Stage6FoyerImporter] Re-placed {results.Count(r => r.prefab != null)} existing Foyer prefabs.");
+        }
+
         [MenuItem("PrankMansion/Stage 6 - Import And Run Foyer Props Test (Batch)")]
         public static void BuildAndTest()
         {
@@ -267,13 +284,9 @@ namespace PrankMansion.Blockout
             float xMin = foyer.x + margin, xMax = foyer.xMax - margin;
             float zMin = foyer.z + margin, zMax = foyer.zMax - margin;
 
-            var slots = new List<Vector2>();
-            for (float z = zMin; z <= zMax; z += spacing)
-            for (float x = xMin; x <= xMax; x += spacing)
-            {
-                if (x > stair.x - 0.5f && x < stair.xMax + 0.5f && z > stair.z - 0.5f && z < stair.zMax + 0.5f) continue;
-                slots.Add(new Vector2(x, z));
-            }
+            int placeCount = results.Count(r => r.prefab != null);
+            var slots = FurnitureGridPlacement.BuildSlots(xMin, xMax, zMin, zMax, placeCount, spacing,
+                (x, z) => x > stair.x - 0.5f && x < stair.xMax + 0.5f && z > stair.z - 0.5f && z < stair.zMax + 0.5f);
 
             int i = 0;
             foreach (var (entry, prefab, _, _) in results)

@@ -82,6 +82,21 @@ namespace PrankMansion.Blockout
             Debug.Log($"[Stage10GymImporter] Done. Corrected {results.Count(r => r.prefab != null)}, missing {missing.Count}.");
         }
 
+        // Fix-up entry point: re-runs ONLY PlaceIntoGym against the prefabs that
+        // already exist on disk (no re-import) - see Stage6's counterpart.
+        [MenuItem("PrankMansion/Stage 10 - Regenerate Gym Placement Only")]
+        public static void RegeneratePlacementOnly()
+        {
+            var results = new List<(Entry entry, GameObject prefab, float measuredDim, float factor)>();
+            foreach (var entry in Table)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabDir + entry.unityName + ".prefab");
+                results.Add((entry, prefab, entry.expectedMaxDim, 1f));
+            }
+            PlaceIntoGym(results);
+            Debug.Log($"[Stage10GymImporter] Re-placed {results.Count(r => r.prefab != null)} existing Gym prefabs.");
+        }
+
         [MenuItem("PrankMansion/Stage 10 - Import And Run Gym Props Test (Batch)")]
         public static void BuildAndTest()
         {
@@ -284,15 +299,13 @@ namespace PrankMansion.Blockout
 
             var gym = MansionSpec.Gym;
             const float margin = 1.5f;
-            const float spacing = 1.5f; // gym equipment is larger on average than kitchen countertop props
+            const float spacing = 2f;
 
             float xMin = gym.x + margin, xMax = gym.xMax - margin;
             float zMin = gym.z + margin, zMax = gym.zMax - margin;
 
-            var slots = new List<Vector2>();
-            for (float z = zMin; z <= zMax; z += spacing)
-            for (float x = xMin; x <= xMax; x += spacing)
-                slots.Add(new Vector2(x, z));
+            int placeCount = results.Count(r => r.prefab != null);
+            var slots = FurnitureGridPlacement.BuildSlots(xMin, xMax, zMin, zMax, placeCount, spacing);
 
             int i = 0;
             foreach (var (entry, prefab, _, _) in results)
@@ -382,10 +395,13 @@ namespace PrankMansion.Blockout
                 "   other room's door in Stages 6-9 - moot here anyway since the source file",
                 "   itself is missing (point 5).",
                 "",
-                "7. Scene placement uses the same undirected grid-scatter approach as Stages",
-                "   6-9 (no interior-design coordinates given anywhere in the document),",
-                "   1.5m spacing since gym equipment (treadmill, bike, bench) is larger on",
-                "   average than Kitchen's countertop props.",
+                "7. Scene placement uses the shared FurnitureGridPlacement grid-scatter",
+                "   helper (same as Stages 6-9; no interior-design coordinates given",
+                "   anywhere in the document), 2m target spacing, sized to actually span",
+                "   the room's full floor area on both axes instead of only its first row",
+                "   (fix-up: the old per-stage row-major slot lists filled front-to-back,",
+                "   so a small prop count always bunched into a single line along the",
+                "   room's near edge).",
                 "",
                 $"Missing this stage ({missing.Count}): {string.Join(", ", missing)}",
                 $"Scale warnings this stage ({warnings.Count}): {(warnings.Count == 0 ? "none" : string.Join("; ", warnings))}",

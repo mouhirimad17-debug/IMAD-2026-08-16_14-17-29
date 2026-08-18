@@ -1,0 +1,26 @@
+=== Material Diagnostic Report ===
+
+[PLACEHOLDER] Office_FilingCabinet_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(15.00, 0.65, 48.00))
+[PLACEHOLDER] Stage9_BedroomsProps/Bathroom2_Door_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(28.00, 3.60, 1.00))
+[PLACEHOLDER] Stage9_BedroomsProps/Bathroom2_TrashBin_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(22.00, 3.60, 2.00))
+[PLACEHOLDER] Stage5_CapturePlaceholders/Placeholder_CeilingFan_Bedroom2/FanBlades -> material='Placeholder_FanBlades' (intentional, world pos=(15.00, 6.50, 12.00))
+[PLACEHOLDER] Stage3_CarryWindPlaceholders/Placeholder_FireSource -> material='Placeholder_Placeholder_FireSource' (intentional, world pos=(43.00, 0.80, 19.50))
+[PLACEHOLDER] Stage3_CarryWindPlaceholders/Placeholder_LightCarryable -> material='Placeholder_Placeholder_LightCarryable' (intentional, world pos=(45.00, 0.20, 19.50))
+[PLACEHOLDER] Stage9_BedroomsProps/Bathroom2_ShowerDoor_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(22.00, 3.60, 1.00))
+[PLACEHOLDER] Stage9_BedroomsProps/Bathroom2_Towel_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(26.00, 3.60, 1.00))
+[PLACEHOLDER] Stage3_CarryWindPlaceholders/Placeholder_HeavyCarryable -> material='Placeholder_Placeholder_HeavyCarryable' (intentional, world pos=(47.00, 0.40, 19.50))
+[PLACEHOLDER] Stage9_BedroomsProps/Bedroom2_Window_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(14.00, 3.60, 1.00))
+[PLACEHOLDER] Stage9_BedroomsProps/Bathroom1_Window_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(64.00, 3.60, 38.00))
+[PLACEHOLDER] Office_FilingCabinet_01/Drawer_02 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(15.00, 1.08, 48.30))
+[PLACEHOLDER] Stage9_BedroomsProps/Bedroom2_Poster_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(9.00, 3.60, 1.00))
+[PLACEHOLDER] Stage9_BedroomsProps/Bedroom2_Curtains_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(13.00, 3.60, 1.00))
+[PLACEHOLDER] Stage9_BedroomsProps/Bedroom1_Window_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(85.00, 3.60, 37.00))
+[PLACEHOLDER] Office_FilingCabinet_01/Drawer_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(15.00, 0.65, 48.30))
+[PLACEHOLDER] Stage9_BedroomsProps/Bedroom1_Curtains_01 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(84.00, 3.60, 37.00))
+[PLACEHOLDER] Stage5_CapturePlaceholders/Placeholder_Rope -> material='Placeholder_Placeholder_Rope' (intentional, world pos=(46.50, 0.15, 16.50))
+[PLACEHOLDER] Office_FilingCabinet_01/Drawer_00 -> material='PLACEHOLDER_Magenta' (intentional, world pos=(15.00, 0.22, 48.30))
+[PLACEHOLDER] Stage4_RagdollSlipPlaceholders/Placeholder_PourableSoap -> material='Placeholder_PourableSoap' (intentional, world pos=(43.00, 0.20, 19.50))
+
+Total material slots scanned: 7303
+Broken/missing materials: 0
+Intentional placeholders: 20

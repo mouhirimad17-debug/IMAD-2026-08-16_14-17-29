@@ -94,6 +94,23 @@ namespace PrankMansion.Blockout
             Debug.Log($"[Stage9BedroomsImporter] Done. Corrected {results.Count(r => r.prefab != null)}, missing {missing.Count}, placeholders {placeholders.Count}.");
         }
 
+        // Fix-up entry point: re-runs ONLY PlaceIntoBedrooms against the prefabs
+        // (real and placeholder alike, both saved under PrefabDir + unityName by
+        // ImportAndCorrect) that already exist on disk - no re-import, no
+        // placeholder rebuild. See Stage6's counterpart.
+        [MenuItem("PrankMansion/Stage 9 - Regenerate Bedrooms Placement Only")]
+        public static void RegeneratePlacementOnly()
+        {
+            var results = new List<(Entry entry, GameObject prefab, float measuredDim, float factor)>();
+            foreach (var entry in Table)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabDir + entry.unityName + ".prefab");
+                results.Add((entry, prefab, entry.expectedMaxDim, 1f));
+            }
+            PlaceIntoBedrooms(results);
+            Debug.Log($"[Stage9BedroomsImporter] Re-placed {results.Count(r => r.prefab != null)} existing Bedroom/Bathroom prefabs.");
+        }
+
         [MenuItem("PrankMansion/Stage 9 - Import And Run Bedroom Props Test (Batch)")]
         public static void BuildAndTest()
         {
@@ -428,18 +445,23 @@ namespace PrankMansion.Blockout
             var bed2Main = new Rect(bed2.x, bed2.z, MansionSpec.Bedroom2BathSplitX - bed2.x, bed2.sizeZ);
             var bath2 = new Rect(MansionSpec.Bedroom2BathSplitX, bed2.z, bed2.xMax - MansionSpec.Bedroom2BathSplitX, bed2.sizeZ);
 
+            Rect TargetOf(Entry e) => e.unityName.StartsWith("Bathroom1_") ? bath1
+                : e.unityName.StartsWith("Bedroom1_") ? bed1Main
+                : e.unityName.StartsWith("Bathroom2_") ? bath2
+                : bed2Main;
+
             var slotQueues = new Dictionary<Rect, Queue<Vector2>>();
             foreach (var rect in new[] { bed1Main, bath1, bed2Main, bath2 })
-                slotQueues[rect] = BuildSlotQueue(rect);
+            {
+                int zoneCount = results.Count(r => r.prefab != null && TargetOf(r.entry) == rect);
+                slotQueues[rect] = BuildSlotQueue(rect, zoneCount);
+            }
 
             foreach (var (entry, prefab, _, _) in results)
             {
                 if (prefab == null) continue;
 
-                Rect target = entry.unityName.StartsWith("Bathroom1_") ? bath1
-                    : entry.unityName.StartsWith("Bedroom1_") ? bed1Main
-                    : entry.unityName.StartsWith("Bathroom2_") ? bath2
-                    : bed2Main;
+                Rect target = TargetOf(entry);
 
                 var queue = slotQueues[target];
                 if (queue.Count == 0) continue;
@@ -459,15 +481,13 @@ namespace PrankMansion.Blockout
             EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), MansionScenePath);
         }
 
-        private static Queue<Vector2> BuildSlotQueue(Rect area)
+        private static Queue<Vector2> BuildSlotQueue(Rect area, int count)
         {
             const float margin = 1f;
-            const float spacing = 1f;
-            var slots = new Queue<Vector2>();
-            for (float z = area.yMin + margin; z <= area.yMax - margin; z += spacing)
-            for (float x = area.xMin + margin; x <= area.xMax - margin; x += spacing)
-                slots.Enqueue(new Vector2(x, z));
-            return slots;
+            const float spacing = 2f;
+            var slots = FurnitureGridPlacement.BuildSlots(
+                area.xMin + margin, area.xMax - margin, area.yMin + margin, area.yMax - margin, count, spacing);
+            return new Queue<Vector2>(slots);
         }
 
         // ---------------------------------------------------------------

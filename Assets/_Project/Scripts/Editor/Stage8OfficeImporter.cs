@@ -77,6 +77,23 @@ namespace PrankMansion.Blockout
             Debug.Log($"[Stage8OfficeImporter] Done. Corrected {results.Count(r => r.prefab != null)}, missing {missing.Count}.");
         }
 
+        // Fix-up entry point: re-runs ONLY PlaceIntoOffice against the prefabs
+        // that already exist on disk (no re-import) - see Stage6's counterpart.
+        // Loading by name also picks up Office_FilingCabinet_01's placeholder,
+        // which Stage 11 (not this importer) is the one that actually builds.
+        [MenuItem("PrankMansion/Stage 8 - Regenerate Office Placement Only")]
+        public static void RegeneratePlacementOnly()
+        {
+            var results = new List<(Entry entry, GameObject prefab, float measuredDim, float factor)>();
+            foreach (var entry in Table)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabDir + entry.unityName + ".prefab");
+                results.Add((entry, prefab, entry.expectedMaxDim, 1f));
+            }
+            PlaceIntoOffice(results);
+            Debug.Log($"[Stage8OfficeImporter] Re-placed {results.Count(r => r.prefab != null)} existing Office prefabs.");
+        }
+
         [MenuItem("PrankMansion/Stage 8 - Import And Run Office Props Test (Batch)")]
         public static void BuildAndTest()
         {
@@ -259,15 +276,13 @@ namespace PrankMansion.Blockout
 
             var office = MansionSpec.OfficeWing;
             const float margin = 1.5f;
-            const float spacing = 1f;
+            const float spacing = 2f;
 
             float xMin = office.x + margin, xMax = office.xMax - margin;
             float zMin = office.z + margin, zMax = office.zMax - margin;
 
-            var slots = new List<Vector2>();
-            for (float z = zMin; z <= zMax; z += spacing)
-            for (float x = xMin; x <= xMax; x += spacing)
-                slots.Add(new Vector2(x, z));
+            int placeCount = results.Count(r => r.prefab != null);
+            var slots = FurnitureGridPlacement.BuildSlots(xMin, xMax, zMin, zMax, placeCount, spacing);
 
             float floorY = MansionSpec.Floor2FloorY + 0.1f;
             int i = 0;
